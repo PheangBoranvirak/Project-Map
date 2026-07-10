@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ផែនទីប្រទេសកម្ពុជា - Cambodia Interactive Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }             
+
+        .header-center h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+            transition: all 0.5s ease;
+        }
+
+        .header-center a {
+            text-decoration: none;
+        }
+
+        .header-center h1:hover {
+            color: #d99a2b;
+        }
+
+        .nav-section {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-title {
+            font-family: 'Kantumruy Pro', sans-serif;
+            text-align: center;
+            font-size: 26px;
+            color: #8a2e2c;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .nav-subtitle {
+            font-family: 'Kantumruy Pro', sans-serif;
+            text-align: center;
+            color: #8c7a5b;;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 6fr));
+            gap: 10px;
+
+        }
+
+        .button {
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: white;
+            background: #3c5a3a;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 14px 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(42, 65, 40, 0.25);
+            width: 160px;
+        }
+
+        .button:hover {
+            border: 2px solid #d99a2b;
+            box-shadow: 0 4px 10px rgba(42, 65, 40, 0.25);
+            background: #8a2e2c;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .map-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .map-title {
+            font-size: 28px;
+            color: #8a2e2c;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .map-container img {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #3c5a3a;
+            border-radius: 60px;
+            box-shadow: 0 4px 10px rgba(88, 88, 88, 0.15);
+        }
+        
+        .cart-title {
+            font-size: 28px;
+            color: #8a2e2c;
+            font-weight: 600;
+        }
+        
+        .cart-subtitle {
+            font-family: 'Kantumruy Pro', sans-serif;
+            text-align: center;
+            color: #8c7a5b;;
+            font-size: 14px;
+        }
+
+        .cart-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .cart {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Kantumruy Pro';
+            font-size: 20px;
+            transition: box-shadow 0.2s ease;
+            margin-bottom: 20px;
+        }
+
+        .cart:hover {
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cart img {
+            width: 100%;
+            height: 140px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .cart p {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .cart-button {
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-size: 15px;
+            color: white;
+            background: #3c5a3a;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 10px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(42, 65, 40, 0.25);
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .cart-button:hover {
+            border: 2px solid #d99a2b;
+            box-shadow: 0 4px 10px rgba(42, 65, 40, 0.25);
+            background: #8a2e2c;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .cart-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-center">
+            <a href="Index.html">
+                <h1>ផែនទីប្រទេសកម្ពុជា</h1>
+            </a>
+        </div>
+    </header>
+
+    <div class="nav-section">
+        <h2 class="nav-title">ខេត្ត-ក្រុង</h2>
+        <p class="nav-subtitle">ជ្រើសរើសដោយចុចលើខេត្តណាមួយនៅលើផែនទីដើម្បីសិក្សាបន្ថែមអំពីក្រុង-ខេត្ត</p>
+        <div class="button-grid">
+            <a class="button" href="BanteayMeanchey.html">បន្ទាយមានជ័យ</a>
+            <a class="button" href="Battambang.html">បាត់ដំបង</a>
+            <a class="button" href="KampongCham.html">កំពង់ចាម</a>
+            <a class="button" href="KampongChhnang.html">កំពង់ឆ្នាំង</a>
+            <a class="button" href="KampongSpeu.html">កំពង់ស្ពឺ</a>
+            <a class="button" href="KampongThom.html">កំពង់ធំ</a>
+            <a class="button" href="Kampot.html">កំពត</a>
+            <a class="button" href="Kandal.html">កណ្តាល</a>
+            <a class="button" href="KohKong.html">កោះកុង</a>
+            <a class="button" href="Kep.html">កែប</a>
+            <a class="button" href="Kratie.html">ក្រចេះ</a>
+            <a class="button" href="Mondulkiri.html">មណ្ឌលគិរី</a>
+            <a class="button" href="OddarMeanchey.html">ឧត្តរមានជ័យ</a>
+            <a class="button" href="Pailin.html">ប៉ៃលិន</a>
+            <a class="button" href="PhnomPenh.html">ភ្នំពេញ</a>
+            <a class="button" href="PreahVihear.html">ព្រះវិហារ</a>
+            <a class="button" href="PreyVeng.html">ព្រៃវែង</a>
+            <a class="button" href="Pursat.html">ពោធិ៍សាត់</a>
+            <a class="button" href="PreahSihanouk.html">ព្រះសីហនុ</a>
+            <a class="button" href="Ratanakiri.html">រតនគិរី</a>
+            <a class="button" href="SiemReap.html">សៀមរាប</a>
+            <a class="button" href="StungTreng.html">ស្ទឹងត្រែង</a>
+            <a class="button" href="SvayRieng.html">ស្វាយរៀង</a>
+            <a class="button" href="Takeo.html">តាកែវ</a>
+            <a class="button" href="TboungKhmum.html">ត្បូងឃ្មុំ</a>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <h2 class="map-title">ចុចលើខេត្តណាមួយនៅលើផែនទីដើម្បីសិក្សាបន្ថែមអំពីក្រុង-ខេត្ត</h2>
+        <img src="Cambodia_map.png" usemap="#image-map" alt="ផែនទីក្រុងខេត្តក្នុងប្រទេសកម្ពុជា">
+    </div>
+
+    <map name="image-map">
+        <area target="" alt="OddarMeanChey" title="OddarMeanChey" href="OddarMeanchey.html" coords="182,90,188,100,194,108,203,109,209,110,207,116,207,124,203,128,209,135,217,135,227,123,238,137,244,140,246,145,260,143,270,138,275,132,285,134,350,133,358,135,365,139,374,134,388,135,396,135,403,114,413,104,402,95,405,88,404,71,392,65,384,69,377,62,370,69,363,65,357,69,346,71,339,74,330,71,323,74,313,69,304,70,295,66,289,58,280,55,276,62,266,57,258,62,253,66,245,65,235,69,224,70,215,74,207,74,200,74,193,79,186,80" shape="poly">
+        <area target="" alt="BanteayMeanChey" title="BanteayMeanChey" href="BanteayMeanchey.html" coords="181,88,167,95,170,103,163,111,163,124,148,132,144,138,140,151,136,162,108,173,108,182,116,188,109,193,103,195,75,196,75,204,75,209,128,210,128,225,138,221,173,229,200,220,214,225,231,226,238,228,240,225,241,213,241,199,240,184,245,175,244,165,244,155,244,144,238,135,230,127,222,131,216,135,209,136,205,128,206,121,208,113,202,109,194,108,187,98" shape="poly">
+        <area target="" alt="Battambang" title="Battambang" href="Battambang.html" coords="73,209,71,228,74,236,73,242,77,254,83,263,89,272,96,282,98,288,104,288,109,280,109,271,117,269,123,268,130,274,134,284,136,328,121,337,99,341,115,347,124,358,131,365,136,375,141,384,146,381,153,382,158,379,166,377,171,370,178,374,183,376,188,374,197,369,210,363,227,356,236,358,255,367,268,363,274,355,275,338,270,324,273,314,281,309,284,299,295,284,285,275,283,251,284,242,266,241,255,230,246,230,237,229,225,226,209,224,199,222,171,228,137,221,127,224,125,210" shape="poly">
+        <area target="" alt="Pailin" title="Pailin" href="Pailin.html" coords="97,290,107,288,109,279,111,271,121,271,129,274,131,280,135,294,133,306,133,317,136,327,121,336,100,340" shape="poly">
+        <area target="" alt="SiemReap" title="SiemReap" href="SiemReap.html" coords="246,147,244,167,246,177,240,186,240,228,254,231,266,242,284,243,295,250,335,260,349,281,364,318,383,308,401,294,405,281,408,264,417,257,422,245,422,230,433,215,428,206,413,201,398,201,398,188,400,177,396,162,388,159,401,140,384,137,364,142,354,135,273,135,268,142,273,135" shape="poly">
+        <area target="" alt="Preah Vihear" title="Preah Vihear" href="PreahVihear.html" coords="405,70,420,72,437,60,449,62,462,62,483,67,489,77,494,87,501,94,513,87,516,74,525,84,530,92,538,104,552,113,562,109,572,109,584,106,591,111,606,113,613,121,621,126,628,135,618,140,603,140,596,148,576,152,572,160,574,168,579,177,577,218,545,231,532,250,516,253,511,261,488,282,474,268,476,241,450,240,422,248,422,231,433,216,440,204,428,206,400,197,398,163,389,158,403,141,400,131,405,116,413,104,403,94" shape="poly">
+        <area target="" alt="Pursat" title="Pursat" href="Pursat.html" coords="293,285,300,292,301,302,312,307,325,316,339,323,350,331,356,341,361,351,379,360,391,366,393,380,381,400,364,404,359,419,362,436,350,443,340,456,332,462,318,456,315,467,300,462,283,456,271,445,261,439,252,430,240,432,229,444,213,454,198,457,185,454,171,445,141,445,132,427,127,413,130,400,132,386,147,386,161,378,173,376,185,376,229,357,256,368,273,363,278,341,273,327,274,313,286,308" shape="poly">
+        <area target="" alt="Kampong Chhnang" title="Kampong Chhnang" href="KampongChhnang.html" coords="408,364,425,351,462,361,462,373,467,388,467,403,471,417,471,430,469,439,469,450,464,457,459,466,449,472,439,478,423,483,410,491,391,484,379,466,371,459,371,449,361,430,362,410,383,398,394,379,394,369" shape="poly">
+        <area target="" alt="Koh Kong" title="Koh Kong" href="KohKong.html" coords="139,449,142,464,150,478,157,490,157,505,162,517,169,529,174,539,167,546,171,569,179,574,188,581,189,593,188,603,189,615,189,625,198,632,210,625,228,627,238,627,240,611,245,593,254,583,264,593,272,601,281,615,286,628,298,623,296,603,306,596,311,584,308,571,328,546,340,535,325,525,315,520,301,510,296,500,294,486,296,474,306,476,291,463,279,458,267,449,255,439,244,432,232,442,220,451,198,458,184,456,171,449" shape="poly">
+        <area target="" alt="Preah Sihannouk" title="Preah Sihannouk" href="PreahSihanouk.html" coords="337,541,339,553,339,567,340,584,342,594,344,607,327,607,318,614,322,624,323,641,323,653,323,668,310,672,301,683,298,695,286,687,274,687,262,688,257,673,249,665,257,658,273,648,284,639,284,629,300,621,298,602,310,597,313,580,310,568" shape="poly">
+        <area target="" alt="Kampong Speu" title="Kampong Speu" href="KampongSpeu.html" coords="303,475,298,487,300,502,327,524,337,528,340,546,340,565,342,580,359,587,366,592,378,592,393,585,403,589,418,590,430,595,440,594,445,555,454,540,439,540,437,524,442,501,452,479,428,484,418,491,389,485,381,472,369,458,367,447,356,440,342,457,330,462,322,460" shape="poly">
+        <area target="" alt="Kampot" title="Kampot" href="Kampot.html" coords="342,581,359,586,366,592,381,591,393,585,396,592,408,598,418,608,417,627,424,627,438,624,444,639,442,649,437,658,442,670,444,682,429,682,421,688,417,697,406,702,397,697,396,688,394,678,385,676,375,677,369,682,362,679,343,681,328,677,320,672,325,666,325,658,321,618,328,610,346,607" shape="poly">
+        <area target="" alt="Kep" title="Kep" href="Kep.html" coords="375,680,389,677,395,689,394,695,379,691" shape="poly">
+        <area target="" alt="Takeo" title="Takeo" href="Takeo.html" coords="397,588,408,596,417,605,418,627,437,622,445,639,437,658,443,669,446,683,469,686,483,666,504,653,499,638,496,623,494,612,488,607,493,583,485,574,481,561,468,553,449,553,440,597" shape="poly">
+        <area target="" alt="Kampong Thom" title="Kampong Thom" href="KampongThom.html" coords="370,316,383,322,382,309,396,298,402,293,412,262,419,253,436,242,473,240,468,261,481,276,486,280,510,265,518,254,530,251,545,233,576,219,575,244,583,260,593,269,590,275,590,285,593,295,594,304,596,311,595,320,598,333,602,352,605,365,577,369,567,376,560,366,550,372,547,388,532,385,509,387,518,401,518,410,506,411,489,407,477,406,472,410,468,394,472,381,465,364,426,348,412,358,406,348,407,331,396,325,384,329,370,329,365,323" shape="poly">
+        <area target="" alt="Kampong Cham" title="Kampong Cham" href="KampongCham.html" coords="601,367,577,369,570,378,557,372,548,389,540,391,526,387,511,387,518,403,518,409,499,412,478,408,470,412,473,421,469,433,471,442,471,450,465,454,460,464,463,477,473,479,481,470,492,470,498,473,499,479,499,486,507,489,512,490,518,485,527,481,537,471,543,471,549,474,556,474,561,471,564,458,564,448,575,444,576,432,575,425,578,406,591,399,598,407,606,407,607,400,612,397,612,388,610,381" shape="poly">
+        <area target="" alt="Stung Treng" title="Stung Treng" href="StungTreng.html" coords="632,138,646,140,664,142,662,129,673,123,675,116,666,109,665,96,652,95,651,83,645,75,646,66,655,72,663,68,670,68,673,72,678,68,683,61,685,51,695,55,708,56,712,52,714,46,719,43,730,31,736,41,736,47,745,52,752,56,758,59,765,69,765,95,770,111,766,124,753,127,745,127,744,138,746,148,749,156,748,165,745,175,736,180,728,181,731,201,737,210,744,223,744,231,742,235,728,231,716,224,697,223,684,224,680,230,668,230,662,231,651,244,650,252,642,258,636,263,628,271,616,268,606,257,596,254,577,243,577,212,581,183,579,172,574,159,580,152,601,150,602,143" shape="poly">
+        <area target="" alt="Ratanakiri" title="Ratanakiri" href="Ratanakiri.html" coords="768,65,777,79,790,76,798,76,807,62,809,52,815,62,827,61,834,50,840,47,842,37,849,29,862,37,868,41,873,28,885,17,888,23,884,33,880,64,862,76,867,83,855,110,859,117,859,125,868,127,877,134,877,143,876,154,874,160,890,170,892,183,897,198,900,210,901,226,899,234,893,240,881,239,875,234,867,239,861,243,854,237,844,227,835,235,827,236,820,237,814,239,816,249,814,256,799,257,778,258,762,249,743,238,743,218,732,201,728,183,744,177,750,163,750,150,745,140,745,131,751,129,760,128,766,120,770,110,765,93" shape="poly">
+        <area target="" alt="Mondolkiri" title="Mondolkiri" href="Mondulkiri.html" coords="897,242,882,285,882,297,882,309,890,317,894,332,896,358,894,368,891,391,874,406,860,398,845,396,829,405,803,437,777,435,773,422,762,402,742,398,737,384,706,366,709,341,723,323,735,320,748,304,719,285,702,273,700,259,715,258,705,248,700,234,703,224,727,230,744,239,777,258,815,260,818,243,826,237,843,234,863,244,873,238" shape="poly">
+        <area target="" alt="Kartie" title="Kartie" href="Kratie.html" coords="581,251,593,268,588,280,604,362,613,391,609,404,619,410,629,414,641,417,653,424,656,434,669,440,677,445,675,451,687,453,700,454,711,450,723,453,738,450,747,450,758,450,764,444,774,430,764,407,741,401,733,383,703,367,708,338,720,321,732,318,745,303,699,274,695,260,711,257,699,245,699,225,685,224,676,229,660,234,651,250,631,269,618,269,604,258" shape="poly">
+        <area target="" alt="Tbong Kmoum" title="Tbong Kmoum" href="TboungKhmum.html" coords="612,408,580,404,576,417,579,427,577,438,576,443,569,447,563,462,563,473,557,479,559,487,573,490,597,490,608,498,613,509,619,516,629,500,640,503,646,497,652,482,666,484,676,492,682,490,691,497,703,499,713,499,719,502,712,482,720,472,716,460,712,453,701,455,683,453,673,452,672,443,652,435,651,425,633,413" shape="poly">
+        <area target="" alt="Svay Rieng" title="Svay Rieng" href="SvayRieng.html" coords="624,520,631,532,632,544,626,557,633,564,643,577,658,579,669,581,673,593,678,602,680,610,674,616,673,632,681,641,664,639,640,624,638,634,622,632,620,618,613,605,598,612,589,613,583,609,591,592,584,579,590,571,599,570,593,551,600,526,608,514" shape="poly">
+        <area target="" alt="Prey Veng" title="Prey Veng" href="PreyVeng.html" coords="587,614,564,615,545,629,525,625,519,620,527,582,537,562,533,545,536,539,523,525,512,522,508,507,519,488,531,480,540,470,555,481,557,488,597,491,609,500,615,512,607,511,599,521,594,546,597,566,592,569,584,576,589,588,582,605" shape="poly">
+        <area target="" alt="Kandal" title="Kandal" href="Kandal.html" coords="447,536,452,530,446,522,445,513,451,507,454,501,460,497,465,492,474,492,482,492,483,505,482,514,490,520,490,531,479,531,466,531,454,539,452,551,466,551,476,554,479,559,485,566,494,583,489,600,493,609,498,613,503,618,510,618,518,610,519,596,522,590,526,579,529,571,534,561,533,554,529,545,530,539,520,531,510,524,507,511,506,496,512,491,495,484,493,475,484,470,473,480,458,477,457,470,452,480,446,494,441,503,438,521,438,533" shape="poly">
+        <area target="" alt="Phnom Penh" title="Phnom Penh" href="PhnomPenh.html" coords="462,499,472,499,477,494,481,505,478,515,489,521,490,530,477,530,467,530,454,540,447,536,454,528,448,521,446,514,452,502" shape="poly">
+    </map>
+    <div class="cart-container">
+        <h2 class="cart-title">តារាងទាំង២៥​ខេត្ត-ក្រុង</h2>
+        <p class="cart-subtitle">ចុចលើខេត្តណាមួយនៅលើផែនទីដើម្បីសិក្សាបន្ថែមអំពីក្រុង-ខេត្ត</p>
+
+        <div class="cart-grid">
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/PhnomPenh.jpg" alt="Cambodia Cart">
+                <p>ក្រុងភ្នំពេញ</p>
+                <a class="cart-button" href="PhnomPenh.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/siemreap.jpg" alt="Cambodia Cart">
+                <p>ខេត្តសៀមរាប</p>
+                <a class="cart-button" href="SiemReap.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Battbong.jpg" alt="Cambodia Cart">
+                <p>ខេត្តបាត់ដំបង</p>
+                <a class="cart-button" href="Battambang.html">ពត៌មានបន្ថែម</a>
+            </div>
+            
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Kampong Cham.jpg" alt="Cambodia Cart">
+                <p>ខេត្តកំពង់ចាម</p>
+                <a class="cart-button" href="KampongCham.html">ពត៌មានបន្ថែម</a>
+            </div>
+            
+            <div class="cart" style="width: 210px;">
+                <img src="Province/KompongChhnang.jpg" alt="Cambodia Cart">
+                <p>ខេត្តកំពង់ឆ្នាំង</p>
+                <a class="cart-button" href="KampongChhnang.html">ពត៌មានបន្ថែម</a>
+            </div>
+        </div>
+
+        <div class="cart-grid">
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Kampong Speu.jpeg" alt="Cambodia Cart">
+                <p>ខេត្តកំពង់ស្ពឺ</p>
+                <a class="cart-button" href="KampongSpeu.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Kampong Thom.jpg" alt="Cambodia Cart">
+                <p>ខេត្តកំពង់ធំ</p>
+                <a class="cart-button" href="KampongThom.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Kampot.jpg" alt="Cambodia Cart">
+                <p>ខេត្តកំពត</p>
+                <a class="cart-button" href="Kampot.html">ពត៌មានបន្ថែម</a>
+            </div>
+            
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Kandal.jpg" alt="Cambodia Cart">
+                <p>ខេត្តកណ្តាល</p>
+                <a class="cart-button" href="Kandal.html">ពត៌មានបន្ថែម</a>
+            </div>
+            
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Koh kong.jpg" alt="Cambodia Cart">
+                <p>ខេត្តកោះកុង</p>
+                <a class="cart-button" href="KohKong.html">ពត៌មានបន្ថែម</a>
+            </div>
+        </div>
+
+        <div class="cart-grid">
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Kep.jpg" alt="Cambodia Cart">
+                <p>ខេត្តកែប</p>
+                <a class="cart-button" href="Kep.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Kratie.jpg" alt="Cambodia Cart">
+                <p>ខេត្តក្រចេះ</p>
+                <a class="cart-button" href="Kratie.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Mondolkiri.jpg" alt="Cambodia Cart">
+                <p>ខេត្តមណ្ឌលគិរី</p>
+                <a class="cart-button" href="Mondulkiri.html">ពត៌មានបន្ថែម</a>
+            </div>
+            
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Oddar.jpeg" alt="Cambodia Cart">
+                <p>ខេត្តឧត្តរមានជ័យ</p>
+                <a class="cart-button" href="OddarMeanchey.html">ពត៌មានបន្ថែម</a>
+            </div>
+            
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Pailin.jpg" alt="Cambodia Cart">
+                <p>ខេត្តប៉ៃលិន</p>
+                <a class="cart-button" href="Pailin.html">ពត៌មានបន្ថែម</a>
+            </div>
+        </div>
+
+        <div class="cart-grid">
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Takeo.jpg" alt="Cambodia Cart">
+                <p>ខេត្តតាកែវ</p>
+                <a class="cart-button" href="Takeo.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Banteay.jpeg" alt="Cambodia Cart">
+                <p>ខេត្តបន្ទាយមានជ័យ</p>
+                <a class="cart-button" href="BanteayMeanchey.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/PreahVihear.jpg" alt="Cambodia Cart">
+                <p>ខេត្តព្រះវិហារ</p>
+                <a class="cart-button" href="PreahVihear.html">ពត៌មានបន្ថែម</a>
+            </div>
+            
+            <div class="cart" style="width: 210px;">
+                <img src="Province/prey_veng.jpg" alt="Cambodia Cart">
+                <p>ខេត្តព្រៃវែង</p>
+                <a class="cart-button" href="PreyVeng.html">ពត៌មានបន្ថែម</a>
+            </div>
+            
+            <div class="cart" style="width: 210px;">
+                <img src="Province/pursat.jpg" alt="Cambodia Cart">
+                <p>ខេត្តពោធិ៍សាត់</p>
+                <a class="cart-button" href="Pursat.html">ពត៌មានបន្ថែម</a>
+            </div>
+        </div>
+
+        <div class="cart-grid">
+            <div class="cart" style="width: 210px;">
+                <img src="Province/PreahSihanouk.png" alt="Cambodia Cart">
+                <p>ខេត្តព្រះសីហនុ</p>
+                <a class="cart-button" href="PreahSihanouk.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Ratanak.jpg" alt="Cambodia Cart">
+                <p>ខេត្តរតនគិរី</p>
+                <a class="cart-button" href="Ratanakiri.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Steung.jpg" alt="Cambodia Cart">
+                <p>ខេត្តស្ទឹងត្រែង</p>
+                <a class="cart-button" href="StungTreng.html">ពត៌មានបន្ថែម</a>
+            </div>
+            
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Svay.jpg" alt="Cambodia Cart">
+                <p>ខេត្តស្វាយរៀង</p>
+                <a class="cart-button" href="SvayRieng.html">ពត៌មានបន្ថែម</a>
+            </div>
+
+            <div class="cart" style="width: 210px;">
+                <img src="Province/Tbong.jpg" alt="Cambodia Cart">
+                <p>ខេត្តត្បូងឃ្មុំ</p>
+                <a class="cart-button" href="TboungKhmum.html">ពត៌មានបន្ថែម</a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

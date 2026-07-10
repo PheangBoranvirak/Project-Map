@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កណ្ដាល - Kandal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តកណ្ដាល</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Kandal</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តកណ្ដាល</h2>
+                        <p>
+                            កណ្តាល គឺជាខេត្តនៃប្រទេសកម្ពុជាដែលមានទីតាំងនៅប៉ែកអាគ្នេយ៍នៃប្រទេសនេះ។ 
+                            ខេត្តកណ្តាល បានបង្ហាញថា មានសក្ដានុពលជាច្រើនដូចជា វិស័យកសិកម្ម ឧស្សាហកម្ម និង ទេសចរណ៍ ជាដែលវិស័យគោលចម្បងក្នុងការអភិវឌ្ឍសេដ្ឋកិច្ចខេត្តទទួលបានការរីកចម្រើន។ 
+                            រីឯសម្រាប់ប្រព័ន្ធ ហេដ្ឋារចនាសម្ព័ន្ធនៅខេត្តកណ្ដាលគឺជា ខេត្តមានផ្លូវជាតិធំសំខាន់ៗជាច្រើន សម្រាប់តភ្ជាប់ទៅកាន់បណ្ដាខេត្តនានា។ ខេត្តកណ្ដាល ក៏មានស្ពានធំៗឆ្លងទន្លេផងដែរ នឹងមាន 
+                            ព្រលានយន្តហោះកម្រិតអន្តរជាតិមួយ១កន្លែងផងដែរ។ កសិកម្ម និងការនេសាទ គឺជាឧស្សាហកម្មសំខាន់ពីរនៃខេត្តនេះផងដែរ។ ខេត្តមានព្រំដែន
+                            <ul>
+                                <li>ខាងកើតជាប់ខេត្តព្រៃវែង</li>
+                                <li>ខាងត្បូងជាប់ ខេត្តតាកែវ</li>
+                                <li>ខាងកើតឈៀងខាងជើងជាប់ ខេត្តកំពង់ចាម</li>
+                                <li>ខាងកើតឈៀងខាងត្បូងជាប់នឹង វៀតណាម។
+                                ទីរួមខេត្ត គឺក្រុងតាខ្មៅ ដែលមានចំងាយ ១១ គម ខាងត្បូងនៃ[ភ្នំពេញ]។ 
+                                កណ្ដាលគឺជាខេត្តមួយក្នុងចំណោមខេត្តដែលស្ដុកស្ដម្ភជាងគេក្នុងប្រទេស។
+                                ខេត្តកណា្តលមានស្រុកចំនួន១១ ក្រុង១ ឃុំ១៤​៧ ភូមិចំនួន១០៨៧ និង១៤៧សង្កាត់
+                                មានប្រជាជនចំនួន ១០៧៥១២៥នាក់ ហើយខេត្តនេះផងដែរមានផែ្ទដី ៣៥៦៨គីឡូម៉ែតការេ។ 
+                                ហើយខេត្តនេះផងដែរមានផែ្ទដី ៣៥៦៨ សហាតិមាត្រការ៉េ។ ប្រជាជនខេត្តកណា្តលភាគច្រើនប្រកបរបរកសិកម្ម ដាំ
+                                ដំណាំ ក្រៅពីនេះរដូវធើ្វស្រែ ពួកគាត់មានរបរមួយទៀតគឺ របរឡើងត្នោត និងធើ្វស្រូវប្រាំង ព្រមទាំងដាំដំណាំផ្សេងៗទៀត ដើម្បីផ្គត់ផ្គង់ជីវភាពគ្រួសាររបស់ខ្លួន។</li>
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="Kandal/Cambodia_Kandal_locator_map.svg.png" alt="Kandal" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ឃុំសំរោងលើស្រុកអង្គស្នួលខេត្តកណ្ដាល។
+                    ខេត្តកណ្ដាលព័ទ្ធជុំវិញរាជធានីភ្នំពេញទាំងមូល។ 
+                    ខេត្តនេះក៏ជាប៉ែកមួយនៃផ្ទៃទីក្រុងមេភ្នំពេញធំជាងគេដែលមានប្រជាជនមួយលាននាក់រស់នៅក្នុង និង ព័ទ្ធជុំវិញខេត្ត។ 
+                    កាលណាយើងធ្វើដំណើរចេញពីភ្នំពេញ ព្រំដែនរវាងខេត្ត-រាជធានីទាំងពីរស្ទើរតែមើលមិនដឹង។
+                    ខេត្តនេះប្រកបដោយផ្ទៃដីសើមទំនាបមានលក្ខណៈធម្មតា ដែលគ្របដណ្ដប់ដោយវាលស្រែ និង ដីដាំដំណាំកសិកម្មដទៃទៀត។
+                    រយៈកំពស់មធ្យមរបស់ខេត្តមិនលើសពី ១០ មាត្រ លើកំរិតទឹកសមុទ្រឡើយ។ ខេត្តក៏មានលក្ខណៈពិសេសដោយសារទន្លេធំបំផុតពីរនៅក្នុងប្រទេសនេះហូរកាត់ ទន្លេទាំងពីរនោះគឺ ទន្លេបាសាក់ និង មេគង្គ។
+                    <h3>ភ្នំប្រសិទិ្ធ</h3>
+                    <ul>
+                        <li>ភ្នំប្រសិទ្ធិ</li>
+                        <li>ភ្នំ​ស្អាង</li>
+                        <li>ភ្នំ​អដ្ឋរស្ស</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="Kandal/Kandal7.webp" alt="Kandal" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="Kandal/08_kdl_simplify.jpg" alt="KampongThom Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តកណ្ដាល កាលសម័យ​រជ្ជកាល​ព្រះបាទ​ស៊ីសុវត្ថិ​មុន្នីវង្ស (១៩២៧‑១៩៤១) ត្រូវបានបែងចែកជាស្រុក និង តំបន់ ទាំងអស់ ១២ ក្នុងនោះមានស្រុកចំនួន ១០ និង តំបន់ចំនួន ២៖
+                    <ul>
+                        <li>ខេត្តកណ្ដាល</li>
+                        <li>ភ្នំពេញ</li>
+                        <li>តំបន់ថ្នល់ទទឹង</li>
+                        <li>ស្រុកពញាឮ</li>
+                        <li>ស្រុកខ្សាច់កណ្ដាល</li>
+                        <li>ស្រុកមុខកំពូល</li>
+                        <li>តំបន់វិហារសួគ៌</li>
+                        <li>ស្រុកកៀនស្វាយ</li>
+                        <li>ស្រុកល្វាឯម</li>
+                        <li>ស្រុកកណ្ដាលស្ទឹង</li>
+                        <li>ស្រុកលើកដែក</li>
+                        <li>តំបន់លើកដែក</li>
+                        <li>ស្រុកស្អាង</li>
+                        <li>ស្រុកកោះធំ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ភ្នំព្រះរាជទ្រព្យ (ភ្នំឧត្តុង្គ)</strong>
+                        <p>
+                            ភ្នំឧដុង្គមានទីតាំងស្ថិតនៅក្បែររាជធានីឧដុង្គមានជ័យដែលជាអតីតរាជធានីខ្មែរនាសតវត្សរ៍ទី ១៧(ពីឆ្នាំ ១៦១៨ ដល់ឆ្នាំ ១៨៦៦)
+                            ហើយត្រូវបានបោះបង់ចោលដោយព្រះបាទនរោត្តមនៅក្នុងឆ្នាំ ១៨៦៦ ដោយធ្វើការផ្លាស់ប្តូររាជធានីទៅកាន់រាជធានីចតុមុខវិញរហូតដល់សព្វថ្ងៃ។ភ្នំឧដុង្គមានចម្ងាយប្រមាណ
+                             ៤០ គីឡូម៉ែត្រពីភាគពាយ័ព្យនៃរាជធានីភ្នំពេញ។ភ្នំឧដុង្គគឺជាខ្សែភ្នំមួយដែលលាតសន្ធឹងពីជើងទៅត្បូងប្រវែង ១៥០០ ម៉ែត្រនិងទទឹង ៧០០ ម៉ែត្រ។ទីកន្លែងនេះមានការទាក់
+                             ទាញជាថ្មីបន្ទាប់ពីការកសាងព្រះសក្យមុនីចេតិយដែលជាទីតម្កល់ព្រះសារីរិកធាតុរបស់ព្រះពុទ្ធដ៏ធំនិងព្រះពុទ្ធបដិមាតូចៗជាង ៣០០០ អង្គនៅលើកំពូលភ្នំឧដុង្គជ្រុងខាងជើង
+                             ដែលមើលទៅឃើញធំខ្ពស់និងមានភាពស្រស់បំព្រង។ភ្នំនេះមានកំពូល ០៥ គឺកំពូលចេតិយទន្ទឹម កំពូលត្រៃត្រឹង្គ កំពូលភ្នំចេតិយកំពូលបួន ព្រះអង្គចូលបរិនិព្វាន្ត និង 
+                             កំពូលភ្នំអរិយកាស្សប។ភ្នំឧដុង្គសព្វថ្ងៃមានទីតាំងស្ថិតនៅក្នុងភូមិជ័យឧត្តមនិងភូមិស្រះពោធិ៍ដែលភូមិទាំង ០២ នេះស្ថិតនៅក្នុងឃុំផ្សារដែកនិងភូមិពោធិ៍រ៉ាល់ ភូមិត្រពាំងស្លែង 
+                             និង ភូមិស្រះពោធិ៍ដែលភូមិទាំង ០៣ នេះស្ថិតនៅក្នុងឃុំភ្នំបាត ស្រុកពញាឮ ខេត្តកណ្តាលនិងមានចម្ងាយផ្លូវប្រមាណជា ៥១ គីឡូម៉ែត្រពីទីរួមខេត្ត។ទេសភាពនៅលើកំពូលភ្នំ
+                             នៅពេលយើងឡើងដល់កំពូលនៃភ្នំហាក់បីដូចជាខ្លួនយើងកំពុងជិះលើយន្តហោះព្រោះមើលទៅឃើញដើមត្នោត ផ្ទះសម្បែង ស្រែចម្ការរបស់អ្នកស្រុកព័ទ្ធជុំវិញហើយបើមើលទៅទិស
+                             ខាងលិចឃើញភ្នំស្ទុងៗនៅឆ្ងាយសន្លឹមមើលទៅទិសខាងកើតឃើញដៃទនេ្លសាបនិងភូមិអ្នកស្រុកកំពង់ហ្លួងមើលទៅទិសខាងជើងឃើញភូមិវាំងចាស់និងផ្សារឧដុង្គនិងមើលទៅ
+                             ទិសខាងត្បូងឃើញផ្លូវជាតិលេខ ០៥ ទៅកាន់រាជធានីភ្នំពេញយ៉ាងវែងអន្លាយហាក់បីដូចខែ្សពួរមួយចង្វាយដែលគេរាយអញ្ចឹង។ភ្នំឧដុង្គមានទីកន្លែងសម្រាប់ជាទីសក្ការៈបូជារបស់
+                             ពុទ្ធសាសនិកកនែ្លងសម្រាប់អង្គុយលំហែមើលទេសភាពដ៏ស្រស់ត្រកាលពីលើកំពូលភ្នំមានលក់ភេសជ្ជៈម្អូបចំណីអាហារសម្បូរបែបជាច្រើនប្រភេទនិងមានលក់របស់វត្ថុអនុស្សាវរីយ៍ជា
+                             ច្រើនទៀតផងដែរជូនដល់ភ្ញៀវទេសចរណ៍ទាំងនៅក្នុងស្រុកនិងក្រៅស្រុកគ្រប់ៗរូបដែលបានទៅទស្សនាកម្សាន្ត។ភ្នំឧដុង្គឬភ្នំព្រះរាជ្យទ្រព្យនិងខ្លះទៀតហៅថាភ្នំអដ្ឋរស្សគឺជាអតីត
+                             រាជធានីរបស់ប្រទេសកម្ពុជាយើងនាសតវត្សរ៍ទី ១៧។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Kandal/Udong_0001.jpg" alt="ភ្នំព្រះរាជទ្រព្យ (ភ្នំឧត្តុង្គ)" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Kandal/469515405_893043512815566_2795779096436074332_n.jpg" alt="ភ្នំប្រសិទ្ធ" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ភ្នំប្រសិទ្ធ</strong>
+                        <p>ប្រាសាទភ្នំបាសិទ្ធ ឬភ្នំប្រសិទ្ធិមានទីតាំងស្ថិតនៅភូមិតាពេជ្រ ឃុំឈ្វាំង ស្រុកពញាឭ ខេត្តកណ្តាល និងចម្ងាយ ២៨គីឡូម៉ែត្រពីរាជធានីភ្នំពេញតាមផ្លូវជាតិលេខ៥ 
+                            ដល់ផ្សារព្រែកព្នៅបត់ឆ្វេងតាមថ្នល់កៅស៊ូដែលនាំយើងរហូតដល់ក្លោងទ្វារវត្តភ្នំប្រសិទ្ធិត្រៃត្រឹង្ស ដែលស្ថិតនៅខាងស្តាំដៃ។ យើងអាចបន្តដំណើរដោយតាមផ្លូវចាក់ស៊ីម៉ង់ទៅដល់វត្តនៅលើកំពូលភ្នំ។
+                            ភ្នំប្រសិទ្ធិមានបណ្តាយ ៣គីឡូម៉ែត្រគុណ ១គីឡូម៉ែត្រ កម្ពស់ប្រមាណ១៣៨ម៉ែត្រ[១]។ ពេលលោកអ្នកបន្តដំណើរបានចម្ងាយប្រមាណ ១គីឡូម៉ែត្រលោកអ្នកនិងជួបផ្លូវបំបែកពី 
+                            រួចបន្តដំណើរតាមផ្លូវឡើងអមដោយបង្កាន់ដៃរូបនាគគឺនាំលោកអ្នកទៅដល់កំពូលត្រៃត្រឹង។ រួចបត់ឆ្វេងដៃ យើងនិងឃើញរោងធំមួយប្រក់សង្កសី ដែលជាកន្លែងព្រះពុទ្ធចូលនិពា្វន។ 
+                            បដិមាននេះធ្វើអំពីថ្មគឺដាប់ថ្មភ្នំមានបណ្តោយប្រវែង ២៤ម៉ែត្រ។ ព្រះភ័ក្រ្តព្រះអង្គ ត្រូវបែកបាក់នៅសម័យខ្មែរក្រហមហើយត្រូវបានធ្វើសារជាថ្មីឡើងនៅឆ្នាំ១៩៨៦។ នៅផ្នែកខាងកើតត្រង់ព្រះកេសព្រះអង្គ 
+                            គេបានរៀបថ្មបាយក្រៀមផ្ទប់ទៅនឹងថ្មភ្នំ។ បើយើងមើលពីព្រះពុទ្ធចូលនិព្វានទៅខាងក្រោមចង្កេះភ្នំខាងជើងយើងនិងឃើញប្រាសាទស្រីគ្រប់លក្ខណ៍។ នៅជិតអ្នកតាម្ចាស់ស្រុកប្រមាណ២០ម៉ែត្រយើងឃើញ
+                            តួប៉មប្រាសាទស្រីគ្រប់លក្ខណ៍ ផ្នែកខាងក្រោមលំអដោយទ្វារបញ្ឆោត ដែលមានការបែកបាក់យ៉ាងដំណំ។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ភ្នំស្អាង</strong>
+                        <p>
+                            រមណីដ្ឋានភ្នំស្អាង មានទីតាំងនៅភូមិ ឃុំស្អាងភ្នំ ស្រុកស្អាង ខេត្តកណ្ដាល លោកអ្នកអាចធ្វេីដំណេីបានតាមផ្លូវជាតិលេខ 21 និងផ្លូវជាតិលេខ 21A។
+                            ផ្លូវជាតិលេខ 21A តាមរង្វង់មូលក្រុងតាខ្មៅ មកទិសខាងកេីត(សួនមាត់ទន្លេ) រួចបត់ស្ដាំធ្វេីដំណេីរតាមក្រោមស្ពានតាខ្មៅមកត្រង់ ឆ្លងកាត់សង្កាត់
+                            តាខ្មៅ(ក្រុងតាខ្មៅ) ឃុំស្វាយរលំ ឃុំសិត្បូ ឃុំរកាខ្ពស់(ជាចំណុចប្រសព្វរវាងផ្លូវជាតិលេខ 21A និងផ្លូវជាតិលេខ 21 ត្រង់វត្តឈូងលាភ) រួចបត់ឆ្វេងបន្តធ្វេីដំណេីរលេីផ្លូវជាតិលេខ 21។
+                            ផ្លូវ 21 តាមរង្វង់មូលក្រុងតាខ្មៅ មកទិសខាងត្បូង រហូតមកដល់ផ្សារស្អាង មន្តដំណេីរមកបន្តិចមានប្រមាណ 70ម៉ែត្រ នៅខាងស្តាំដៃមានផ្លូវក្រាលកៅស៊ូ 
+                            បន្តដំណេីរទៅមុខទៀត ហួសផ្សារព្រែកគយបន្តិច ត្រង់ចំណុចផ្លូវកោងមានខ្លោងទ្វាវត្ត(វត្តស្អាងភ្នំ) រួចបន្តដំណេីទៅទៀតប្រមាណជា 3គីឡូម៉ែត្រទៅដល់ភ្នំស្អាង។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="Kandal/maxresdefault (2).jpg" alt="ភ្នំស្អាង" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

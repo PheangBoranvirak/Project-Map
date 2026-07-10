@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ព្រះសីហនុ - Prey Veng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តព្រះសីហនុ</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Sihanoukville</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តព្រះសីហនុ</h2>
+                        <p>
+                            ក្រុងព្រះសីហនុ ជាក្រុងធំបង្អស់នៅប៉ែកខាងត្បូងនៃប្រទេសកម្ពុជា ។ នេះជាក្រុងដែលត្រូវបានបង្កើតថ្មី នៅឆ្នាំ១៩៦៤ ។ ការបង្កើតក្រុងព្រះសីហនុ គឺដើម្បីរំឭកដល់ស្នាដៃរបស់ព្រះបាទនរោត្តមសីហនុ ។ ឈ្មោះដើមរបស់ក្រុងព្រះសីហនុ មុនឆ្នាំ១៩៦៤គឺកំពង់សោម ។
+                            ក្រុងព្រះសីហនុ ជាទីក្រុងកំពងផែសមុទ្រធំបង្អស់នៅឆ្នេរសមុទ្ររបស់ប្រទេសកម្ពុជា ។ ក្រុងព្រះសីហនុស្ថិតនៅពាក់កណ្តាល ចន្លោះប្រទេសថៃ និងប្រទេសវៀតណាម ហើយក្រុងព្រះសីហនុជាទីក្រុងសំខាន់ជាងគេ នៅឈូងសមុទ្រថៃ ។ ក្រុងព្រះសីហ​នុជាកន្លែងដែលគួរឱ្យចាប់អារម្មណ៍ណាស់ សម្រាប់ទេសចរណ៍ជាតិនិងអន្តរជាតិ ។ យោងតាមឯកសារក្រសួងទេសចរណ៍នៃប្រទេសកម្ពុជា បានឱ្យដឹងថា ក្នុងឆ្នាំ២០០៦ មានចំនួនទេសចរណ៍អន្តរជាតិ ប្រមាណជាង ៣២០,០០០ នាក់ មកទស្សនាក្រុងព្រះសីហនុ ។ នៅខែមករា ឆ្នាំ២០០៧ ព្រលានយន្តហោះនៅក្រុងព្រះសីហនុ ត្រូវបានបើកសម្ពោធដើម្បីការហោះហើរជាសំខាន់ ក្រុងសៀមរាប-ក្រុងព្រះសីហនុ ហើយតាមគម្រោងនៃរាជរដ្ឋាភិបាល បានឱ្យដឹងថាព្រលានយន្តហោះនៃក្រុងព្រះសីហនុនឹងក្លាយជាព្រលានយន្តហោះអន្តរជាតិនៅឆ្នាំ២០១០ ។​ ​
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="PreahSihanouk/Cambodia_Sihanoukville_Province_locator_map.svg.png" alt="Sihanoukville" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>អាកាសធាតុ</h2>
+                <p>
+                    ទីក្រុងព្រះសីហនុមានរដូវរងា ចាប់ពី វិច្ឆិកាដល់ខែកុម្ភះ និង មានរដូវលំមានប្រាំង ចាប់ ខែមិនា ដល់ខែឧសភា រដូវភ្លៀង មានចាប់ពី ខែមិថុនា ដល់ខែតុលា៕ ទីក្រុងព្រះសីហនុ គឺជាក្រុងដែលមានភ្លៀងធ្លាក់ច្រើនជាងគេ នៅប្រទេសកម្ពុជាយើង ពីព្រោះមាន ភ្នំបូគោ នៅខាងជើង។ ​នៅ​ថ្ងៃដែលក្តៅជាងនៅទីក្រុងព្រះសីហនុ មានកំដៅរហូតទៅដល់ ៣៥អង្សា ហើយបើត្រជាក់ជាងគេវិញមានរហូត ២០អង្សា ៕
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="PreahSihanouk/18_shv_simplify.jpg" alt="Sihanoukville" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="PreahSihanouk/images (5).jpg" alt="PreahSihanouk" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តព្រះសីហនុ ជាដែនរដ្ឋបាលស្ថិតនៅ ប្រទេសកម្ពុជា មាន ក្រុង៣, ស្រុក៣, ២៩ឃុំ, និង ១១១ភូមិ÷
+                    <ul>
+                        <li>ក្រុងព្រះសីហនុ​</li>
+                        <li>ស្រុកព្រៃនប់​</li>
+                        <li>ស្រុកស្ទឹងហាវ</li>
+                        <li>ស្រុកកំពង់សីលា​</li>
+                        <li>ក្រុងកោះរ៉ុង</li>
+                        <li>ក្រុងកំពង់សោម</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>ឆ្នេរសមុទ្រក្រុងព្រះសីហនុ</h2>
+                            <strong style="font-size: 22px;";>ឆ្នេរអូរឈើទាល</strong>
+                        <p>
+                           ​ឆ្នេរនេះមាន​ភាពទាក់ទាយនិងល្បីល្បាយជាខ្លាំងនៅក្នុងព្រះរាជាណាចក្រកម្ពុជាយើង ។​ក្នុងមួយឆ្នាំៗឆ្នេនេះអាច​ទាក់ទាយភ្ញៀវទេសចរណ៏បាន​រាប់រយពាន់​នាក់​ចូលមក​ទស្សនានៅក្នុង​ក្រុងព្រះ​សីហនុដែលជាចំនែកមួយក្នុងការជួយអភិវឌ្ឍន៍ដល់កំនើនសេដ្ឋកិច្ចជាតិ ។​អូរឈើទាល​ជាតំបន់ឆ្នេរ​មួយ​ដែលមាន​ទេសភាពធម្មជាតិស្រស់ល្អ​បំព្រងគួរ​អោយ​ចាប់អារម្មណ៏ក្រៃលែង ។ អូរឈើទាលមានឆ្នេរ​ខ្សាច់​សស្អាត​ វែង​អន្លាយ​នឹង​មាន​ដើម​ឈើ​ជាច្រើន​ដុះអែប​មាត់ ឆ្នេរសមុទ្រ​មើលទៅជាជួរ​គួរអោយ​ ទាក់ទាយបំផុតហេតុនេះហើយឆ្នេរនេះក៏បានជាប់ជាសមាជិកក្លឹបឆ្នេរដែលស្អាតជាងគេក្នុងពិភពលោក ។ នៅទីនោះមានតូប​ខ្ចុះរបស់​អាជីវកររកស៊ីលក់ដូរ​យ៉ាង​ច្រើនសំសរាប់ ភ្ញៀវ​ទេសចរណ៏​ជួល​អង្គុយ​លេង ឬសំរាក​កាយ​នៅពេលដែលពួកគេ​បាន​មកដល់​ទីកន្លែង​នេះ ។ ភ្ញៀវ​ទេសចរណ៏​ជាតិ​និង​អន្តរ​ជាតិដែលបាន​ធ្វើដំណើរ​កំសាន្ត​នៅឆ្នេរ​អូរឈើទាល អាចលេង​ទឹក​សមុទ្រ​យ៉ាង​សប្បាយ​រីករាយនិង​យ៉ាងត្រជាក់ចិត្ត​ ឬពួកគេអាច​ជួលទូក​ដើម្បីធ្វើដំណើរកំសាន្តឆ្ពោះទៅកាន់​កោះនានា ដែល​ភាគ​ច្រើន​គឺជា​ជនជាតិ​បរទេស​ ។ ភ្ញៀវ​ទេសចរណ៏​មួយចំនួន​ចូលចិត្ត​លេង​ទឹក​ ជួលពោង ឬ ជួលអូរបរ​ជិះកំសាន្ត​លេង​យ៉ាង​សប្បាយរីករាយ ។ ​ភ្ញៀវទេសចរណ៏អាច​កុម្ម៉ង់ម្ហូបអាហារ​ ជាប្រភេទ​អាហារ​សមុទ្រ​ ដូចជា មឹក បង្គា​ ក្ដាម ត្រីសមុទ្រជាដើម​ដែលសុទ្ធសឹង​តែជា​អាហារ​មាន​ឪជារស​ឈ្ងុយឆ្ងាញ់​ ពិសារ ។ ក្រៅពីនេះ​ភ្ញៀវ​ទេសចរណ៏អាចទិញវត្ថុអនុស្សាវរីយ៏ ដែល​ធ្វើ​អំពីសំបកខ្យង ផ្កាថ្ម ខ្សែដៃ​ ខ្សែ​ក​ .......ទាំងអស់​នេះ​គឺជាសា្នដៃ​ប្រជាពលរដ្ឋខ្មែរ​ នឹងមានអ្នកម៉ាសសា ផង​ដែរ ។ ឆ្នេរ​អូរឈើទាល​ជាឆ្នេរ​ដែលសំបូរ​ភ្ញៀវ​ទេសចរណ៏ជាតិ និង​អន្តជាតិ មកកំសាន្ត​សើ្ទរ​​តែរៀង​រាល់ថ្ងៃ គ្មានថ្ងៃលោះឡើយជាពិសេស​ថ្ងៃឈប់សំរាក បុណ្យទាន ឬ​ក៏ថ្ងៃសំរាកចុង​សប្ដាហ៏ ។
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="PreahSihanouk/ឆ្នេរ_អូរ_ត្រេះ១.jpg" alt="ឆ្នេរអូរឈើទាល" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="PreahSihanouk/153900001.jpg" alt="ឆ្នេរអូរឈើទាល" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ឆ្នេរ​ឯករាជ្យ</strong>
+                        <p>
+                            ឆេ្នរឯករាជ្យ ក៏ជាឆ្នេរ​មួយ​ដែល​មាន​ភាពស្រស់​ស្អាត​ ហើយ​ក៏​មាន​ភ្ញៀវ​ទេសចរណ៏ទៅលេង​កំសាន្ត នៅទីនោះ​ច្រើន​កុះករ​ដែរ ។ ​ឆ្នេរ​ឯករាជ្យ​ខាងលិចជាប់ ឆ្នេរ​ហាវ៉ៃ ខាង​កើតជាប់​នឹង​ឆ្នេរសុខា ឆ្នេរឯករាជ្យមាន​អគារដ៏ខ្ពស់សាងសង់ឡើង​ជាយូរមក​ហើយ​ ហើយអគារនេះមានប្រាំពីរជាន់ ។ប្រជាជនខ្មែរយើង​ភាគច្រើន​និយមហៅឆ្នេរឯករាជ្យថាឆ្នេរអូរតែលប្រាំពីរជាន់ព្រោះថាអគារខ្ពស់ នោះ​គឺជាសណ្ឋាគារដ៏ធំមួយ ស្ថិតនៅលើដីភ្នំខ្ពស់ ។ ពីមុនអគារនេះ​រងការ ខូចខាត​និង​ ទ្រុឌទ្រោមយ៉ាង​ខ្លាំង​ ក៏ប៉ុន្តែឥឡូវ​នេះ​គេបាន​ធ្វើការ​ជួសជុល​ស្ថាបនា​សាឡើង​វិញ ធ្វើអោយ​អូរតែល​ប្រាំពីរ​ជាន់មាន ភាពស្រស់​ស្អាត ជាង​មុនឆ្ងាយ​ណាស់ រួមជាមួយនឹងឆ្នេរខ្សាច់សក្បុសតាមដង​ផ្លូវមានដើមក្ងោក​ពណ៌ក្រហម​ឆ្អៅ នឹង អមជាមួយ​នឹង​សួនច្បារ​ដ៏ស្អាត​ផងដែរ ។ ​​
+                        </p>
+                </div>
+            </section>      
+
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="PreahSihanouk/image-26-edited.jpg" alt="ឆ្នេរ​ឯករាជ្យ" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ឆ្នេរ​អូរត្រេះ</strong>
+                        <p>
+                            អូរត្រេះ​ គឺជាឆ្នេរ​សមុទ្រមួយដែលស្ថិតនៅក្នុង​ខេត្ត​ព្រះសីហនុដែរវាមាន​សោភ័ណ្ឌភាពស្រស់ស្អាត​មិនចាញ់ឆ្នេរ​អូរឈើទាល ឆ្នេរសុខា​ ឆ្នេរ​ហាវៃ ឡើយ.....។ វាជាឆ្នេរ​មួយ​ដែលភាពស្ងប់ស្ងាត់នៅក្នុងក្រុង​ ព្រោះវា​ស្ថិនៅ​ដាច់ឆ្ងាយ​បន្តិច​ ប៉ុន្តែបច្ចុប្បន្នក៏មិនសូវស្ងាត់ ដូចពីមុនទេ​ ពីព្រោះដោយសារនៅទីនោះមាន​ទេសភាព​​ស្រស់ស្អាតមើលទៅគួរអោយ​អោយ​ចង់​គយគន់​ក្រៃលែង​ហើយមាន​ភ្ញៀវ​ទេសចរណ៏មួយ​ចំនួន​ចូលចិត្ត​កន្លែង​ស្ងប់ស្ងាត់ ក៏និយម​ទៅកំសាន្តនៅឆ្នេរ​អូរ​ត្រេះ​ដែរ​ ជាហេតុធ្វើអោយ​ឆ្នេរ អូរ​ត្រេះ​មាន​សភាព​អូរអរជាង​មុន​ មាន​ភ្ញៀវ​ទេសចរណ៏អន្តរជាតិ​ ទៅ​កំសាន្ត​យ៉ាង​កុះករ ។ ក៏ប៉ុន្តែនៅទីនោះពុំទាន់​មាន​ភ្លើង​អគ្គីនីគ្រប់គ្រាន់ នៅឡើយ​ទេ គឺវាមាន​តែកន្លែង​មួយ​ចំនួន ប៉ុណ្ណោះដែល​មាន​ម៉ាស៊ីនភ្លើ​ងប្រើប្រាស់​ ​សំរាប់ភាព​ចាំបាច់របស់​ពួកគេ ។ ជាមួយគ្នា​នេះផងដែរ នៅឆ្នេរ​អូរត្រេះក៏មាន​ការ​ជិះក្ដារ​បន្ទះ​ នៅ​លើទឹក​​ហើយ​និង​ជួល​ទូក​កាយ៉ាក់ចែវលេង រួមទាំង​មាន​កីឡាជិះក្ដារមានក្ដោងយ៉ាង​សប្បាយរីករាយ​ផង​ដែរ​ ។ ភាគច្រើនគឺជាភ្ញៀវ​បរទេសទៅកំសាន្តនៅឆ្នេរ​អូរ​ត្រេះ​ហើយ​ភ្ញៀវទេសចរណ៏អាច​ធ្វើការលំហែកាយ ដោយអ្នកខ្លះ​ជួលអូរបរ ឬ​ពោង​សំរាប់លេង​ទឹក ។ ភ្ញៀវទេសចរណ៏អាច​ធ្វើដំណើរទៅកាន់ កោះនានា​ផង​ដែរ ​ ​។
+                        </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

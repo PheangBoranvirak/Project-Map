@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ឧត្ដរមានជ័យ - OddarMeanchey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តឧត្ដរមានជ័យ</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">OddarMeanchey</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តឧត្ដរមានជ័យ</h2>
+                        <p>
+                            ខេត្តឧត្ដរមានជ័យ គឺ​ជា​ខេត្ត​មួយស្ថិតនៅភាគពាយ័ព្យក្នុងប្រទេសកម្ពុជា 
+                            ដែលមានព្រំប្រទល់ជាប់នឹងខេត្តបន្ទាយមានជ័យ​នៅខាងលិច ខេត្តសៀមរាប​នៅខាងត្បូង 
+                            និងខេត្ត​ព្រះវិហារ​នៅ​ខាង​កើត ហើយមានព្រំដែននៅខាងជើងជាប់នឹងព្រំដែននឹងប្រទេសថៃ។ 
+                            ទីរួមខេត្តគឺសំរោង។ ខេត្តនេះមានចម្ងាយប្រហែលជាង ៤៦២ គីឡូម៉ែត្រពីរាជធានីភ្នំពេញបើចេញដំណើរពី
+                            ខេត្តឧត្តរមានជ័យមកតាមបណ្តោយផ្លូវជាតិលេខ៦៨ និងភ្ជាប់មកផ្លូវជាតិលេខ៦។ ខេត្តនេះមានទេសចរណ៏ធម្មជាតិ
+                            និងទេសចរណ៏វប្បធម៌។ ខេត្តនេះជាតំបន់ដែល មានប្រាសាទបុរាណជាច្រើនផងដែរ។ រីឯតំបន់ទេសចរណ៏ធម្មជាតិវិញ 
+                            ទីនោះមានតំបន់អច្ឆរិយមួយគឺតំបន់រមណីយដ្ឋានដីដុះ ឬ រលួសធំដីដុះ ដែលមានទីតាំងនៅជាប់ជើងភ្នំដងរែក និងជាប់ផ្លូវក្រវ៉ាត់ព្រំដែន។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="OddarMeanchey/Cambodia_Oddar_Meancheay_locator_map.svg.png" alt="OddarMeanchey" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តឧត្តរមានជ័យស្ថិតនៅប៉ែកខាងជើងឈៀងខាងលិចនៃប្រទេសកម្ពុជា ដែលមានព្រំប្រទល់ៈ
+                    ខាងជើងជាប់នឹងប្រទេសសៀម (ខ្មែរលើ) គឺ៖ ខេត្តបុរីរ៉ាំ,សុរិន្ទ និង ស៊ីសាកេត ដែលមានប្រវែង២២៤គ.ម 
+                    ខ័ណ្ឌចែកដីយើងនិងថៃដោយភ្នំដងរ៉ែក (គ្មានដីវាលរាបទេជាមួយ ប្រទេសថៃ គឺសុទ្ធតែភ្នំដោយមានតែច្រក៣សម្រាប់ចេញចូលប៉ុណ្ណោះគឺ៖ ច្រកជុបគគី, ច្រកអូស្មាច់, ច្រកជាំសាង៉ាម ។
+                     - ខាងត្បូងជាប់នឹងខេត្តសៀមរាប - ខាងកើតជាប់នឹងខេត្តព្រះវិហារ - ខាងលិចជាប់នឹងខេត្តបន្ទាយមានជ័យ ខេត្តឧត្តរមានជ័យមានចំងាយប្រមាណ ៤៣៩ គីឡូម៉ែត្រពីទីក្រុងភ្នំពេញ 
+                     ដោយ​ធ្វើ​ដំណើរ​តាម​ផ្លូវ​ជាតិ​លេខ​៦អា និង​កាត់​តាម​ខេត្ត​កណ្តាល កំពង់ចាម និង​បន្ត​ដំណើរ តាមផ្លូវជាតិលេខ៦ ពីចំនុច​បំបែក​ស្គន់​កាត់​តាម​ខេត្ត​កំពង់ធំ សៀមរាប ដល់ចំណុច ស្រុកក្រឡាញ់នៃខេត្តសៀមរាប
+                      មានផ្លូវ​បំបែក​ឆ្ពោះ​ទៅ​ទិស​ខាង​ជើង​តាម​ផ្លូវ​លេខ ៦៨ ទៅកាន់ខេត្តឧត្តរមានជ័យ ។ ខេត្ត​មាន​ផ្ទៃដី​សរុប ៦ ១៥៨ គ.ម២។
+                    ខេត្តឧត្តរមានជ័យ​មានអាកាសធាតុ​ក្ដៅសើមដូចនៅទូទាំងប្រទេស​កម្ពុជាដែរ។ រដូវក្ដៅ​ចាប់ពីខែមិនាដល់ឧសភា(សីតុណ្ហភាពពី២៧ទៅ៣៥អង្សា) រ
+                    ដូវវស្សាចាប់ពីខែឧសភា​ដល់តុលា(សីតុណ្ហភាពពី២៤ទៅ៣២អង្សា និងសំនើម៩០%) និងរដូវរងារចាប់ពីខែវិច្ឆិការដល់ខែមិនា(សីតុណ្ហភាពណី២២​ទៅ២៨អង្សា)
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="OddarMeanchey/396710204_718861496941278_1032895004430529836_n.jpg" alt="OddarMeanchey" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="OddarMeanchey/images (3).jpg" alt="OddarMeanchey Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តឧត្ដរមានជ័យចែកចេញជា​​​​​​​​​​​​​​​​ ៤ ស្រុកនិងក្រុង១គឺ៖
+                    <ul>
+                        <li>ស្រុកអន្លង់វែង</li>
+                        <li>ស្រុកបន្ទាយអំពិល</li>
+                        <li>ស្រុកចុងកាល់</li>
+                        <li>ក្រុងសំរោង</li>
+                        <li>ស្រុកត្រពាំងប្រាសាទ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ទឹកជ្រោះដាចំប៉ី</strong>
+                        <p>
+                            ទឹកធ្លាក់ ដាចំប៉ី» បាន និងកំពុងរង់ចាំស្វាគមន៍ 
+                            ភ្ញៀវទេសចរយ៉ាងអន្ទះសារបំផុត នៅឯនាយខាងស្ដាំដៃ 
+                            ហៀបនឹងទៅដល់ព្រំប្រទល់ដែន អន្តរជាតិអូរស្មាច់។ ភ្ញៀវអាចធ្វើដំណើរតាមរថយន្ដ ឬ
+                            ម៉ូតូឡើងភ្នំដោយឆ្លងកាត់វត្ដល្អាងតាថុង អែបរូបចម្លាក់អណ្ដើកធំ តម្រង់ទៅស្នាក់កា
+                            រប៉ុស្ដិ៍អង្គភាពនគរបាលទេសចរណ៍ដ៏ស្ងាត់ជ្រងំ រួចដើរថ្មើរជើងទៅខាងស្ដាំដៃ ប្រមាណ៣០
+                            ០ម៉ែត្រទៀត លោកអ្នកនឹងឃើញទឹកធ្លាក់ រាយប៉ាយពីលើកំពូលភ្នំរហូតដល់ចង្កេះភ្នំ(ល្អាងតាថុង
+                            )។ពីចំណុចតូបលក់ដូរចំណី និងភេសជ្ជៈត្រជាក់ៗរបស់អ្នកស្រី វី រហូតឡើងដល់កំពូលភ្នំ ទឹកហូរបាចសា
+                            ចលើជម្រាលភ្នំថ្មជាច្រើនកន្លែងបន្ដរង់ចាំភ្ញៀវជាហូរហែ។ទីនេះមានទឹកហូរកម្ពស់ទាបតែប្រមាណ១ម៉ែត្រ និង
+                            ហូរច្រោះតាមរូងថ្មរាងជារង្វង់។ចំណុចទាបបំផុត ក្បែរតូបភេសជ្ជៈចម្ងាយប្រមាណ៥០ម៉ែត្រ ចុះតាមជ្រលងឡោមព័
+                            ទ្ធ ដោយរុក្ខជាតិតូចធំឈរច្រូងច្រាងបន្ដជាម្លប់យ៉ាងត្រឈឹងត្រឈៃ។ទឹកធ្លាក់ខ្ពស់បំផុតជាង ៥ម៉ែត្ររំលេចទស្សនីយភាព
+                            ទាក់ទាញបំផុត។ជ្រលងទឹកធ្លាក់ជ្រកក្រោមម្លប់ឈើស៊ុបទ្រុបនេះ តែងតែទាក់ទាញទ័ពស្វាជាច្រើនរយក្បាល មករកផលានុផលបរិ
+                            ភោគប្រចាំរដូវមិនដាច់រយៈដល់ការវាតទីបំភ័យភ្ញៀវផងដែរ។អ្នកស្រី វី ជាអ្នកលក់ដូរក្បែរទីឋានទឹកធ្លាក់នោះជាង១០ឆ្នាំឲ្យដឹងថា៖ «ដល់រ
+                            ដូវមានផ្លែឈើព្រៃសម្បូរ ហ្វូងស្វារាប់រយក្បាលនឹងនាំគ្នាមកកាន់ទីនេះ ហើយប្រញាយគ្នាពាសពេញលើដើមឈើ និងដី។ ខ្ញុំភ័យណាស់ ហើយពួកវាមិ
+                            នខ្លាចមនុស្សទេ។ ទុករបស់ប្រហែសវានឹងអូសយកទៅហើយ»
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="OddarMeanchey/ទឹកជ្រោះចំបី.jpg" alt="ទឹកជ្រោះដាចំប៉ី" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="OddarMeanchey/118472236_2634515426864188_2670296425474756584_n.jpg" alt="អាតោដួងចិត្ត" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>អាតោដួងចិត្ត</strong>
+                        <p>
+                            អាតោដួងចិត្ត (ទំនប់ស្ទឹងស្រែង២): ស្ថិតនៅស្រុកចុងកាល់ ជាកន្លែងលំហែកាយដ៏ពេញនិយម មានទេសភាពបៃតងខៀវខ្ចី និងបឹងធម្មជាតិ។អាតោដួងចិត្ត 
+                            ឬក៏គេច្រើនហៅថា ទំនប់អាងទឹកស្ទឹងស្រែង មានទីតាំងស្ថិតនៅ ភូមិអាតោ ឃុំចុងកាល់ ស្រុកចុងកាល់ ខេត្តឧត្តរមានជ័យ និងមានចម្ងាយប្រហែល ~65km 
+                            ពីផ្សារ​រង្វង់មូលអន្លង់​វែង។ អាតោដួងចិត្ត ស្ថិតនៅក្នុងប្រភេទ៖ ទេសចរណ៍កែច្នៃឬរមណីយដ្ឋានកែច្នៃ, ទេសចរណ៍ធម្មជាតិ។ រីឯចំណុចសំខាន់ៗនៅ អាតោដួង
+                            ចិត្ត មានដូចជា៖ ជិះទាទឹក, ជិះទូក, រៀបចំអាហារដោយខ្លួនឯង, លេងទឹកឬហែលទឹក, គយគន់ថ្ងៃលិច, ម្ហូប និងចំណុចផ្សេងៗទៀត។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>បឹងស្នោ</strong>
+                        <p>
+                            បឹងស្នោជាទីជួបជុំដ៏ធំរបស់អ្នកខេត្តឧត្តរមានជ័យ ជាពិសេសនាពិធីបុណ្យអុំទូក អកអំបុក បណ្តែតប្រទីប និងសំពះព្រះខែ។ 
+                            នៅជុំវិញបឹង មានភោជនីយដ្ឋាន និងអាហារដ្ឋានតាមផ្លូវដ៏សម្បូរបែប។ សួនច្បារពោរពេញទៅដោយរុក្ខជាតិបៃតង សកម្មភាពកម្សាន្តផ្សេងៗ ក៏ដូចជាសំឡេងបក្សាបក្សីទ្រហឹងអឺងកង។
+                            បច្ចុប្បន្ន ខេត្តកំពុងចូលរួមកែលម្អជម្រកសត្វនៅក្នុងបឹងឲ្យកាន់តែមានភាពល្អប្រសើរ។ លោក ភួង លីណា
+                             ប្រធានមន្ទីរបរិស្ថានខេត្តឧត្តរមានជ័យ បានរៀបរាប់ថា៖« ខាងមន្ទីរបរិស្ថានមិនទាន់បានសិក្សាអំពីប្រភេទសត្វស្លាប
+                             នៅក្នុងបឹងនេះនៅឡើយទេ ហើយអ្វីដែលកំពុងខិតខំប្រឹងប្រែង គឺកែលម្អជម្រករបស់វាឲ្យមានសភាពប្រសើរឡើង។ 
+                             ចំពោះ មច្ឆា ដែលរស់នៅក្នុងបឹងនេះវិញ យើងមានការអភិរក្ស និងព្រលែងត្រីចម្រុះជាច្រើនប្រភេទជារៀងរាល់ឆ្នាំនៅថ្ងៃ
+                            ទិវាមច្ឆាជាតិ ហើយក៏គ្រោងព្រលែងបន្ថែមក្នុងឆ្នាំ២០២១»។
+ 
+                        </p>    
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="OddarMeanchey/images (4).jpg" alt="បឹងស្នោ" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

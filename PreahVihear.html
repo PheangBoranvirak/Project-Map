@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ព្រះវិហារ - PreahVihear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តព្រះវិហារ</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Preah Vihear</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តព្រះវិហារ</h2>
+                        <p>
+                            ខេត្តព្រះវិហារ គឺជាខេត្តដែលស្ថិតនៅភាគខាងជើងបំផុតនៃប្រទេសកម្ពុជា ខេត្តនេះមានផ្ទៃដីធំជាងគេលំដាប់ទី២ និងមានប្រជាជនរស់នៅតិចនៅតំបន់ភ្នំ 
+                            និងខ្ពង់រាប ដែលជាខេត្តមានលក្ខណៈវប្បធម៌ប្រវត្តិសាស្ត្រនិងធម្មជាតិ ។ នៅភាគខាងជើងនៃខេត្តជាប់នឹងប្រទេសថៃនិងឡាវ ដែលបង្កើតជាច្រកអន្តរជាតិសម្រាប់ពាណិជ្ជកម្មនិងទេសចរណ៍។ 
+                            ខេត្តព្រះវិហារ គឺជាតំំបន់មួយនៅភាគខាងជើងនៃកម្ពុជាដែលអាចទាក់ទាញភ្ងៀរជាតិនិងអន្តរជាតិជាច្រើនសម្រាប់មកទស្សនាប្រាសាទបុរាណ
+                            និងទេសភាពព្រៃធម្មជាតិ រីឯទីរួមខេត្តព្រះវិហារគឺ ក្រុងព្រះវិហារ។ខេត្តព្រះវិហារ ត្រូវបានបង្កើតឡើងដោយក្រមលេខ១៩៤ ប រ នាថ្ងៃទី២២ ខែកក្កដា ឆ្នាំ១៩៦៤ 
+                            គឺក្រោយពេលព្រះរាជាណាចក្រកម្ពុជាឈ្នះក្តីលើប្រទេសថៃតាមសាលក្រមចុះថ្ងៃទី១៥ ខែមិថុនា ឆ្នាំ១៩៦២ នៅតុលាការអន្តរជាតិនាទីក្រុងឡាអេ ប្រទេសហូឡង់ 
+                            ដោយបានដាក់ឈ្មោះថា «ខេត្តព្រះវិហារ» ។ បើយោងតាមឯកសាររដ្ឋបាលខេត្តបានឱ្យដឹងថាខេត្តព្រះវិហារកាលនោះមានចំនួន៤ស្រុកដែលរួមមាន៖ស្រុករវៀង ស្រុកឆែប ស្រុកជាំក្សាន្ត និងស្រុកអង្គរធំ​។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="PreahVihear/Cambodia_Preah_Vihear_locator_map.svg.png" alt="PreahVihear" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តព្រះវិហារស្ថិតនៅក្នុងភូមិសាស្រ្តទិសឧត្តរនៃព្រះរាជាណាចក្រកម្ពុជា ដែលមានចម្ងាយពីរាជធានីភ្នំពេញ 
+                    ប្រមាណចំងាយ ២៩៤គីឡូម៉ែត្រ ជាខេត្តស្ថិតនៅតំបន់ខ្ពង់រាប តំបន់ព្រៃភ្នំ ភូមិសាស្ត្រដែលមានភាពទូលាយ 
+                    សំបូរព្រៃឈើធំៗជាជំរកសត្វព្រៃគ្រប់ប្រភេទ រ៉ែ ធនធានធម្មជាតិ និងសំនង់ប្រវត្តិសាស្ត្រ ប្រាសាទបុរាណ។
+                     ព្រំប្រទល់ខាងជើងទល់នឹងប្រទេសថៃ និងប្រទេសឡាវ ប៉ែកខាងត្បូងទល់នឹងខេត្តកំពង់ធំ ប៉ែកខាងលិចទល់នឹង 
+                     ខេត្តសៀមរាប និងឧត្តរមានជ័យ ប៉ែកខាងកើតទល់នឹង ខេត្តស្ទឹងត្រែង។ ខេត្តព្រះវិហារមានផ្ទៃដីសរុប ១៣.៧៨៨ គី
+                     ឡូម៉ែត្រការ៉េ ក្នុងនោះផ្ទៃដីបង្ករបង្កើនផលមានចំនួន ៣០.០០០ហិចតា និងមានចំនួន៨៥%ជាព្រៃឈើ។ ខេត្តចែកចេញជា 
+                     ៧ស្រុកក្រុងរួមមាន ៤៧ឃុំដែលមានភូមិសរុប ២០៨ភូមិ និងសង្កាត់មាន២។ ប្រជាពលរដ្ឋនៅខេត្តព្រះវិហារភាគច្រើនជាជនជាតិខ្មែរនិងមានជនជា
+                     តិភាគតិច កួយ មានប្រមាណ២០% មានរបរធ្វើស្រែចម្ការ រកជ័រ រកវល្លិ៍ លក់ដូរ និងនេសាទត្រីបន្តិចបន្តួច។ ការងារធ្វើស្រែចំការពុំសូវទទួលបានទិន្នផល
+                     ខ្ពស់ឡើយ ព្រោះដោយបងប្អូនធ្វើតាមរបៀបអភិរក្សនិយម គឺធ្វើស្រែប្រវាស់មេឃ។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="PreahVihear/DJI_0131-1536x864-1.jpg" alt="PreahVihear" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="PreahVihear/13_pvr_simplify.jpg" alt="PreahVihear" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តព្រះវិហារត្រូវចែកជា ៧ស្រុក និង ១ ក្រុង ក្នុងនោះមាន ៤៨ឃុំ និង ២ សង្កាត់។
+                    <ul>
+                        <li>ក្រុងព្រះវិហារ​</li>
+                        <li>ស្រុកជ័យសែន​</li>
+                        <li>ស្រុកឆែប</li>
+                        <li>ស្រុកជាំក្សាន្ត​</li>
+                        <li>ស្រុកគូលែន</li>
+                        <li>ស្រុកសង្គមថ្មី​</li>
+                        <li>ស្រុករវៀង</li>
+                        <li>ស្រុកត្បែងមានជ័យ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ប្រាសាទព្រះវិហារ</strong>
+                        <p>
+                            ប្រាសាទព្រះវិហារមានទីតាំងនៅភូមិធម្មជាតិ ឃុំស្រអែម ស្រុកជាំក្សាន្ត នៅលើជួរភ្នំដងរែក ជាប់ព្រំប្រទល់អន្តជាតិកម្ពុជានិងប្រទេសថៃ។
+                             ប្រាសាទព្រះវិហារមានចំងាយផ្លូវ ៤០០គមពីភ្នំពេញ តាមផ្លូវជាតិលេខ៦២ និង១៥០គមពីទីរួមខេត្តព្រះវិហារ។ ប្រាសាទព្រះវិហារត្រូវបានកសាងឡើងក្នុងសម័យអង្គរ 
+                             ដោយព្រះមហាក្សត្រព្រះបាទសូរ្យវរ្ម័នទី១ នៅក្នុងសតវត្សរ៍ទី១១ និងត្រូវបានកសាងដោយព្រះមហាក្សត្រជាច្រើនអង្គរទៀត។
+                              ប្រាសាទព្រះវិហារមានឈ្មោះតាមសិវលិង្គនៅក្នុងប្រាសាទដែលមានឈ្មោះថា ស្រី សិខារិស្វរៈ ដែលមានន័យថាអំណាចនៃកំពូលភ្នំ។ 
+                              សិវលិង្គដែលតម្កល់នៅក្នុងប្រាសាទនេះត្រូវបាននាំយកមកពីប្រាសាទវត្តភូ(ប្រទេសឡាវ)ដើម្បីតម្កល់ទុកនៅក្នុងប្រាសាទនេះ។ 
+                              ប្រាសាទព្រះវិហារមានគោបុរៈ(ខ្លោងទ្វារ)ចំនួន៥ ដែលរៀបចំពីគោបុរៈទី១នៅខាងលើរហូតដល់គោបុរៈទី៥ ប្រាសាទព្រះវិហារបែរមុខទៅទិសខាងជើង។ 
+                              ភ្នំនេះមានកំពស់៧៤០ម ធៀបកំពស់ទឹកសមុទ្រ។ 
+                            ដោយមានផ្ទៃក្រលា៨០០ម៤០០ម ចំនោតខ្លាំងពីទឹកដីកម្ពុជានិងរាងទេរទៅរកទឹកដីប្រទេសថៃ។ 
+                            ប្រាសាទព្រះវិហារត្រូវបានដាក់បញ្ជូលក្នុងបញ្ជីជាសម្បត្តិបេតិកភណ្ឌពិភពលោកនៅថ្ងៃទី៧ខែកក្កដាឆ្នាំ២០០៨។
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="PreahVihear/photo_2024-07-08_10-07-29.jpg" alt="ប្រាសាទព្រះវិហារ" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="PreahVihear/dsc08397-2.webp" alt="ប្រាសាទព្រះខ័ន(កំពង់ស្វាយ)" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ប្រាសាទព្រះខ័ន(កំពង់ស្វាយ)</strong>
+                        <p>
+                            ប្រាសាទព្រះខ័នកំពង់ស្វាយ(អ្នកស្រុកហៅថា ប្រាសាទបាកាណ)ដែលមានទីតាំងស្ថិតនៅភូមិតាសែង ឃុំរណសិរ្ស
+                             ស្រុកសង្គមថ្មី នៅជិតព្រំប្រទល់ខេត្តកំពង់ធំនិងសៀមរាប ស្ថិតនៅភាគនិរតីចំងាយចំនួន១០៥គម ពីទីរួមខេត្ត។
+                              ប្រាសាទបាកានមានក្បូរក្បាច់រចនាប្រហាក់ប្រហែលនឹងប្រាសាទអង្គរវត្តដែរតែកសាងមុនពេលលើករាជធានីទៅអង្គរវត្ត។ 
+                              ប្រាសាទបាកានមានឈ្មោះដើមហៅថាជ័យស្រីប្រាសាទនេះកសាងដោយព្រះបាទសុរ្យវរ្ម័នទី១ (គស១០០២) 
+                              លើបូជនីយដ្ឋានចាស់របស់ព្រះបាទយសោវរ្ម័នទី១និងមានបន្ថែមរចនាបថមុខ៤ខ្លះដោយព្រះបាទជ័យវរ្ម័នទី៧មុនពេលឡើងគ្រងរាជនៅអង្គរ
+                               (គស១១៨១)ដែលព្រះអង្គបានកសាងប្រាសាទនេះដើម្បីតំកល់អដ្ឋិធាតុញាតិវង្សនិងព្រះបរមគ្រូរបស់ព្រះអង្គ។ 
+                               ប្រាសាទព្រះខ័នកំពង់ស្វាយស្ថិតនៅលើទីតាំងយុទ្ធសាស្រ្តទ័ពដែលមានលក្ខណពិសេសដូចជាមានទឺកព័ន្ធជុំវិញនិងស្ថិត
+                            ក្បែរប្រាសាទមានកន្លែងស្លដែកសម្រាប់ធ្វើជាអាវុធទៀតផង។ ប្រាសាទត្រូវបានកសាងដោយព្រះបាទជ័យវរ្ម័នទី៧ 
+                            ដើម្បីបង្ហាញពីការឈ្នះចម្បាំងជាមួយប្រទេសចម្ប៉ាផងដែរ។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ប្រាសាទកោះកេរ្តិ៍</strong>
+                        <p>
+                            តំបន់រមណីយដ្ឋានប្រាសាទកោះកែរមានទីតាំងស្ថិតនៅភូមិស្រយ៉ង់ជើងឃុំស្រយ៉ង់ ស្រុកគូលែន ដែលស្ថិតនៅជិតព្រំប្រទល់ខេត្តសៀមរាប មានចម្ងាយ៧២គីឡូម៉ែត្រ 
+                            ពីទីរួមខេត្តព្រះវិហារ។ ក្រុមប្រាសាទកោះកែរមានប្រាសាទព័ទ្ធជុំវិញចំនួន៣៨ប្រាសាទដែលមានចំងាយពីប្រាសាទមួយទៅប្រាសាទមួយពី២ទៅ៥គម។ 
+                            ប្រាសាទកោះកែរត្រូវបានកសាងកសាងឡើងដោយព្រះបាទជ័យវរ្ម័នទី៤ នៅក្នុងឆ្នាំ៩២១ដល់ ៩៤២ ប្រាសាទនេះស្ថិតនៅ៨០គីឡូម៉ែត្រនៃទិសឥសានអង្គរធំ។ 
+                            ប្រាសាទនេះមានលក្ខណៈជាប្រាសាទភ្នំមាន៧ថ្នាក់កំពស់៣៥ម។ តំបន់រមណីយដ្ឋានប្រាសាទកោះកែរ ដែលមានឈ្មោះដើមថាឆោគគីតាមរយៈសិលាចារឹកប្រាសាទដំរី។
+                             រមណីយដ្ឋានប្រាសាទកោះកែរមានប្រាសាទជាច្រើននៅក្នុងនោះមានដូចជា ប្រាសាទធំ ប្រាសាទចិន ប្រាសាទដំរី ប្រាសាទលិង្គ ប្រាសាទច្រាប ប្រាសាទក្រចាប់។ល។ 
+                            តំបន់រមណីយដ្ឋានប្រាសាទកោះកែរជារាជធានីរបស់ព្រះបាទជ័យវរ្ម័នទី៤ បន្ទាប់ពីព្រះអង្គបានផ្លាស់ប្តូររាជធានីពីយសោធរេបុរៈរបស់ព្រះបាទយសោវរ្ម័នទី១។ 
+                            ភាគច្រើនប្រាសាទនៅក្នុងតំបន់កោះកែរសាងសង់អំពីថ្មភក់។
+                        </p>    
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="PreahVihear/13.jpg" alt="ប្រាសាទកោះកេរ្តិ៍" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

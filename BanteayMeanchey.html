@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>បន្ទាយមានជ័យ - BanteayMeanchey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តបន្ទាយមានជ័យ</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">BanteayMeanchey</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តបន្ទាយមានជ័យ</h2>
+                        <p>
+                        ខេត្តបន្ទាយមានជ័យ គឺជាខេត្តមួយនៃព្រះរាជាណាចក្រកម្ពុជាដែលស្ថិតនៅចុងពាយ័ព្យ
+                        នៃប្រទេសដែលមានសេដ្ឋកិច្ចយ៉ាងសំខាន់មួយរបស់ប្រទេសជាតិ។ខេត្តនេះមានព្រំប្រទល់
+                        ខេត្តជាប់ខេត្តឧត្តរមានជ័យនៅខាងកើតជាប់ខេត្តសៀមរាបនៅខាងត្បូងជាប់ខេត្តបាត់ដំបង
+                        និងមានព្រំដែនរួមអន្តរជាតិជាមួយប្រទេសសៀមនៅខាងលិច។ទីរួមខេត្តនិងទី
+                        ក្រុងធំបង្អស់គឺ<strong>ក្រុងសិរីសោភ័ណនិងក្រុងប៉ោយប៉ែត</strong>។ខេត្តបន្ទាយមានជ័យគឺជាខេត្តធំបង្អស់ទី ១៣ 
+                        នៃព្រះរាជាណាចក្រកម្ពុជា។ខេត្តនេះមានក្រុងចំនួន ០២ គឺក្រុងសិរីសោភ័ណ
+                        និងក្រុងប៉ោយប៉ែតនៅប៉ែកខាងលិចនៃខេត្តគឺជាព្រំដែនអន្តរជាតិឆ្លងចូលទៅខេត្តស្រះកែវ 
+                        ប្រទេសសៀមប្រវែង ១៥៣ គម។ខេត្តបន្ទាយមានជ័យគឺជាខេត្តមួយក្នុងចំណោម
+                        ខេត្តទាំង ០៩ ដែលជាផ្នែកនៃទុនបម្រុងជីវមណ្ឌលទន្លេសាប។
+                        </p>
+                </div>
+                <div class="frame">
+                    <img src="Province/Cambodia_Banteay_Meanchey_locator_map.png" alt="ខេត្តបន្ទាយមានជ័យ" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 100px;">
+                <img src="Province/01_bmc_simplify.jpg" alt="ខេត្តបន្ទាយមានជ័យ" />
+            </div>
+
+            <div class="text-box">
+                <h2>លក្ខណៈទូទៅ</h2>
+                <p>
+                ឋិតនៅចម្ងាយ ៣៥៩ គីឡូម៉ែត្រពីរាជធានីភ្នំពេញតាមផ្លូវជាតិលេខ ០៥ និងមានទីតាំងជាប់នឹងព្រំប្រទល់<strong>ខេត្តបាត់ដំបង 
+                ខេត្តឧត្ដរមានជ័យ ខេត្តសៀមរាប និង ខេត្តស្រះកែវ ប្រទេសសៀម</strong>។ខេត្តបន្ទាយមានជ័យកំពុងទទួលបានភ្ញៀវទេសចរណ៍យ៉ាងច្រើនកុះករតាមរយៈកាស៊ីណូខ្នាតអន្តរជាតិមួយ
+                ដែលកំពុងបើកឲ្យមានការចូលលេងកម្សាន្តទាំងយប់ទាំងថ្ងៃ។តំបន់កាស៊ីណូនេះក៏មានរៀបចំជាផ្នែកផ្សេងទៀតដូចជា ភោជនីយដ្ឋាន សណ្ឋាគារ ផ្សារលក់ឥវ៉ាន់ផងដែរ។ភ្ញៀវដែល
+                ទៅកម្សាន្តនៅទីនោះភាគច្រើនមកពីប្រទេសសៀមនិងប្រទេសចិនឯភ្ញៀវជនជាតិផ្សេងៗទៀតពុំសូវមាននោះទេ។បើចំពោះជនជាតិខ្មែរជាអ្នកទេសចរណ៍សាមញ្ញវិញពួកគេច្រើនទៅ
+                ដើម្បីកម្សាន្តភ្នែកតែប៉ុណ្ណោះពុំសូវមានអ្នកដែលទៅដើម្បីប្រព្រឹត្តល្បែងស៊ីសងនោះឡើយ។មិនមែនមានតែតំបន់កម្សាន្តច្រកព្រំដែនលក្ខណៈអន្តរជាតិប៉ោយប៉ែតប៉ុណ្ណោះទេដែលភ្ញៀវទេសចរណ៍
+                ចាប់អារម្មណ៍នោះខេត្តបន្ទាយមានជ័យនៅមានតំបន់កម្សាន្តមួយចំនួនទៀតដែលបានទាក់ទាញនិងកំពុងអភិវឌ្ឍដើម្បីទាក់ទាញភ្ញៀវទេសចរណ៍ទៀតផង។
+                </p>
+                
+            <div class="text-box">
+                <h2>រដ្ឋបាលខេត្តអតីតកាល</h2>
+                <p>
+                    ខេត្តបន្ទាយមានជ័យមាន ០២ ក្រុង និង ០៧ ស្រុក÷
+                    <ul>
+                        <li>ក្រុងប៉ោយប៉ែត</li>
+                        <li>ក្រុងសិរីសោភ័ណ</li>
+                        <li>ស្រុកមង្គលបុរី</li>
+                        <li>ស្រុកភ្នំស្រុក</li>
+                        <li>ស្រុកព្រះនេត្រព្រះ</li>
+                        <li>ស្រុកអូរជ្រៅ</li>
+                        <li>ស្រុកថ្មពួក</li>
+                        <li>ស្រុកស្វាយចេក</li>
+                        <li>ស្រុកម៉ាឡៃ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ប្រាសាទបន្ទាយឆ្មារ</strong>
+                        <p>
+                            ប្រាសាទបន្ទាយឆ្មារមានទីតាំងស្ថិតនៅតាមបណ្តោយផ្លូវជាតិលេខ ៥៦A ចម្ងាយប្រមាណ៥៩ គីឡូម៉ែត្រ
+                            ពីទីរួម<strong>ខេត្តបន្ទាយមានជ័យ</strong>ក្នុងស្រុកថ្មពួកតំបន់រមណីយដ្ឋានប្រវត្តិសាស្ត្រប្រាសាទបន្ទាយឆ្មារបានកសាងឡើងដោយព្រះបាទជ័យវរ្ម័នទី៧ក្នុងចន្លោះសតវត្សទី ១២ និង ១៣។
+                            តំបន់នេះត្រូវបានរងនូវការបំផ្លិចបំផ្លាញដោយសារសង្គ្រាមដែលបណ្ដាលឲ្យប្រាសាទមួយចំនួនធំត្រូវបាក់បែកខ្ទេចខ្ទីនៅសល់តែថ្មរាយប៉ាយពាសពេញដីមិនត្រឹមតែប៉ុណ្ណោះ
+                            នៅមានពួកចោរបានលួចយករូបចម្លាក់ផ្សេងៗពីប្រាសាទទៅលក់ឲ្យពួកឈ្មួញជនជាតិសៀមទៀតផង។ភាពល្បីល្បាញនៃប្រាសាទនេះបានធ្វើឲ្យពីរមួយថ្ងៃទៅមួយថ្ងៃមាន
+                            អ្នកទេសចរណ៍បរទេសចូលទស្សនាកាន់តែច្រើនឡើងៗដែលសក្ដានុពលនេះបានធ្វើឲ្យអជ្ញាធរគ្រប់គ្រងប្រាសាទមានការចាប់អារម្មណ៍ហើយបានព្យាយាមរៀបចំបណ្ដា
+                            ប្រាសាទដទៃទៀតនៅក្នុងខេត្តឲ្យកាន់តែគួរឲ្យទាក់ទាញ ជាមួយនឹងការជួសជុលហេដ្ឋារចនាសម្ព័ន្ធផ្លូវថ្នល់ដើម្បីជាភាពងាយស្រួលដល់ទេសចរណ៍ក្នុងការទៅកម្សាន្ត។
+                            ប្រាសាទដែលខេត្តនេះមានគម្រោងរៀបចំជួសជុលលម្អឡើងវិញមានដូចជា<strong>ប្រាសាទបន្ទាយទ័ព ប្រាសាទព្រះឈរ ប្រាសាទប្រាំ</strong> ជាដើម។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="BateayMeanchey/292709103.jpg" alt="Lakhon Sbek Touch" />
+                </div>
+            </section>
+            
+            <section class="section-grid" style="margin-top: 60px;">
+
+                <div class="frame">
+                    <img src="BateayMeanchey/maxresdefault.jpg" alt="Lakhon Sbek Touch" />
+                </div>
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>អាងទឹកកងវ៉ា</strong>
+                        <p>
+                            អាងទឹកកងវ៉ា គឺជាអាងស្តុកទឹកដ៏សំខាន់មួយស្ថិតនៅក្នុងប្រទេសកម្ពុជា 
+                            ដែលមានតួនាទីចម្បងក្នុងការផ្គត់ផ្គង់ទឹកសម្រាប់ប្រជាជន និងវិស័យកសិកម្ម។ 
+                            អាងទឹកនេះស្ថិតនៅតំបន់ជាយក្រុង ដែលអាចជួយរក្សាទុកទឹកនៅរដូវវស្សា ដើម្បីប្រើប្រាស់នៅរដូវប្រាំង។ 
+                            តាមប្រវត្តិ វាត្រូវបានសាងសង់ឡើងក្នុងគោលបំណងគ្រប់គ្រងធនធានទឹក និងបង្ការការខ្វះទឹកក្នុងតំបន់។
+                             ទំហំរបស់អាងទឹកមានលក្ខណៈធំទូលាយគ្រប់គ្រាន់សម្រាប់ស្តុកទឹកបានបរិមាណច្រើន និងជួយគាំទ្រដល់ការដាំដុះកសិកម្ម។ 
+                             សារៈសំខាន់របស់វាគឺមិនត្រឹមតែផ្គត់ផ្គង់ទឹកប៉ុណ្ណោះទេ ប៉ុន្តែថែមទាំងជួយការពារទឹកជំនន់ រក្សាតុល្យភាពបរិស្ថាន និងលើកស្ទួយជីវភាពរស់នៅរបស់ប្រជាជននៅតំបន់ជុំវិញផងដែរ។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ភ្នំបាក់ និង ភ្នំជញ្ជាំង</strong>
+                        <p>
+                            ភ្នំបាក់ និង​ភ្នំ​ជញ្ជាំងស្ថិតនៅក្នុងប្រភេទរមណីយដ្ឋាន ព្រៃភ្នំ និងតំបន់​វប្បធម៌​ឬប្រពៃណី។ សម្រាប់ចំណុច
+                            សំខាន់ៗ ក៏ដូចជាភាពទាក់ទាញនៃរមណីយដ្ឋាន​ភ្នំ​បាក់ និង​ភ្នំ​ជញ្ជាំងដែលអាចធ្វើអោយភ្ញៀវទេសចរមានចំណាំអារម្មណ៏នោះ មានដូចជា៖ ទស្សនាទេសភាពព្រៃភ្នំ, ទស្សនាវត្ត និងចំណុចផ្សេងៗទៀត។ភ្នំបាក់ និង ភ្នំជញ្ជាំង ជា​រមណីដ្ឋាន​ធម្មជាតិ និង ​វប្បធម៌មួយ ដ៏ស្រស់ត្រកាល និងជាកន្លែងកំសាន្តមួយ ដែលមាន​ភ្នំ​ពីរ ​នៅ​ជិតគ្នា ដែលមើលទៅមានរូបរាង និងមានឈ្មោះដូចជាកូនភ្លោះ មាន​ថ្ម​ធំៗ ​ជា​ច្រើន​បញ្ឈរ​ ដូចជា​ជញ្ជាំង​ ពោរពេញដោយ  បរិយាកាស និង​ ទិដ្ឋភាពដ៏ល្អប្រណិត។ ចំណែកនៅ​ចន្លោះ​ភ្នំ មានកន្លែងដ៏ស្រស់ស្អាតមួយ  សំរាប់ភ្ញៀវទេសចរណ៍ជាតិ និង អន្តរជាតិសំរាកកំសាន្ត។ជាពិសេស ​នៅជើង​ភ្នំ​ មាន​ត្រពាំង​ធំ​មួយ   មានទំហំ  ១០​ម៉ែត្រការ៉េ ​ជម្រៅ ១២​ម៉ែត្រ​ និង
+                            រូប​ចម្លាក់​ថ្មបុរាណជាច្រើនបាន​ធ្លាក់សន្សល់ទុកនៅក្នុងត្រពាំងនោះ តាំងពីសម័យមុន
+                            មកម្ល៉េះ។សម្រាប់ការធ្វើដំណើរដើម្បីទៅដល់ទីតាំងនៃរមណីយដ្ឋាន​ភ្នំ​បាក់ និង​ភ្នំ​ជញ្ជាំង ភ្ញៀវទេសចរមាន
+                            ភាពងាយស្រួល ពីព្រោះមិនមានការធ្វើដំណើរថ្មើរជើង និងធ្វើដំណើរឆ្លងទឹក រឺក៏ជិះទូកឡើយ។
+                            ចំពោះចំណតរថយន្តវិញ ភ្ញៀវទេសចរអាចធ្វើការចតដោយផ្ទាល់នៅរមណីយដ្ឋានបានថែមទៀតផង។
+                            សម្រាប់កន្លែងអង្គុយលំហែរកាយវិញ រមណីយដ្ឋាន​ភ្នំ​បាក់ និង​ភ្នំ​ជញ្ជាំង គឺពុំទាន់មានខ្យូសអង្គុយ
+                            រឺក៏តូបអង្គុយសម្រាប់ទទួលភ្ញៀវទេសចរនោះទេ។ ក្រៅពីនេះ រមណីយដ្ឋាន​ភ្នំ​បាក់ និង​ភ្នំ​ជញ្ជាំងពុំទាន់
+                            មានកន្លែងកម្មង់អាហារ រឺកន្លែងលក់អាហារ, អាហារដ្ឋាន និងភោជនីយដ្ឋាននៅឡើយទេ។សម្រាប់
+                            កន្លែងស្នាក់នៅ រមណីយដ្ឋាន​ភ្នំ​បាក់ និង​ភ្នំ​ជញ្ជាំងពុំទាន់មានបឹងហ្គាឡូ, ផ្ទះសំណាក់ និងសណ្ឋាគារ
+                            នៅឡើយទេ។
+                        </p>
+                </div>
+
+                <div class="frame">
+                    <img src="BateayMeanchey/21e44dd814b8a1acb03749ad3c1b06bc-26.jpg" alt="Lakhon Sbek Touch" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px; margin-bottom: 20px;">
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>ចំនួនប្រជាជន</h3>
+                    <p><strong>ខេត្តបន្ទាយមានជ័យ</strong>មានប្រជាជនសរុប<strong>៨១៦ ៣៨២ ឬ ៥.២៤២%</strong>  នៃប្រជាជនកម្ពុជាសរុប(ទិន្នន័យរដ្ឋាភិបាលកម្ពុជាឆ្នាំ២០០៧)។
+                        ក្នុងនោះមាន<strong>បុរស ៤០២ ២០១ (ត្រូវជា៤៩.១១%) និង ស្ត្រី ៤១៤ ១៨១ (ត្រូវជា៥០.៨៩%)</strong>។
+                        អត្រាកំណើនប្រជាជនស្មើនឹង ៥.៩៣%។ប្រជាជនខេត្តបន្ទាយមានជ័យ ៩៣% ជាកសិករ ៥% ជាពាណិជ្ជករ ១.១៧% ជាអ្នកនេសាទ និង ០.៨៣% ទៀតជាមន្ត្រីរាជការ។</p>
+                </div>
+                <div class="info-card">
+                    <h3>សេដ្ឋកិច្ច</h3>
+                    <p>សេដ្ឋកិច្ចខេត្ត <strong>៩៣%</strong> ពឹងផ្អែកលើកសិកម្មនិងនៅសល់<strong>៧%</strong> ទៀតគឺការនេសាទនិងពាណិជ្ជកម្ម។ដោយសារតែខេត្ត
+                        នេះមានព្រំដែនជាប់នឹងប្រទេសសៀមអាជីកម្មបនល្បែង(កាស៊ីណូ)
+                        កំពុងតែរីកដុះដាលយ៉ាងខ្លាំងដែលកំពុងក្លាយជាប្រភពចំណូលដ៏សំខាន់សម្រាប់ខេត្ត។</p>
+                </div>
+                <div class="info-card">
+                    <h3>អាកាសធាតុ</h3>
+                    <p>សីតុណ្ហភាពមធ្យមរបស់<strong>ខេត្តបន្ទាយមានជ័យ</strong>គឺនៅចន្លោះពី ៣០ ទៅ ៣៣ អង្សា។
+                        អាកាសធាតុមានលក្ខណៈក្ដៅនិងសើមដូចនៅទូទាំងប្រទេសកម្ពុជាដែរ។
+                        រដូវវស្សាចាប់ពីខែមិថុនាដល់ខែតុលា រដូវរងាចាប់ពីខែវិច្ឆិកាដល់ខែកុម្ភៈ និង រដូវក្ដៅចាប់ពីខែមីនាដល់ខែឧសភា។</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ក្រចេះ - Kratie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តក្រចេះ</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Kratie</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តក្រចេះ</h2>
+                        <p>
+                            ក្រចេះ គឺជាខេត្តមួយក្នុងប្រទេសកម្ពុជា។ 
+                            ក្រុងរបស់ខេត្តមានឈ្មោះថាក្រចេះដែលជាទីរួមខេត្ត។ 
+                            ក្រចេះគឺជាខេត្តតូចមួយតែគួរឲ្យចាប់ចិត្តសិ្ថតនៅប៉ែកឦសាននៃរាជធានីភំ្នពេញ។ 
+                            វាមានព្រំប្រទល់ជាប់នឹងស្ទឹងត្រែងនៅភាគខាងជើង មណ្ឌលគីរីនៅខាងកើត កំពង់ធំ និង កំពង់ចាមនៅខាងលិច ហើយត្បូងឃ្មុំ
+                            និងវៀតណាមនៅខាងត្បូង។ មានផ្លូវគមនាគមន៍តភ្ជាប់ ៣ខែ្ស គឺផ្លូវជាតិលេខ៧ ចម្ងាយ ៣៤0 គីឡូម៉ែត្រ ផ្លូវលំក្រាលក្រួសក្រហម
+                            កាត់ស្រុកតំបែរ-ស្រុកឆ្លូង មួយខែ្សនិងតាមមាត់ទនេ្លមួយខែ្សទៀត មានចម្ងាយប្រហាក់ប្រហែល នឹងផ្លូវទឹកទនេ្លមេគង្គ ២២០ គីឡូម៉ែត្រ។ 
+                            ការធ្វើដំណើរ ទោះបីតាមរថយន្តកី្តតាមកាណូតលឿនកី្តមិនលើសពី៥ម៉ោងទេ ពិតជាបានមកដល់ក្រុងក្រចេះដោយសុវតិ្ថភាព។ ខេត្តក្រចេះ 
+                            សម្បូរដោយធនធានធម្មជាតិ នៅលើដី មានព្រៃព្រឹក្សា វាលស្រែ ដីមានជីជាតិ នៅក្នុងទឹកសម្បូរដោយត្រី ពិសេសមេពូជត្រីធំៗ នៅតាមអន្លង់មេគង្គក្នុងស្រុកសំបូរ 
+                            និងមានសត្វផ្សោតទឹកសាប ដែលទាក់ទាញភ្ញៀវ ទេសចរជាតិ និងអន្តរជាតិ។ ក្រៅពីនេះ នៅមានទេសភាពដ៏ស្រស់សោភ័ណ ថៃ្ងលិចគងព្រៃកោះទ្រង់ដ៏ស្អាត 
+                            គួរឱ្យចង់ទស្សនាទៀតផង។ ទាំងអស់ដែលបានបរិយាយចោះៗ ខាងលើ ធ្វើឲ្យខេត្តក្រចេះមានកំណើនភ្ញៀវទេសចរណ៍ទេ្វដងក្នុង មួយឆ្នាំៗ។ កត្តាទាំងនេះបាន 
+                            ចង្អុលឲ្យខេត្តក្រចេះជ្រើសរើសយក វិស័យទេសចរណ៍ជាវិស័យអាទិភាពក្នុងកិច្ចការស្តារ និងអភិវឌ្ឍសេដ្ឋកិច្ច ទោះតាមរយៈចំណូលដោយផ្ទាល់កី្ត ដោយប្រយោលកី្ត 
+                            ក៏វិស័យទេសចរណ៍បានកំពុងជំរុញយ៉ាងស្វាហាប់ ដើម្បីធ្វើជាឧបករណ៍វិជ្ជមានមួយក្នុងការកាត់បន្ថយភាពក្រីក្រ បង្កើនការងារសម្រាប់ប្រជាពលរដ្ឋជាង ២៨ម៉ឺននាក់ នៅខេត្តក្រចេះ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="Kratie/Cambodia_Kratié_locator_map.svg.png" alt="Kratie Map" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តក្រចេះស្ថិតនៅតំបន់ខ្ពង់រាបប៉ែកឦសាននៃ ប្រទេសកម្ពុជា សំបូរទៅដោយសម្បត្តិវប្បធម៌‌ប្រវត្តិសាស្រ្ត 
+                    និងធម្មជាតិជាច្រើន ដែលទាក់ទាញចំណាប់អារម្មណ៍ ភ្ញៀវជាតិ និងអន្តរជាតិអោយមក ទស្សនាកំសាន្ត
+                    និងសិក្សាស្រាវជ្រាវ ដើម្បីបាន ឃើញបានយល់ និងបានស្គាល់ពីទិដ្ឋភាពពិតនៃ សម្បតិ្តទាំងនោះដោយខានពុំបាន។
+                    ក្រៅអំពី លទ្ធភាពខាងផែ្នកទេសចរណ៍ខេត្តក្រចេះអាចផ្តល់ លទ្ធភាពលើវិស័យផេ្សងៗទៀតជាច្រើន 
+                    ដូចជាវិស័យសេដ្ឋកិច្ច សង្គមកិច្ច វប្បធម៌‌ និងអរិយធម៌‌ ដែលជាកេរ្តិ៍ដំណែលពីដូនតារបស់ខែ្មរបានបន្សល់ទុក
+                    អោយយ៉ាងច្រើនសន្ធឹកសន្ធាប់ដល់កូនចៅជំនាន់ក្រោយផងដែរ។ ក្រចេះក្រុងជាទីប្រជុំជនតូចប៉ុនែ្តស្អាតលំអទៅ
+                    ដោយអាគារស្ថាបនាតាំងពីទសវត្ស ១៩៤០-១៩៥០ និង១៩៦០ ដែលមាន រចនាបថល្អប្រណិត។ នៅគ្រប់ទីកនែ្លង
+                    ក្នុងខេត្តប្រកបដោយ ធម្មជាតិពិតដ៏សែនមនោរម្យ នៅខាងមុខមានដងទនេ្ល និងកោះនៅខាងក្រោយមានបឹង
+                    ដ៏ធំ ដែលមានជំនោរបរិសុទ្ធ។ អ្នកដែលបានមកដល់ខេត្តក្រចេះ ជាលើកដំបូងប្រាកដជាមានអារម្មណ៏ សប្បាយរីករាយ 
+                    នឹងបានគយគន់ទេសភាព ហើយនិងស្រូបខ្យល់រំភើយៗនាពេលរសៀលថៃ្ងរៀបលិច ដ៏ស្រស់ត្រកាល។ ខេត្តក្រចេះមាន
+                    សត្វផ្សោតទឹកសាបដែលជាប្រភេទសត្វដ៏កម្រក្នុងពិភពលោកក៏ដូចជាក្នុងតំបន់ និងសំបូរទៅដោយរមណីយដ្ឋានបែប
+                    ប្រវត្តិសាស្រ្តនិងធម្មជាតិដ៏ប្រពៃ ដែលមានការទាក់ទាញការចាប់អារម្មណ៏ពី គ្រប់មជ្ឈដ្ឋានទាំងក្នុងនិងក្រៅប្រទេស 
+                    និងមាន សារៈសំខាន់សំរាប់អ្នកសិក្សាស្រាវជ្រាវសែ្វងយល់។ លើសពីនេះខេត្តក្រចេះមានជនជាតិដើម ភាគតិចរស់នៅចំនួន៧
+                    ជនជាតិដូចជា ព្នង ស្ទៀង គួយ ខោញ មិល ក្រោល ថ្មូន។ ខេត្តមានរមណីយដ្ឋានចំនួន ១៣ កនែ្លង ក្នុងនោះមានរមណីយដ្ឋាន
+                    វប្បធម៌‌ប្រវត្តិសាស្រ្តចំនួន ៦ កនែ្លង និងរមណីយដ្ឋានធម្មជាតិចំនួន ៧ កនែ្លង។ ការធ្វើដំណើរតាមផ្លូវជាតិលេខ៧ ដែលមានចម្ងាយ
+                    ៣៤០ គ.ម. មានភាពងាយស្រួលគ្រប់រដូវកាលដោយបច្ចុប្បន្នផ្លូវជាតិត្រូវបានក្រាលកៅស៊ូរួចរាល់ហើយអ្នកទេសចរណ៍អាចធ្វើដំណើរ
+                    មកកាន់ខេត្តក្រចេះតាមមធ្យោបាយផ្ទាល់ខ្លួន រថយន្តតាក់ស៊ី រថយន្តក្រុង អ្នកទេសចរណ៍ក៏អាចធ្វើដំណើរតាមទនេ្លមេគង្គដែលមានចម្ងាយ 
+                    ២២០ គម. ដោយប្រើមធ្យោបាយនាវាលឿន អ្នកធ្វើដំណើរអាចគយគន់ទេសភាពតាមដងទនេ្ល។ ការធ្វើដំណើរតាមផ្លូវអាកាសពុំទាន់អាចប្រព្រឹត្ត 
+                    ទៅបាននៅឡើយដោយសារ អាកាសយាន្តដ្ឋានពុំទាន់បានកែលំអនិងពុំទាន់មានជើងហោះហើរនៅឡើយ។ លើសពីនេះភ្ញៀវទេសចរណ៍អាចបន្តដំណើរ
+                    ទៅកាន់ខេត្តស្ទឹងត្រែង រតនគិរី មណ្ឌលគិរី និងទៅប្រទេសជិតខាងដូចជា ប្រទេសលាវ និង វៀតណាម។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="Kratie/images (2).jpg" alt="Kratie" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="Kratie/10_krt_simplify.jpg" alt="Kratie Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តក្រចេះ រួមមាន ៧ ស្រុក-ក្រុង ៖ ឃុំ
+                    <ul>
+                        <li>ស្រុកឆ្លូង</li>
+                        <li>ស្រុកអូរគ្រៀងសែនជ័យ</li>
+                        <li>ស្រុកចិត្របុរី</li>
+                        <li>ស្រុកសំបូរ</li>
+                        <li>ស្រុកព្រែកប្រសព្វ</li>
+                        <li>ស្រុកស្នួល</li>
+                        <li>ក្រុងក្រចេះ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>អន្លង់ផ្សោតកាំពី</strong>
+                        <p>
+                            «អន្លង់ផ្សោតកាំពី»​ ជារមណីយដ្ឋានទេសចរណ៍ធម្មជាតិនៅទន្លេមេគង្គលើ ខេត្តក្រចេះ។ 
+                            ទេសចរ អាចជិះទូកទស្សនាសត្វផ្សោតអណ្ដែតខ្លួនទាំងគូៗ ហាក់ដូចម្ដាយនិងកូន, បង និងប្អូន កំពុងប្រឡែងគ្នាលើផ្ទៃទឹក។ដើម្បីទៅកាន់ទីតាំងមួយនេះ អ្នកទេសចរត្រូវធ្វើដំណើរចេញពីក្រុងក្រចេះ ឆ្ពោះទៅកាន់ភូមិកាំពីឃុំសំបុក ស្រុកចិត្របុរី តាមផ្លូវខេត្តលេខ៣៧៧ ចម្ងាយប្រមាណ១៥គីឡូម៉ែត្រ។ ទេសចរ នឹងឃើញខ្លោងទ្វារធំមួយភ្ជាប់នឹងអក្សរមួយឃ្លាថា«រមណីយដ្ឋានអន្លង់ផ្សោត»។មុនចូលទៅកាន់កន្លែងទិញសំបុត្រ គេនឹងឃើញមានអាជីវករលក់ភេសជ្ជៈនិងគ្រឿងអនុស្សាវរីយ៍ពីឈើ នៅក្នុងបរិវេណទីតាំងនេះ។ 
+                            ដើម្បីទៅទស្សនាសត្វផ្សោតបាន អ្នកទេសចរត្រូវធ្វើដំណើរតាមទូក។ ជិះទូកចេញពីកំពង់បានប្រមាណតែ១០នាទី ទេសចរ នឹងឃើញវត្តមានសត្វផ្សោត ងើបចេញពីផ្ទៃទឹក ដើម្បីដកដង្ហើម។ ការងើបមកដកដង្ហើមរបស់សត្វផ្សោតនេះ មិនមានរយៈពេលយូរឡើយ គឺចន្លោះពី២វិនាទី ទៅ៣វិនាទីតែប៉ុណ្ណោះ។ ម្ដងម្កាល វា​ក៏លោតផុតចេញពីផ្ទៃទឹក សឹង​ឃើញរូបរាងទាំងស្រុងរបស់វាទៅហើយ តែករណីនេះកម្របានឃើញណាស់។ 
+                            មិនថារដូវប្រាំង ឬវស្សាឡើយ អ្នកទេសចរនៅតែអាចទៅទស្សនាសត្វផ្សោតនេះបានដដែល។ លោក ម៉ាន ឈុន អ្នកដឹកភ្ញៀវទេសចរណ៍សត្វផ្សោត រៀបរាប់ការរស់នៅសត្វផ្សោតដូច្នេះ៖ «ខែប្រាំងទឹករាក់ វានៅផ្ដុំគ្នា ឯខែវស្សាវាខ្ចាត់ខ្ចាយ វាចែកគ្នាដើររកស៊ី។ (ម្យ៉ាង)ស្រួលថតដែរ ទៅដល់ជួបជាហ្វូងវាប្រលែងគ្នាទៅ ចំបណ្ដោយ ស្រណុកថតបណ្ដោយ»។ 
+                            ទិដ្ឋភាពផ្សោតនៅអង្លង់កាំពីនេះ ពិតជាធ្វើឱ្យទេសចរជាតិ និងអន្តរជាតិ រំភើប​រីករាយ។ កញ្ញា ម៉ូណា ជាជនបរទេសមួយរូបមកពីប្រទេស ហូឡង់ ដែលបានមកទស្សនាសត្វផ្សោតជាលើកដំបូង។ កញ្ញាមានអារម្មណ៍រំភើបជាខ្លាំង ដែលមកទស្សនាសត្វផ្សោតទន្លេមេគង្គដែលជាប្រភេទសត្វកម្រនេះ។ 
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Kratie/_front_________________________________________________________________________________________________________________________________________wwf___.jpg" alt="អន្លង់ផ្សោតកាំពី" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Kratie/photo_2022-12-27_10-14-29 (2).j.jpg" alt="កោះទ្រង់" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>កោះទ្រង់</strong>
+                        <p>
+                            កោះទ្រង់ជាសហគមន៍ទេសចរណ៍ធម្មជាតិមួយ ក្នុងចំណោមតំបន់ទេសចរណ៍ពេញនិយមដទៃទៀតនៅ​ខេត្តក្រចេះ។ 
+                            សម្រស់ធម្មជាតិដ៏ត្រកាល វាលខ្សាច់សក្បុស ទិដ្ឋភាពបន្លែ និងដំណាំផ្សេងៗ របស់ពលរដ្ឋនៅលើកោះទ្រង់ដែលស្ថិតនៅទល់មុខក្រុង
+                            ក្រចេះនេះ បន្តទាក់ទាញ​ទេសចរជាតិ និងអន្តរជាតិ ពីទីជិតឆ្ងាយ ឱ្យមកកម្សាន្តជាហូរហែ។កោះទ្រង់ មាន២ភូមិ គឺភូមិក្បាលកោះ និងភូមិចុងកោះ ដែលលាតសន្ធឹងលើផ្ទៃដីទំហំ ២២៣ហិកតា។ កោះនេះ មានពលរដ្ឋប្រមាណ ១ ៧០០នាក់ ​ភាគច្រើនជាកសិករធ្វើស្រែចម្ការ។ ពលរដ្ឋមួយចំនួនទៀត ​ផ្តល់សេវា​បដិសណ្ឋារកិច្ច រៀបចំផ្ទះស្នាក់ និងចម្អិនអាហារសម្រាប់ទេសចរ។ របរតូចតាចផ្សេងទៀត ដូចជាការដាំបន្លែក្នុងរោងតូចៗ និងការធ្វើនេសាទ ក៏រួមចំណែកដោះស្រាយជីវភាពប្រជាជនខ្លះទៀតនៅលើកោះនេះដែរ។
+                            ដើម្បីទៅកម្សាន្តនៅដែនកោះដែលស្ថិតកណ្តាលទន្លេមេគង្គនេះ  អ្នក​ទេសចរត្រូវជិះទូកដរ​​ ​ដែល​​សំចតអែបច្រាំងរង់ចាំចម្លងមនុស្សម្នាទៅមកជា​រៀងរាល់ថ្ងៃ។​ សេវាកម្មទូកចម្លង ដែលមធ្យោបាយធ្វើដំណើរជាប្រចាំរបស់ពលរដ្ឋរស់នៅលើកោះទ្រង់នេះ មាន​តម្លៃ១ពាន់រៀល​។ 
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ឆ្នេរខ្សាច់សុពណ៌គិរី</strong>
+                        <p>
+                            រមណីយដ្ឋានឆ្នេរខ្សាច់សុពណ៌គិរី ស្ថិតនៅតាម ដងទន្លេមេគង្គត្រើយខាង លិចចម្ងាយ ៥១គ.ម ខាងត្បូងទីរួមខេត្ត មានទីតាំងនៅភូមិជ្រោយអំពិល១ ឃុំចំបក់ ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ (មុខវត្តសុពណ៌គិរីរាម ហៅវត្តជ្រោយអំពិល)។
+                            រមណីយដ្ឋាននេះទទួលបានការចាប់អារម្មណ៍ពីភ្ញៀវទេសចរ ដែលនៅតាមបណ្ដាខេត្ត ជាពិសេសបងប្អូនក្នុងតំបន់ ទៅទស្សនាកម្សាន្តនៅថ្ងៃឈប់សម្រាកពីការងារ និងក្នុងឱកាសពិធីបុណ្យជាតិខ្មែរនានា។
+                            សក្តានុពលទេសចរណ៍ ៖ មានរោងបណ្ដែតទឹកនៅលើទឹកទន្លេមេគង្គដ៏ស្រស់ស្អាត ទេសភាពជុំវិញអំណោយផល មានម្ហូបខ្មែរជាច្រើនមុខ សម្រាប់ភ្ញៀវទេសចរអាចធ្វើការកម្ម៉ង់តាមតម្រូវការ។ ភ្ញៀវទេសចរអាចមុជទឹកលេងកម្សាន្ដ សម្រាក់ហូបអាហារ និងភេសជ្ជៈនៅក្នុងរោងបណ្តែតទឹក និងថតរូបអនុស្សាវរីយ៍។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="Kratie/P- 1.jpg" alt="ឆ្នេរខ្សាច់សុពណ៌គិរី" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

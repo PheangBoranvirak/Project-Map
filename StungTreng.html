@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ស្ទឹងត្រែង - Stung Treng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តស្ទឹងត្រែង</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Stung Treng</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តស្ទឹងត្រែង </h2>
+                        <p>
+                            ខេត្តស្ទឹងត្រែង គឺជាខេត្តមួយនៅចុងខាងជើងនៃប្រទេសកម្ពុជា។ ឈ្មោះដើមហៅថា សុវណ៌្ណបុរ នៃដែនដីសុវណ៌្ណភូមិ កម្វុជទេឝ (ប្រាសាទបុរាណខ្មែរសាងច្រើនពីឥដ្ឋលាយថ្មភក់ ក្នុងសម័យហ្វូណន និងដើមសម័យចេនឡា) និងអាចតាមអ្នកស្រុកថា ឆ្ទិងតេង​ តាមភាសាសំស្ក្រឹត (ភាសាលាវថា សៀងតេង) ដែលមានព្រះសិវលិង្គរកឃើញចំនួន២គឺ វ្រះ ឝិវលិង្គ សុវណ៌្ណេឝ្វរ និងវ្រះឝិវលិង្គ សុវណ៌្ណលិង្គ និងមានទន្លេមេគង្គត្រូវហៅឈ្មោះដើមថា ទន្លេកម្វុជ / កម្ពុជា ហៅតាមសំស្ក្រឹតថា មហាតីថ៌ ហើយក្រុងស្ទឹងត្រែងត្រូវប្រសព្វទន្លេជាច្រើនខ្សែហៅថា តីថ៌ (តីថ៌ ត្រូវចាត់ជាទន្លេលាងបាប និងមានមន្តសិរីជ័យមង្គលដល់អ្នកស្រុក)។ ទីក្រុងរបស់ខេត្តស្ទឹងត្រែងមានឈ្មោះថា ទីក្រុងស្ទឹងត្រែង។ ខេត្តមួយនៃប្រទេសកម្ពុជានៅភាគឦសាន។ ដែលមានព្រំប្រទល់ជាប់ខេត្តរតនគិរីនៅខាងកើត ខេត្តមណ្ឌលគិរីនិងខេត្តក្រចេះនៅខាងត្បូង និងខេត្តកំពង់ធំនិងខេត្តព្រះវិហារ នៅខាងលិច ខេត្តនេះមានព្រំប្រទល់ខាងជើងជាប់នឹងព្រំដែនអន្តរជាតិឡាវ។ ក្នុងខេត្តនេះមានទន្លេមេគង្គ​ហូរកាត់​ខេត្ត។ ខេត្តនេះភាគច្រើនគ្របដណ្តប់ដោយព្រៃឈើ និងធនធានជលផលមានសភាពសម្បូរបែប។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="StungTreng/Cambodia_Stung_Treng_locator_map.svg.png" alt="PreahVihear" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                   ខេត្តស្ទឹងត្រែង ដោយមានផ្ទៃដី១១.០៩២ គីឡូម៉ែត្រក្រឡា គឺជាខេត្តមួយដាច់ស្រយាលជាប់ព្រំដែនប្រទេសឡាវ និងមានប្រជាជនរស់នៅតិចតួចនៅឯភូមិភាគឦសាននៃប្រទេសកម្ពុជា។ ហើយមានព្រំប្រទល់ជាប់ប្រទេសឡាវ នៅផ្នែកខាងជើង ខេត្តរតនគិរីនៅខាងកើត ខេត្តព្រះវិហារនៅខាងលិច និង ខេត្តក្រចេះ និងខេត្តកំពង់ធំនៅខាងត្បូង។  ខេត្តចែកចេញជា ១ក្រុង ៥ស្រុក ៣៤ ឃុំ និង ១២៨ ភូមិ។ខេត្តស្ទឹងត្រែងជាខេត្តដែលមានតែមួយគត់ខុសពីខេត្តផ្សេងទៀតរបស់កម្ពុជានៅក្នុងអាងនៃទន្លេមេគង្គ។ ព្រៃឈើធំទូលាយ ទន្លេ និងស្ទឹងប្រសព្វគ្នា និងដង់ស៊ីតេប្រជាជនទាបជាលក្ខណៈរបស់ខេត្ត។ ខេត្តស្ទឹងត្រែងរួមបញ្ចូលផងដែរនូវកំណាត់ខាងលិចនៃឧទ្យានជាតិវីរជ័យដ៏ធំ ដែលអាចចូលទៅដល់ពីខេត្តសៀមរាប។ ខេត្តនេះក៏មានទន្លេធំៗចំនួនបួនផងដែរ គឺ ទន្លេស្រែពក ទន្លេកុង ទន្លេសាន និងទន្លេមេគង្គ ដែលមានកោះតូចៗរាប់រយដែលរាយប៉ាយនៅលើទន្លេដែលលាតសន្ធឹងក្នុងខេត្តស្ទឹងត្រែង។ រហូតមកដល់ខែកុម្ភៈ ឆ្នាំ២០២២ ជាខេត្តមួយក្នុងចំណោមខេត្តមួយចំនួនដែលអ្នកអាចឃើញផ្សោតដ៏កម្រ និងជិតផុតពូជនៅក្នុងព្រៃក្បែរព្រំដែនឡាវ ស្រុកបូរីអូរស្វាយសែនជ័យ និងអន្លង់ឈើទាលក្នុងខេត្តស្ទឹងត្រែង។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="StungTreng/images (7).jpg" alt="PreahVihear" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="StungTreng/temp_19_STG_Simplify.jpg" alt="PreahVihear" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តស្ទឹងត្រែង រួមមាន​ ១ក្រុង ៥ស្រុក ក្នុងនោះរួមមាន ៣០ឃុំ​ និង​ ៤សង្កាត់ ។
+                    <ul>
+                        <li>ស្រុកសេសាន</li>
+                        <li>ក្រុងស្ទឹងត្រែង</li>
+                        <li>ស្រុកសៀមបូក</li>
+                        <li>ស្រុកថាឡាបរិវ៉ាត់</li>
+                        <li>ស្រុកសៀមប៉ាង</li>
+                        <li>បុរីអូរស្វាយសែនជ័យ​</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋានអូរពងមាន់</strong>
+                        <p>
+                            រមណីយដ្ឋានអូរពងមាន់ មានទីតាំងសិ្ថតនៅភូមិពងមាន់ឃុំអូរពងមាន់ស្រុកសឹ្ទងត្រែងមានចម្ងាយ៩គ.មពី ទីរួមខេត្ត។ តំបន់នេះជាប្រភេទរមណីយដ្ឋានធម្មជាតិនិង កែចៃ្ន។
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="StungTreng/Stung-Treng-រមណីយដ្ឋានអូរពងមាន់3.jpg" alt="ប្រាសាទព្រះវិហារ" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="StungTreng/Stung-Treng-រមណីយដ្ឋានកោះខ្សាច់-2.jpg" alt="ភ្នំឥសីប៉ាតាម៉ាក់" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋានកោះខ្សាច់</strong>
+                        <p>
+                            រមណីយដ្ឋានកោះខ្សាច់ មានទីតាំងនៅលើដងទនេ្លសេកុងដែលមានចម្ងាយ៥គ.មពី ទីរួមខេត្ត។ តំបន់នេះជាប្រភេទរមណីយដ្ឋានធម្មជាតិតាមរដូវគឺ អាចទៅលេង កំសាន្តបាននូវរដូវប្រាំងជាពិសេស ពេលបុណ្យចូលឆ្នាំប្រពៃណីខែ្មរយើង ។
+                        </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

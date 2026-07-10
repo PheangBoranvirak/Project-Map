@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ព្រៃវែង - Prey Veng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តព្រៃវែង</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Prey Veng</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តព្រៃវែង</h2>
+                        <p>
+                            ខេត្តព្រៃវែង គឺជាខេត្តមួយនៃប្រទេសកម្ពុជា ខេត្តព្រៃវែងជាខេត្តមួយដែលស្ថិតនៅតំបន់ទំនាបកណ្ដាលជាខេត្តដែលផលិតស្រូវច្រើនជាងគេក្នុងប្រទេសកម្ពុជា ខេត្តព្រៃវែងជាខេត្តមួយដែលមានចំនួនប្រជាជន១.១ លាននាក់ច្រើនជាងគេទី៣នៅក្នុងប្រទេសកម្ពុជា ខេត្តព្រៃវែងជាប់នឹងដងទន្លេមេគង្គដែលអំណោយផលក្នុងវិស័យកសិកម្មផងដែរ។ខេត្តព្រៃវែង មានទីតាំងនៅភាគនិរតីនៃទន្លេមេគង្គដ៏មានសក្ដានុពល។ ហើយខេត្តព្រៃវែងមានទីរួមខេត្តមួយគឺ ក្រុងព្រៃវែង ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="PreyVeng/Cambodia_Prey_Veng_locator_map.svg.png" alt="PreahVihear" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តព្រៃវែង ជាខេត្តដែលមានទីតាំងស្ថិតនៅភាគខាងកើតរាជធានីភ្នំពេញ មានព្រំប្រទល់ខាងកើតជាប់ខេត្តស្វាយរៀង និងវៀតណាម ខាងជើងជាប់ខេត្តកំពង់ចាម និងខេត្តត្បូងឃ្មុំ ខាងលិចជាប់ខេត្តកណ្តាល និងខាងត្បូងជាប់វៀតណាម។ ខេត្តព្រៃវែង មានច្រកអន្តរជាតិចំនួន ៣ កន្លែងគឺ ទី១​ ច្រកអន្តរជាតិម៉ឺនជ័យ (ស្រុកកំចាយមារ) ទី២​ ច្រកអន្តរជាតិបន្ទាយចក្រី (ស្រុកព្រះស្តេច) ទី៣ ច្រកអន្តរជាតិកោះរការ (ស្រុកពាមជរ) នឹងមានផ្ទៃដី​សរុបគឺ ប្រហែល ៤៨៨៣ គម² ដែលស្មើទៅនិង ២,៧០% នៃផ្ទៃដីសរុប​នៃ​ប្រទេស​កម្ពុជា (១៨១ ០៣៥ គម²), ដែល​ក្នុងនោះ ៤៤៥,១៨ គម² ឬ ៩,១២% ជាផ្ទៃដី ដែលប្រជាជន បានតាំងទី​លំនៅ, ៣១០០ គម² ឬ ៦៣,៤៩% ជាដី សំរាប់កសិកម្ម, ១៩៤,៦១ គម² ឬ ៣,៩៩% ជាផ្ទៃនៃ​តំបន់ ព្រៃឈើ, ១០៨២,៨៦ គម² ឬ ២២,១៨% ជា​ដី សាធារណៈ, ហេដ្ឋារចនាសម្ព័ន្ធ និង ធារាសាស្រ្ត, និង នៅសល់ ៦០,៣៥ គម² ឬ១,២៤% ជា ដី មិនត្រូវបានប្រើប្រាស់ ។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="PreyVeng/ព្រៃវែង-2.jpg" alt="PreyVeng" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="PreyVeng/temp_14_PVG_Simplify.jpg" alt="PreyVeng" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្ត​នេះ​ត្រូវ​បានបែង​ចែកជា​ ក្រុងចំនួន ១ និង ស្រុកចំនួន ១២ ក្នុងនោះ រួមមាន ១១៦ ឃុំ ១១៣៩ភូមិ៖ ខេត្តព្រៃវែង ស្ថិតនៅ ប្រទេសកម្ពុជា មាន ស្រុក÷
+                    <ul>
+                        <li>ស្រុកបាភ្នំ​</li>
+                        <li>ស្រុកកំចាយមារ​</li>
+                        <li>ស្រុកកំពង់ត្របែក</li>
+                        <li>ស្រុកកញ្ជ្រៀច​</li>
+                        <li>ស្រុកមេសាង</li>
+                        <li>ស្រុកពាមជរ</li>
+                        <li>ស្រុកពាមរ​ក៍</li>
+                        <li>ស្រុកពារាំង </li>
+                        <li>ស្រុកព្រះស្ដេច</li>
+                        <li>ក្រុងព្រៃវែង</li>
+                        <li>ស្រុកពោធិ៍រៀង</li>
+                        <li>ស្រុកស៊ីធរកណ្ដាល</li>
+                        <li>ស្រុកស្វាយអន្ទរ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ប្រាសាទព្រះវិហារច័ន្ទ</strong>
+                        <p>
+                            ប្រាសាទព្រះវិហារច័ន្ទ ស្ថិតក្នុងភូមិរោងដំរី ឃុំជើងភ្នំស្រុកបាភ្នំ ខេត្តព្រៃវែង។ ប្រាសាទនេះ ត្រូវបានបំផ្លាញស្ទើរទាំងស្រុងក្នុងរបបប្រល័យពូជសាសន៍ខ្មែរក្រហម ហើយនៅទសវត្សរ៍ឆ្នាំ៩០ រូបចម្លាក់ទាំង៣ ត្រូវជនខិលខូចលួចកាត់ព្រះកេសយកទៅបាត់ទៀត។ លោក អ៊ុយ រ៉ាស៊ឺង ប្រធានការិយាល័យវប្បធម៌ និងវិចិត្រសិល្បៈស្រុកបាភ្នំ បានអះអាងថា ប្រាសាទព្រះវិហារច័ន្ទនេះ អាចកសាងឡើងក្នុងចន្លោះពីសតវត្សទី១ ដល់ចុងសតវត្សទី៦ នៃគ្រិស្តសករាជ ឬអាចរាប់បានថាក្នុងសម័យនគរភ្នំ។ ប៉ុន្តែបើតាមឯកសារមួយចំនួនបានបង្ហាញថា ប្រាសាទនេះត្រូវបានស្ថាបនាឡើង នាសម័យអង្គរដើម្បី ឧទ្ទិសចំពោះលទ្ធិព្រហ្មញ្ញសាសនា។ ចំណែកឯសៀវភៅ ប្រវត្តិស្រុកបាភ្នំ ដែលស្រាវជ្រាវដោយលោក ឡុង គារ ក៏បានបង្ហាញដែរថា ថ្មសង់ប្រាសាទវិហារច័ន្ទ មានលក្ខណៈដូចគ្នានឹងថ្មសង់ប្រាសាទអង្គរវត្ត។ ចន្លោះពីឆ្នាំ១៩៧៥ ដល់ឆ្នាំ១៩៧៩ តួប្រាសាទត្រូវបានបំផ្លិចបំផ្លាញស្ទើរទាំងស្រុង ឯថ្ម និងចម្លាក់ផ្សេងៗ ត្រូវបានលួចយកទៅបាត់អស់ ដោយបន្សល់ទុកត្រឹមខឿន ស៊ុំទ្វារចូល និងរូបចម្លាក់ធំ៣។ បើតាមលោក លោក អ៊ុយ រ៉ាស៊ឺង បានឲ្យដឹងថា ក្នុងអំឡុងទសវត្សឆ្នាំ៩០ រូបចម្លាក់ទាំង៣ ត្រូវបានជនខិលខូចលួចកាត់ព្រះកេសយកទៅបាត់ទៀត ប៉ុន្តែគណៈកម្មការ បានរៀបចំព្រះកេសថ្មីជំនួសវិញ។ ប្រធានការិយាល័យវប្បធម៌ និងវិចិត្រសិល្បៈស្រុកបាភ្នំ បានលើកឡើង បច្ចុប្បន្ន ប្រាសាទដ៏ចំណាស់មួយនេះ កំពុងដាក់ក្រោមការការពារយ៉ាងយកចិត្តទុកដាក់បំផុត និងមានឆ្មាំចាំសម្អាតជាប្រចាំ។ ចំណែកក្រសួងវប្បធម៌ និងវិចិត្រសិល្បៈ ក៏បានចុះបញ្ជីប្រាសាទព្រះវិហារច័ន្ទជាសម្បត្តិវប្បធម៌ជាតិ ព្រមទាំងផ្សព្វផ្សាយឲ្យជួយការពារផងដែ
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="PreyVeng/ប្រាសាទព្រះវិហារច័ន្ទ.jpg" alt="ប្រាសាទព្រះវិហារច័ន្ទ" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="PreyVeng/d09bf41544a3365a46c9077ebb5e35c3-5-768x448.jpg" alt="រមណីយដ្ឋាននគរភ្នំ" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋាននគរភ្នំ</strong>
+                        <p>
+                            រមណីយដ្ឋាននគរភ្នំមានទីតាំងស្ថិតនៅក្នុងភូមិរោងដំរី ឃុំជើងភ្នំ ស្រុកបាភ្នំ ខេត្តព្រៃវែង។ ដើមឡើយទីតាំងរមណីយដ្ឋាននេះគឺជារាជធានីទីពីរនៃអាណាចក្រខ្មែរថាវ្យាធបុរៈ ដែលមានន័យថាក្រុងប្រមាញ់។ បើភ្ញៀវទេសចរធ្វើដំណើរពីរាជធានីភ្នំពេញតាមផ្លូវជាតិលេខ១ ឆ្លងកាត់ស្ពានអ្នកលឿងបន្តដំណើរប្រហែល១១គីឡូម៉ែត្រដល់ភូមិកំពង់សឹង្ហបត់ឆ្វេងតាមផ្លូវកៅស៊ូមានចម្ងាយប្រមាណ ៧គីឡូម៉ែត្រយើងនឹងដល់រមណីយដ្ឋាន។ បើភ្ញៀវទេសចរធ្វើដំណើរពីទីរួមខេត្តព្រៃវែងមានចម្ងាយ៣៥គីឡូម៉ែត្រតាមផ្លូវលេខ១១
+                        </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

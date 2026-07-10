@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កំពង់ស្ពឺ - Kampong Speu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តកំពង់ស្ពឺ</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Kampong Speu</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តកំពង់ស្ពឺ</h2>
+                        <p>
+                            <b>កំពង់ស្ពឺ</b> ជាខេត្តនៃកម្ពុជា។ ខេត្តមានព្រំប្រទល់ជាប់ខេត្តពោធិ៍សាត់ និង កំពង់ឆ្នាំងនៅខាងជើង ខេត្តកណ្ដាលនៅខាងកើត តាកែវនៅខាងភាគអាគ្នេយ៍ កំពតខាងត្បូង និងកោះកុងនៅភាគខាងលិច។ 
+                            ទីរួមខេត្តគឺក្រុងច្បារមន។ ខេត្តកំពង់សឺ្ពសិ្ថតនៅក្នុងតំបន់ខ្ពង់រាប និង ព្រៃភ្នំមានប្រជាជនសរុប ៥៩៨ ៨៨២ នាក់ ក្នុងនោះមានប្រុស ២៨៧ ៣៩២ នាក់ ស្រី ៣១១ ៤៩០ នាក់។ ជាភាគរយនៃប្រជាជនជា 
+                            ស្ត្រីមាន ៥២ ភាគរយ។ ខេត្តនេះរួមមាន ៧ ស្រុក, ក្រុង ២,៨៩ ឃុំ-សង្កាត់ និង ១៣១៩ ភូមិ។ ចំនួន ប្រជារា្រស្តទូទាំងខេត្តនេះ សើ្មនឹង ៥,២ 
+                            ភាគរយនៃប្រជាជនទូទាំងប្រទេសកម្ពុជា។ សន្ទភាពប្រជាជនរបស់ខេត្តគឺ ៨៥ នាក់ក្នុងមួយគីឡូម៉ែត្រការ៉េ ខ្ពស់ជាង សន្ទភាពកម្រិតជាតិ ដែលមានតែ ៦៤ នាក់ ។
+                            ខេត្តកំពង់ស្ពឺ​ត្រូវ​បាន​គេ​ស្គាល់​ថា​ជា​ខេត្ត​ដែល​សំបូរ​ដោយដើម​ត្នោត​ច្រើន​ជាង​គេ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="KampongSpeu/Cambodia_Kampong_Speu_locator_map.svg.png" alt="Kampong Speu" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                ភូមិសាស្ត្រ ផ្ទៃដីរបស់ខេត្តកំពង់ស្ពឺ ប៉ែកខាងលិចគ្របដណ្តប់ដោយជួរភ្នំក្រវ៉ាញ ដែលជាហេតុធ្វើឱ្យខេត្តខ្សត់ទឹកភ្លៀង ដោយសារខ្យល់ 
+                និងកម្ពស់ជួរភ្នំក្រវ៉ាញ ដែលបាននាំទឹកភ្លៀងអស់មួយចំនួនធំធ្លាក់ទៅតំបន់ផ្សេងៗ។ ប៉ុន្តែខេត្តអាចជៀសវាងបានយ៉ាងងាយពីការប៉ះទង្គិចដោយខ្យល់ព្យុះ។ 
+                ភាគខាងជើងគ្របដណ្តប់ដោយតំបន់ទំនាប សម្បូរទៅដោយដីមានជីជាតិ ដែលបង្កលក្ខណៈងាយស្រួលដល់ការងារបង្កបង្កើនផលកសិកម្ម ពិសេសដំណាំស្រូវ 
+                និងដំណាំចម្រុះផ្សេងៗទៀត។ ម្យ៉ាងទៀត ស្ទឹងព្រែកត្នោតជាស្ទឹងមួយដែលហូរកាត់ខេត្តកំពង់ស្ពឺ បាននាំនូវប្រភពទឹកមកស្រោចស្រពដីទំនាបទាំងឡាយ 
+                ដែលកត្តាទាំងនេះហើយនាំឱ្យចំនួនប្រជាកសិករមានរហូតដល់ ៥៦,០%ប្រកបមុខរបរកសិកម្ម។
+                យោងតាមឯកសារសាវតានៃខេត្តកំពង់ស្ពឺ ដែលបានរៀបរៀងដោយ រដ្ឋបាលខេត្តបានឱ្យដឹងថា កាលពីដើមឡើយខេត្តកំពង់ស្ពឺ មានឈ្មោះថា «សំរោងទង» 
+                ប៉ុន្តែក្រោយមកបានប្តូរជាឈ្មោះ «កំពង់ស្ពឺ» ជាប់រហូតដល់សព្វថ្ងៃ ។
+                ខេត្ត​កំពង់ស្ពឺ ត្រូវ​បាន​បង្កើត​ឡើង​ក្នុង​សម័យ​អាណាព្យាបាលបារាំង ​នៃ​រជ្ជកាល សម្តេច​ព្រះ​បាទ ស៊ីសុវត្ថិ ដោយ​ព្រះ​រាជ​ប្រកាស​លេខ ៣០ ចុះ​ថ្ងៃ​ទី​១៨ ខែ​មីនា
+                ឆ្នាំ​១៩២២ ដែលមានប្រកាសអារេតេ លោកឡឺរេស៊ីដង្គ សុប៉េ រ័យ៉ើរ លេខ ៥៦២ ចុះថ្ងៃទី៣១ ខែមីនា ឆ្នាំ១៩២២ បញ្ញត្តឱ្យសម្រេចបាន។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="KampongSpeu/KampongSpeuProvince.jpg" alt="Battambang Map" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="KampongSpeu/05_ksp_simplify.jpg" alt="Battambang Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តកំពង់ស្ពឺ មាន ៩ ស្រុក-ក្រុង រួមមាន ៨៧ ឃុំ៖
+                    <ul>
+                        <li>ស្រុកបរសេដ្ឋ</li>
+                        <li>ស្រុកច្បារមន</li>
+                        <li>ស្រុកគងពិសី</li>
+                        <li>ស្រុកឱរ៉ាល់</li>
+                        <li>ស្រុកភ្នំស្រួច</li>
+                        <li>ស្រុកសំរោងទង</li>
+                        <li>ស្រុកថ្ពង</li>
+                        <li>ស្រុកឧដុង្គម៉ែជ័យ</li>
+                        <li>ស្រុកសាមគ្គីមុនីជ័យ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ល្អាងបុរាណវិទ្យាភ្នំចាស់</strong>
+                        <p>
+                        ល្អាងភ្នំចាស់ មានគឺជាភ្នំធម្មជាតិមួយដែលមានអាយុកាលរាប់ពាន់ឆ្នាំមកហើយនិងជាទីតាំងប្រវត្តិសាស្ត្រដែលមានមនុស្សសម័យបុរេប្រវត្តិធ្លាប់រស់នៅ
+                        និងចែកចេញជាបីផ្នែកគឺខ្នងភ្នំព្រះព្រហ្ម ខ្នងភ្នំព្រះពុទ្ធ និងខ្នងភ្នំកិន្នរ ហើយក៏មានល្អាងជាច្រើនផងដែរ។ ភ្នំនេះមានបារមីខ្លាំងពូកែណាស់ 
+                        ហើយជារៀងរាល់ឆ្នាំអ្នកស្រុកតែងតែនាំគ្នាធ្វើបុណ្យថ្វាយម្ចាស់ភ្នំ ពីព្រោះកាលពីសម័យដើមនៅតំបន់ភ្នំចាស់នេះគឺសុទ្ធតែជនជាតិសួយរស់នៅនិងគ្រប់គ្រងដោយមេកន្រ្ទាញខ្លាំងពូកែម្នាក់ឈ្មោះបាភ្នំ។
+                        ល្អាភ្នំចាស់ មានទីតាំងស្ថិតនៅ ភូមិមនោរម្យ ឃុំហោងសំណំ ក្នុងស្រុកឱរ៉ាល់ ខេត្តកំពង់ស្ពឺ ដោយមានចម្ងាយពីទីរួមខេត្ត ប្រមាណជា ៤០គីឡូម៉ែត្រ។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="KampongSpeu/pic31.jpg" alt="ល្អាងបុរាណវិទ្យាភ្នំចាស់" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="KampongSpeu/img-3224.jpg" alt="រមណីយដ្ឋានទេទឹកពុះ" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋានទេទឹកពុះ</strong>
+                        <p>ទឹកពុះ នៅមណ្ឌលកម្សាន្ត "ទេទឹកពុះ" ដែលមានទីតាំងស្ថិតនៅក្នុងភូមិតាសាល ឃុំតាសាល ស្រុកឱរ៉ាល់ ខេត្តកំពង់ស្ពឺ កំពុងតែល្បីល្បាញថា 
+                            អាចព្យាបាលជំងឺសន្លាក់ឲ្យជាសះស្បើយបាន ប៉ុន្តែគ្មានការបញ្ជាក់ពីអ្នកជំនាញសុខាភិបាលនៅឡើយទេ។ ដើម្បីទៅដល់មណ្ឌលកម្សាន្តនេះ
+                             គេត្រូវធ្វើដំណើរចេញពីរាជធានីភ្នំពេញតាមបណ្តោយផ្លូវជាតិលេខ៤ រហូតដល់ទីរួមខេត្តកំពង់ស្ពឺ ត្រង់ចំណុចផ្លូវបំបែកក្រុងច្បារមន ចន្លោះគីឡូម៉ែត្រលេខ៤៧ និង៤៨ 
+                             ហើយបត់ស្តាំរួចបន្តដំណើរតាមផ្លូវជាតិលេខ៤៤។ គេអាចធ្វើដំណើរចេញពីទីរួមខេត្តកំពង់ស្ពឺ ទៅកាន់ស្រុកឱរ៉ាល់ ដែលមានចម្ងាយ៥០គីឡូម៉ែត្រ
+                              និងទៅដល់រង្វង់មូលផ្សារកន្ទួត ហើយបន្តដំណើរទៅខាងលិចរង្វង់មូលផ្សារកន្ទួតតាមផ្លូវលំចម្ងាយ២២គីឡូម៉ែត្រទៀត ដល់ភូមិតាសាល ឃុំតាសាល 
+                              ស្រុកឱរ៉ាល់នឹងបានឃើញមណ្ឌលកម្សាន្ត"ទេទឹកពុះ" ដែលនៅខាងឆ្វេងដៃ ដែលគេដាក់រូបសំណាកយាយ"ទេ" ផងដែរ។ មណ្ឌលកម្សាន្ត"ទេទឹកពុះ"
+                               មិនត្រឹមតែជាកន្លែងលំហែកាយនោះទេ ទីនេះត្រូវគេល្បីល្បាញថា ជាកន្លែងអាចព្យាបាលជំងឺសន្លាក់ឲ្យជាសះស្បើយផងដែរ ដោយជារៀងរាល់ថ្ងៃគេសង្កេតឃើញបងប្អូនពលរដ្ឋ 
+                               ដែលមកកម្សាន្តនៅតំបន់ទេទឹកពុះ នាំគ្នាចុះត្រាំជើងក្នុងប្រឡាយ ដែលធ្វើអំពីរនាបឫស្សីនៅខាងកើតទឹកពុះបង្ហូរចូលសម្រាប់ឲ្យចូលត្រាំជើង ដើម្បីព្យាបាលជំងឺសន្លាក់។ 
+                               លោក សៅ សារ៉ន ប្រធានមន្ទីរទេសចរណ៍ខេត្តកំពង់ស្ពឺ បានប្រាប់ថា តំបន់ទេសចរណ៍ទេទឹកពុះ ជាតំបន់ទេសចរណ៍បុរាណវិទ្យា។ 
+                               តំបន់នេះភាគច្រើនមានជនជាតិដើមភាគតិចរស់នៅច្រើនជាងគេក្នុងខេត្តកំពង់ស្ពឺ សំខាន់កន្លែងនេះជាទីសក្ការៈបូជារបស់ជនជាតិខ្មែរសួយ ដែលមានរូបសំណាកលោកយាយទេទៀតផង។ 
+                               តំបន់ទេសចរណ៍ក្នុងខេត្តកំពង់ស្ពឺទាំងអស់មានប្រាំបួនកន្លែង ហើយសព្វថ្ងៃនេះតំបន់ទេទឹកពុះ កំពុងទាក់ទាញភ្ញៀវទេសចរជាតិ និងអន្តរជាតិមកកម្សាន្តមិនចាញ់តំបន់ទឹកធ្លាក់ជ្រាវប៉ុន្មានទេក្នុងមួយសប្តាហ៍ៗ[១]។</p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ប្រាសាទភ្នំក្អែកពង</strong>
+                        <p>
+                            ប្រាសាទភ្នំក្អែកពងមានទីតាំងស្ថិតនៅលើចង្កេះភ្នំក្អែកពង ក្នុងភូមិក្អែកពង ឃុំតាំងស្យា ស្រុកភ្នំស្រួច ខេត្តកំពង់ស្ពឺ។ 
+                            ប្រាសាទនេះមានចម្ងាយ ៧០គ៉ឡូមែត្រពីរាជធានីភ្នំពេញតាមផ្លូវជាតិលេខ៤ និងមានចម្ងាយ ២៣គីឡូម៉ែត្រពីក្រុងច្បារមននៃខេត្តកំពង់ស្ពឺ។ 
+                            ប្រាសាទភ្នំក្អែកពង សាងបែរមុខទៅទិសខាងកើត លើចង្កេះភ្នំក្អែកពងមានចម្ងាយត្រឹមតែ១៥០ម៉ែត្រពីជើងភ្នំ។ យើងតាមរចនាបថ គ្រឿងបង្គំ 
+                            សម្ភារៈសំណង់ប្រាសាទនេះស្ថិតនៅចុងសតវត្សរ៍ទី៧ ឬដើមសតវត្សរ៍ទី៨។ នៅទីប្រាសាទនេះមានបំណែកសិលាចារឹកជាភាសាសំស្រ្កឹតចំនួន ៥បន្ទាត់បាក់បែករលុបជាអន្លើ 
+                            តែអាចកំណត់ទម្រង់អក្សរបានថានៅចន្លោះនៅសតវត្សរ៍ទី៧ និងទី៨។ ប្រាសាទនេះកសាងមិនទាន់ហើយនោះទេ គ្រឿងលម្អមួយចំនួនដូចជាក្បាច់ជាដើមមិនទាន់ស្រេច។
+                            ប្រាសាទនេះជាប្រាសាទឧទ្ទិសដល់ព្រហ្មញ្ញសាសនា ចំពោះព្រះឥសូរ។ នៅក្បែរប្រាសាទធំនៅឃើញមានគ្រឹះប្រាសាទចាស់មួយទៀត ដែលបានបាក់បែកអស់រៀបស្មើនឹងដី 
+                            តែទ្រងទ្រាយសង់អំពីឥដ្ឋតែតូច អាចជាប្រាសាទអមសងខាងប្រាសាទធំ ឬក៍អាចជាប្រាសាទទោលមួយសាងមុនប្រាសាទធំ។ ផ្នែកខាងមុខប្រាសាទមានគាំជណ្តើរថ្មចុះទៅខាងក្រោម
+                            ផ្នែកខាងក្រោមមានស្រះបុរាណមួយ ដែលជារចនាសម្ព័ន្ធរបស់ប្រាសាទនេះ។ តែស្រះទឹកបុរាណនេះ ត្រូវបានកាយបន្ថែម ធ្វើឱ្យខូចទ្រង់ទ្រាយដើមបាត់ទឿហើយ។ 
+                            ប្រាសាទភ្នំក្អែកពងថែរក្សាទ្រង់ទ្រាយដើមយ៉ាងច្រើន តែក្បាច់មិនទាន់ឆ្លាក់រួចរាល់ជាស្ថាពរនោះទេ។ តួប្រាសាទទាងមូលមានរាងជាការ៉េបួនជ្រុងមានច្រកចូលតែមួយ 
+                            ហើយបីជ្រុងទៀតលម្អដោយទ្វារបញ្ឆោតមានលម្អដោយប្រាសាទអណ្តែងពីសងខាងទៀត[១]។ កាលពីមុន​ប្រាសាទ​នៅ​ទ្រង់ទ្រាយ​ដើម រាង​៤​ជ្រុង បែរមុខ​ទៅ​ទិស​ខាងកើត 
+                            តែ​រង​ការ​ខូចខាត​មួយ​ចំនួន ក្នុង​សម័យ​សង្គ្រាម និង​សម័យ​ប៉ុ​ល ពត ។ បន្ទាប់​មក​ទៀត​ដោយសារ​តែ​ក្រុម​ជន​ទុច្ចរិត​ជួញដូរ​ក្បាល​អ្នកតា ជីក​ផ្នែក​កណ្តាល​ប្រាសាទ​រុករក​វត្ថុ​បុរាណ​យក​ទៅ​លក់​អំឡុង 
+                            ក្រោយ​ឆ្នាំ​១៩៧៩ ។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="KampongSpeu/maxresdefault (1).jpg" alt="រមណីយដ្ឋានប្រវត្តិសាស្ត្រភ្នំសំពៅ" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

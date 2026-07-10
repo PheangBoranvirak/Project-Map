@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កែប - Kep</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តកែប</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Kep</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តកែប</h2>
+                        <p>
+                            ខេត្តកែប គឺជាខេត្តតូចជាងគេបំផុតក្នុងប្រទេសកម្ពុជា ដែលមានផ្ទៃក្រឡាចំនួន ៣៣៦គីឡូម៉ែត្រការ៉េ (១៣០ម៉ាញ៍)
+                            ដែលមានប្រជាជនចំនួន ៤១ ៧៩៨។ ជាខេត្តមួយក្នុងចំណោមខេត្តថ្មីបំផុតរបស់កម្ពុជា រួមជាមួយនឹងខេត្តប៉ៃលិន
+                            ខេត្តព្រះសីហនុ និងខេត្តត្បូងឃ្មុំ ដែលបង្កើតឡើងដោយព្រះរាជក្រឹត្យចុះថ្ងៃទី២២ ខែធ្នូ ឆ្នាំ២០០៨ ដែលបានបំបែកក្រុងកែប 
+                            និងស្រុកដំណាក់ចង្អើរចេញពីខេត្តកំពត ក៏ដូចជាការកែសម្រួលព្រំប្រទល់ខេត្តមួយចំនួនផងដែរ។ ខេត្តកែបជាខេត្តតូចជាងគេ 
+                            និងមានប្រជាជនរស់នៅតិចជាងគេបំផុតរបស់កម្ពុជា។ ទីរួមខេត្តគឺក្រុងកែប ហើយខេត្តនេះមានឧទ្យានជាតិកែបថែមទៀតផង។
+                            ខេត្តកែបជាខេត្តជាមួយដែលស្អាតជាងគេនិងភាពទាក់ទាញទៅដល់ភ្ញៀវទេសចរណ៏ឲ្យមកទស្សនាព្រមទាំងមានភាពល្បីល្បាញជាងគេនៅក្នុងប្រទេសកម្ពុជា។
+                            ការយល់ខុស អំពីខេត្តកែបដ៏សំខាន់គឺថាក្នុងអំឡុងពេលប៉ុន្មានឆ្នាំខ្មែរក្រហមជាច្រើននៃទីលំនៅសម័យអាណានិគមបារាំងនិងវីឡារបស់ខេត្តកែបត្រូវបានគេបំផ្លាញចោល។ជាការពិតណាស់ 
+                            អ្នកស្រុកជាច្រើនត្រូវការប្រាក់និងអាហារដោយបានយកចេញបានធ្លាក់ចុះវីឡាដូច្នេះពួកគេអាចផ្លាស់ប្តូរផ្នែកដ៏មានតម្លៃទាំងអស់ទាំងនេះនៅក្នុងប្រទេសវៀតណាមសម្រាប់ អង្ករនិងសាច់ប្រាក់។ 
+                            មនុស្សជាច្រើន នៃវីឡារបស់ខេត្តកែបត្រូវបានបោះបង់ចោលប៉ុន្តែមួយចំនួននៃទីក្រុងរបស់អតីតរុងរឿងគឺនៅតែច្បាស់។សាលារៀនសម្រាប់ការអប់រំ កម្រិតមធ្យមសិក្សាត្រូវបានគេដឹងថាមានទីតាំងស្ថិត
+                            នៅក្នុងខេត្តមានចំនួន588សិស្សនិស្សិតដែលមានចំនួន246នាក់នារីនៅក្នុងឆ្នាំ2008នេះ។ក្នុងឆ្នាំដូចគ្នានេះដែរមាន9សា លាមត្តេយ្យនិងសាលាបឋមសិក្សា21ដោយមានចំនួនប្រជាជន
+                            សរុបចំនួន9.644សិស្សនិស្សិតដែលមានចំនួន4.580នាក់នារីត្រូវបានគេ ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="Kep/Cambodia_Kep_locator_map.svg.png" alt="KohKong" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តកែបគឺជាខេត្តមួយដ៏តូចបំផុតរបស់ប្រទេសកម្ពុជា ដែលគ្របដណ្ដប់ផ្ទៃដីប្រមាណ 336 km2 (130 sq mi) 
+                    និងមានប្រជាជនចំនួន ៤០ ២៨០ នាក់។  វាគឺជាខេត្តមួយក្នុងចំណោមខេត្តថ្មីៗបំផុតនៃកម្ពុជា រួមជាមួយ ប៉ៃលិន 
+                    ព្រះសីហនុ និង ត្បូងឃ្មុំ ដែលត្រូវបានបង្កើតឡើងតាមរាជក្រឹត្យថ្ងៃ ២២ ធ្នូ ២០០៨ ត្រូវបានបំបែកចេញពីខេត្តកំពត 
+                    ស្របនឹងការសម្របសម្រួលព្រំសីមាខេត្តជាច្រើន។ ទីរួមខេត្តគឺក្រុងកែប ហើយក៏មានឧទ្យានជាតិមួយដែរ
+                    ដែលគេហៅថាឧទ្យានជាតិកែប។ ខេត្តកែបជាខេត្តមួយក្នុងចំណោមខេត្តទាំង៤ដែលស្ថិតនៅតាមឆ្នេរសមុទ្រភាគនិរតីនៃប្រទេសកម្ពុជា។ 
+                    ខេត្តកែបស្ថិតនៅមិនប៉ុន្មានសហាតិមាត្រពីព្រំដែនកម្ពុជា-វៀតណាមឡើយ។ ក្រុងកែបធ្លាប់ជាទីក្រុងឆ្នេរសមុទ្រដ៏ពេញនិយមរបស់កម្ពុជា។ 
+                    ឆ្នេរសមុទ្រនៅក្រុងកែបជាឆ្នេរព្រៃកោងកាង និង គ្រួសខ្មៅៗ ។ក្រុងកែបសំបូរគ្រឿងសមុទ្រថោកៗតែឆ្ងាញ់ ជាពិសេសគឺ ក្ដាមសមុទ្រ។ 
+                    ខេត្តកែបក៍មាននូវផលិតផលជាច្រើនផងដែរដូចជា ម្រេច អំបិល ផ្លែឈើ ធុរ៉េន ស្វាយ ដូង សាវម៉ាវ ហើយនិងមានតំបន់ទេសចរណ៏ 
+                    ជាច្រើនដូចជា ឆ្នេរសមុទ្រ ភ្នំ កោះ រូងភ្នំ និងរមណីយដ្ឋានជាច្រើន ។ ជាពិសេសក៍មានសណ្ឋាគារសម្រាប់ ភ្ញៀវទេសចរណ៍ជាតិ និង
+                    អន្តរជាតិសម្រាប់ស្នាក់នៅទីនោះផងដែរ។ ទឹកដីកែបហ៊ុំព័ទ្ធទាំងស្រុងដោយខេត្តកំពត លើកលែងតែឆ្នេរសមុទ្រ ១៦ គ.ម. ចេញ
+                    នៅខាងត្បូងជាប់ព្រំប្រទល់ឈូងសមុទ្រថៃ និង កោះភូគុក (កោះត្រល់) នៃវៀតណាម។ ព្រំខេត្តខាងលិចមានចម្ងាយ ២០ គ.ម. ពីក្រុងកំពត។ 
+                    ព្រំខេត្តខាងកើតមានចម្ងាយប្រហែល ២០ គីឡូម៉ែត្រពីព្រំដែនវៀតណាម។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="Kep/images.jpg" alt="KohKong" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="Kep/01-Screenshot 2026-06-25 161303.png" alt="Kep Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តកែប ត្រូវបានចែកចេញជា ក្រុង១ និងស្រុក១ ក្នុងនោះរួមមាន ៥ ឃុំ និង សង្កាត់៖
+                    <ul>
+                        <li>ស្រុកដំណាក់ចង្អើរ</li>
+                        <li>ក្រុងកែប</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>កោះទន្សាយ</strong>
+                        <p>
+                            កោះទន្សាយប្រហែលជាទីទាក់ទាញភ្ញៀវទេសចរណ៍ដ៏សំខាន់នៅក្នុងខេត្តកែប យ៉ាងណាមិញខេត្តរបស់កម្ពុជាដ៏តូចបំផុតមួយនេះមានកន្លែងជាទី
+                            ចាប់អារម្មណ៍ជាច្រើនបានលើកកម្ពស់ឱ្យយើងប្រមើលមើលឃើញនូវទស្សនៈវិស័យខាងបរិស្ថានដែលបង្កើតបានជាបរិស្ថានទេសចរណ៍ មិនត្រឹមតែដោយសារ 
+                            រដ្ឋាភិបាលដែនដីតែប៉ុណ្ណោះទេ ក៏ប៉ុន្តែក៏ដោយសារតែគំនិតផ្ចុងផ្ដើមជាលក្ខណៈឯកជនតាមរយៈសមាគមទេសចរណ៍កែបដែលបានប្រមែប្រមូលបានសណ្ឋាគារ 
+                            និង ភោជនីយដ្ឋានជាច្រើនក្នុងតំបន់នៃខេត្តនេះ។ ឆ្នេរកែបមានទីតាំងនៅក្នុងក្រុងកែប នៅចុងនៃទៀបកោះកែប។ តំបន់នេះគឺជាទីស្ថាននៃមនុគ្រឹះរបស់បារាំងដែលបាក់បែកជាច្រើន។ 
+                            ភាគច្រើនជាខ្សាច់ពណ៌ខ្មៅ ដែលបានចាក់បំពេញឡើងវិញជាមួយខ្សាច់សក្បុសពីក្រុងព្រះសីហនុ។ ព្រៃត្រែក មានទីតាំងនៅខាងក្នុងឧទ្យានជាតិកែបដែលមានត្រែក៨សហតិមាត្រការ៉េនៅពាស
+                            ពេញប្រជុំកូនភ្នំកែប។ត្រពាំងធម្មជាតិជ្រោះផ្កាម្លិះគឺជារណ្ដៅអាចហែលទឹកបាននៅរដូវវស្សាដែលពោរពេញទៅដោយត្រីខាំជើង។ កាលណាត្រពាំងសើមខ្លាំង ព្រោះតែមានទឹកធ្លាក់ចូលទៅ
+                            ក្នុងត្រពាំងនោះ ហើយបង្កើតជាច្រាំងហូរចូលទៅកាន់ប្រភពទឹកធម្មជាតិដែលហូរចុះមកកាន់ជ្រោះនោះ។ វាលរំអិលជ្រោះផ្កាម្លិះគឺជាវាលក្ដាររំអិលតែមួយគត់ក្នុងតំបន់នេះ។ កីឡាកររំអិលមកពី
+                            ទូទាំងពិភពលោកមកទីនេះដើម្បីរំអិលក្នុងព្រៃនេះជាមួយនឹងពួកកីឡាកររំអិលកម្ពុជាជំនាន់ទីមួយ។វាលរំអិលជ្រោះផ្កាម្លិះ។ ម៉ាស៊ីន.កសិដ្ឋានមេ
+                            អំបៅគឺជាសួនបរិស្ថានវិទ្យាលក្ខណៈឯកជននៅលើផ្លូវលំជ្រោះផ្កាម្លិះដែលបើកឡើងដើម្បី​អភិរក្សបរិស្ថានក្នុងតំបន់ដឹកនាំដោយពួកអ្នកមានចិត្តស្រលាញ់មនុស្សធម៌ដែលឃ្លាតឆ្ងាយពីមាតុភូមិរបស់ខ្លួន។
+                            បូជនីយដ្ឋានផ្ទះកំណើតដុនបូស្កូត្រូវបានសម្ពោធឡើងនៅខែ ឧសភា ២០១២ ជាទីសក្ការៈបូជាទៅលោកដុនបូស្កូ និងក៏ជាការបង្កើតឡើងវិញនៃផ្ទះដែលលោកចន-បូស្កូបានចាប់កំណើតនៅឆ្នាំ 
+                            ១៨១៦ នៅកាស្តិលន័រវ៉ូដុនបូស្កូ អ៊ីតាលី។ ផ្ទះនេះស្ថិតនៅខាងក្នុងនៃបរិវេណមជ្ឈមណ្ឌលបណ្ដុះបណ្ដាលវិជ្ជាជីវៈដុនបូស្កូ។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Kep/AB0A52C1-2CE8-424C-8520-F747FDE0331E-1080x768.jpeg" alt="កោះទន្សាយ" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Kep/images (1).jpg" alt="ភ្នំសសៀរ" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ភ្នំសសៀរ</strong>
+                        <p>នៅប្រមាណ ១៤ គីឡូម៉ែត្រពីក្រុងកែប មានរមណីយដ្ឋានមួយទៀតដែលមានឈ្មោះ 
+                            ថា ភ្នំសសៀរ ភ្នំនេះស្ថិតនៅចម្ងាយប្រហែល ២-៣ គីឡូម៉ែត្រពីរង្វង់មូលសេះស។
+                             នៅទីនោះមានរូងថ្មសំខាន់ៗចំនួនបួន គឺ ល្អាងស្តេចដំរីស ល្អាងវាលស្រែមួយរយ ល្អាងស-ខ្មៅ 
+                             និង ល្អាងប្រចៀវ។ ល្អាងស្តេច ដំរីស គឺជាល្អាងមួយធំហើយសំខាន់ជាងគេ សម្រាប់គោរពបូជា 
+                             ព្រោះទីនេះមានថ្មពណ៌ស ដុះដូចរូបសត្វដំរី រីឯល្អាងប្រចៀវនៅផ្នែកម្ខាងទៀតនៃភ្នំ 
+                             មុននឹងចូលមកដល់ទីនេះលោកអ្នកអាចនឹងឮស្នូរ សំឡេងរងំនៃសត្វប្រចៀវ។វាក៏ជារូងធំហើយជ្រៅ និង មានទឹកខួបប្រាំងខួបវស្សានៅទីនោះ។
+                              ទោះបីទីនេះមានភាពល្បីល្បាញយ៉ាងណាក្តី ក៏ពុំសូវមានទេសចរក្នុងស្រុកទៅទស្សនាច្រើន ប៉ុន្មានឡើយ នៅភ្នំសសៀរនេះ ពោល​គឺ​ភាគ​ច្រើន​ទៅហួសមកហួស 
+                              ប៉ុន្តែសម្រាប់ភ្ញៀវបរទេសវិញ រមណីយដ្ឋានភ្នំសសៀរ គឺជារមណីយដ្ឋានវប្បធម៌ និង ទេសចរណ៍ដ៏សំខាន់សម្រាប់ពួកគេ ។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ភ្នំពោន</strong>
+                        <p>
+                            រមណីយដ្ឋានទេសចរណ៍ភ្នំពោន ភ្នំពោនជារមណីយដ្ឋានធម្មជាតិមាត់សមុទ្រដែលមានទីតាំងស្ថិត
+                            ក្នុងភូមិសាស្ត្រ ភូមិភ្នំលាវ ឃុំពងទឹក ស្រុកដំណាក់ចង្អើរ ទីនេះអំណោយផលល្អសម្រាប់ការកម្សាន្តរប
+                            ស់ភ្ញៀវទេសចរណ៍។ ភ្នំពោនមានធម្មជាតិព្រៃព្រឹក្សាយ៉ាងស្រស់បំព្រង មានឆ្នេរខ្សាច់យ៉ាងល្អស្អាតជាប់ 
+                            មាត់សមុទ្រ និង អាកាសធាតុបរិសុទ្ធបក់មកគ្របដណ្តប់គ្រប់រដូវកាល។ ទិសដៅទៅអនាគត ខេត្តច
+                            ង់ប្រែក្លាយឱ្យទៅជាទីសម្រាប់លំហែ និង សាងសង់កំពង់ផែខ្នាតអន្តរជាតិទៀតផង។ អ្វីដែលទន្ទឹងរង់ចាំដំបូងនាពេលនេះ 
+                            នោះគឺ បញ្ហាផ្លូវសម្រាប់ភ្ជាប់ទីកន្លែងនេះទៅក្រុងកែប និង ផ្លូវសេដ្ឋកិច្ចឆ្ពោះទៅតំបន់ច្រកទ្វារអន្តរជាតិព្រែកចាក។
+                            នៅថ្ងៃអនាគតខេត្តសង្ឃឹមថាតំបន់នេះនឹងក្លាយទៅ ជារមណីយដ្ឋានទេសចរណ៍មួយយ៉ាងសំខាន់នៅខេត្តកែប។ ភ្នំវល្លិ៍ 
+                            ភ្នំវល្លិ៍បានក្លាយទៅជាតំបន់គួរឱ្យទាក់ទាញយ៉ាងខ្លាំងចាប់តាំងពីពាក់កណ្តាលទសវត្សរ៍ឆ្នាំ ១៩៩០ ពោលគឺតាំងពីតំបន់នេះត្រូវខ្មែរក្រហមធ្វើសមាហរណកម្ម ចូ
+                            លជាមួយរាជរដ្ឋាភិបាលមកម៉្លេះ ពិសេសទីនេះមានការចាប់អារម្មណ៍យ៉ាងខ្លាំងពីភ្ញៀវបរទេស ដោយសារតែនៅភ្នំវល្លិជាកន្លែងដែលមេបញ្ជាការខ្មែរក្រហមម្នាក់ 
+                            ឈ្មោះឈូក-រិន សម្លាប់ចំណាប់ខ្មាំងលោកខាងលិចបីនាក់។ សព្វថ្ងៃផ្នូររបស់ជនបរទេសទាំងបីនាក់ដែលមាន បារាំង អង់គ្លេស និង អូស្ត្រាលី នៅក្នុងភូមិចម្ការបី 
+                            ឃុំភ្នំវល្លិ ស្រុកដំណាក់ចង្អើរ បានក្លាយទៅជាកន្លែង ជាទីចាប់អារម្មណ៍របស់ភ្ញៀវទេសចរជាតិ និង បរទេស។ ចំណុចដែលជាទីចាប់អារម្មណ៍ថ្មីមួយទៀតនោះ
+                            គឺចម្ការម្រេចនៅភ្នំវល្លិបានទាក់ទាញភ្ញៀវទេសចរមកពី អាមេរិក និង បារាំង ឱ្យចង់មកទស្សនាទេសភាពដ៏ស្រស់ត្រកាលនៃចម្ការម្រេច ចម្ការទុរេន ចម្ការស្វាយ។ 
+                            បើចង់ទៅទស្សនាភ្នំវល្លិដោយចេញពីទីប្រជុំជន កំពង់ត្រាចឆ្ពោះទៅកែបបានប្រមាណជិត ១០ គីឡូម៉ែត្រ នឹងបានឃើញស្លាកសញ្ញាចូលភ្នំវល្លិនៅខាងស្តាំដៃ 
+                            ហើយបន្តដំណើរតែជាង ៥ គីឡូម៉ែត្រទៀត នឹងបាន ដល់ភ្នំវល្លិ។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="Kep/557604748_1243339247830204_2253133935768328160_n.jpg" alt="ភ្នំពោន" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

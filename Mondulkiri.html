@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>មណ្ឌលគិរី - Mondulkiri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តមណ្ឌលគិរី</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Mondulkiri</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តមណ្ឌលគិរី</h2>
+                        <p>
+                            ខេត្តមណ្ឌលគីរី ជាខេត្តស្ថិតនៅភាគខាងកើតប្រទេសកម្ពុជា។ ខេត្តនេះមានផ្ទៃដីធំជាងគេ តែមានប្រជាជនតិចជាងគេ។ ទីរួមខេត្តឈ្មោះក្រុងសែនមនោរម្យ។ ខេត្តមណ្ឌលគីរីជាតំបន់ទេសចរណ៏ធម្មជាតិ
+                            មួយនៃព្រះរាជាណាចក្រកម្ពុជា ដែលមានតំបន់ទេសចរណ៏ធម្មជាតិជាច្រើនដូចជា
+                            ទឹកជ្រោះប្រកបដោយហ្វូងមច្ឆាជាច្រើនប្រភេទ ព្រមទាំងរុក្ខជាតិ សត្វព្រៃ ព្រៃកោងកាង និងភ្នំតូចធំជាច្រើន។
+                            ខេត្តមណ្ឌលគីរីជាខេត្តមួយដែលសិ្ថតនៅភូមិភាគឦសាននៃប្រទេសកម្ពុជា 
+                            ហើយមានចំងាយ ៣៨២គីឡូម៉ែត្រពីរាជធានីភ្នំពេញ និមិត្តសញ្ញានៃខេត្តគឺ
+                            តំណាងអោយសត្វគោព្រៃ ដែលជាថនិកសត្វជាតិរបស់កម្ពុជា។ចំពោះចំនួនប្រ
+                            ជាពលរដ្ឋសរុបនៅក្នុងខេត្តមណ្ឌលគិរីគឺ៩៣,៤៤១នាក់ ដែលស្មើនឹង២២,២២០គ្រួសារដែល
+                            មានដង់ស៊ីតេ ៧នាក់ក្នុងមួយគីឡូម៉ែត្រ។ ប្រជាពលរដ្ឋដែលជាជនជាតិដើមភាគតិចនៅទូទាំងខេត្តសរុប
+                            មានចំនួន ៥៣,៤៤៤នាក់ ស្មើនឹង៥៧,២០ភាគរយ នៃប្រជាជនសរុប ដែលមាន ៨ជនជាតិ ក្នុងនោះរួមមាន
+                            ៖ជនជាតិព្នង ក្រោល គ្រឹង ស្ទៀង ទំពួន ចារាយ ថ្មួន និងកួយ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="Mondulkiri/Cambodia_Mondulkiri_locator_map.svg.png" alt="Kratie Map" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តមណ្ឌលគីរីជាខេត្តមួយដែលសិ្ថតនៅភូមិភាគឦសាននៃប្រទេសកម្ពុជា ដែលមានព្រំប្រទល់ខាងកើតជាប់នឹង
+                     ប្រទេស វៀតណាមខាងជើងជាប់នឹង ខេត្តរតនគីរី ខាងជើងឈាងខាងលិចជាប់នឹង ខេត្តស្ទឹងត្រែងខាងលិច
+                     ជាប់នឹងខេត្តក្រចេះ ហើយមានចំងាយ ៣៨០គីឡូម៉ែត្រ ពីរាជធានីភ្នំពេញ ដោយធ្វើដំណើរតាមផ្លូវជាតិលេខ៨ 
+                     ៧ និង៧៦ដោយឆ្លងកាត់តាមខេត្តកណ្ដាល ព្រៃវែង ត្បូងឃ្មុំកំពង់ចាម និងក្រចេះ ផ្លូវដែលអាចធ្វើដំណើរទៅដ
+                     ល់ខេត្តមណ្ឌលគីរី បានមានផ្លូវគោក និងផ្លូវអាកាស បើយើង ធ្វើដំណើរតាមផ្លូវគោកយើងនិងឃើញថាកំណាត់ផ្លូវ
+                     ពី ភ្នំពេញទៅមណ្ឌលគិរី ជាផ្លូវ កៅស៊ូដែលផ្តល់នូវលក្ខណះងាយស្រួលក្នុងការធ្វើដំណើរ ។ ខេត្តនេះមានអាកាសធាតុខុស
+                     ពីខេត្តផេ្សងៗទៀតនៅកម្ពុជា ដោយនៅក្នុងរដូវក្តៅ សីតុណ្ហភាពចាប់ពី ២៧°C ទៅ ៣១°C ដែលអាចចុះត្រជាក់នៅពេ
+                     លយប់ ខេត្តមណ្ឌលគីរីជាតំបន់ទេសចរណ៏ធម្មជាតិ ធំមួយនៃព្រះរាជាណាចក្រកម្ពុជា ដែលមានតំបន់ទេសចរណ៏ធម្មជាតិ
+                     ជាច្រើនដូចជា ទឹកជ្រោះប្រកបដោយហ្វូងមច្ឆា ជាច្រើនប្រភេទ ព្រមទាំង រុក្ខជាតិ សត្វព្រៃ ព្រៃកោងកាង និងភ្នំតូច ធំ ជាច្រើន។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="Mondulkiri/image_67aecd5e74671.png" alt="Kratie" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="Mondulkiri/images.png" alt="Kratie Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តមណ្ឌលគិរី (អង់គ្លេស: Mondul Kiri Province) ស្ថិតនៅ ខេត្ត មាន ៤ស្រុក ១៧ឃុំ និង ៩២ភូមិ÷
+                    <ul>
+                        <li>ស្រុកកែវសីមា</li>
+                        <li>ស្រុកកោះញែក</li>
+                        <li>ស្រុកអូររាំង</li>
+                        <li>ស្រុកពេជ្រាដា</li>
+                        <li>ក្រុងសែនមនោរម្យ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ទឹកជ្រោះប៊ូស្រា</strong>
+                        <p>
+                             ទឹកជ្រោះប៊ូស្រាមានទីតាំងស្ថិតនៅចម្ងាយប្រមាណ ៤៣គីឡូម៉ែត្រពីក្រុងសែនមនោរម្យនៃទីរួមខេត្តមណ្ឌលគិរី តាមបណ្តោយផ្លូវទៅស្រុកពេជ្រចិន្តា។ ទឹកជ្រោះប៊ូស្រាជាតំបន់កំសាន្តល្អជាងគេក្នុងខេត្តមណ្ឌលគិរី។ ខេត្តនេះមានតំបន់ទេសចរណ៍សំខាន់ដូចជា ភ្នំដោះក្រមុំ សមុទ្រឈើ ចម្ការកាហ្វេជាដើម ទឹកជ្រោះនេះចែកចេញជាបីដំណាក់៖
+                            <ul>
+                                
+                                <li>ដំណាក់ទី១: ហូរធ្លាក់ក្នុងកំពស់ ៨ ទៅ ១២ម៉ែត្រ ដែលមានមុខកាត់ទទឹង ១៥ម៉ែត្រ នៅរដូវវស្សា និង កំពស់ពី១០ ទៅ ១៥ម៉ែត្រ នៅរដូវប្រាំង។</li>
+                                <li>ដំណាក់ទី២: ហូរធ្លាក់ពីកំពស់ ១៥ ទៅ ២០ម៉ែត្រ និង មុខកាត់ទទឹង ២០ម៉ែត្រនៅរដូវវស្សា និង កំពស់ពី១៨ ទៅ ២៥ម៉ែត្រ ដែលមានមុខកាត់១៣ម៉ែត្រ នៅរដូវប្រាំង។ ទឹកធ្លាក់ទី២នេះ មានចំងាយ១៥០ម៉ែត្រពីទឹកធ្លាក់ទី១។</li>
+                                <li>ដំណាក់ទី៣: ហូរធ្លាក់ដោយល្បឿនលឿនខ្លាំងជាងល្បាក់ទី២។ ល្បាក់នេះ យើងមិនអាចទៅដល់បានទេ ពីព្រោះជាតំបន់ព្រៃក្រាស់ ខ្វះមធ្យោបាយធ្វើដំណើរ និង តំបន់គ្រោះថ្នាក់នៃពពួកសត្វព្រៃ។</li>
+                            </ul>    
+                            តំបន់រមណីដ្ឋាននេះ អាចទៅកំសាន្តនៅរដូវប្រាំង ព្រោះវាបង្កលក្ខណៈងាយស្រួលក្នុងការធ្វើដំណើរ។
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Mondulkiri/8.jpg" alt="អន្លង់ផ្សោតកាំពី" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Kratie/photo_2022-12-27_10-14-29 (2).j.jpg" alt="កោះទ្រង់" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>កោះទ្រង់</strong>
+                        <p>
+                            កោះទ្រង់ជាសហគមន៍ទេសចរណ៍ធម្មជាតិមួយ ក្នុងចំណោមតំបន់ទេសចរណ៍ពេញនិយមដទៃទៀតនៅ​ខេត្តក្រចេះ។ 
+                            សម្រស់ធម្មជាតិដ៏ត្រកាល វាលខ្សាច់សក្បុស ទិដ្ឋភាពបន្លែ និងដំណាំផ្សេងៗ របស់ពលរដ្ឋនៅលើកោះទ្រង់ដែលស្ថិតនៅទល់មុខក្រុង
+                            ក្រចេះនេះ បន្តទាក់ទាញ​ទេសចរជាតិ និងអន្តរជាតិ ពីទីជិតឆ្ងាយ ឱ្យមកកម្សាន្តជាហូរហែ។កោះទ្រង់ មាន២ភូមិ គឺភូមិក្បាលកោះ និងភូមិចុងកោះ ដែលលាតសន្ធឹងលើផ្ទៃដីទំហំ ២២៣ហិកតា។ កោះនេះ មានពលរដ្ឋប្រមាណ ១ ៧០០នាក់ ​ភាគច្រើនជាកសិករធ្វើស្រែចម្ការ។ ពលរដ្ឋមួយចំនួនទៀត ​ផ្តល់សេវា​បដិសណ្ឋារកិច្ច រៀបចំផ្ទះស្នាក់ និងចម្អិនអាហារសម្រាប់ទេសចរ។ របរតូចតាចផ្សេងទៀត ដូចជាការដាំបន្លែក្នុងរោងតូចៗ និងការធ្វើនេសាទ ក៏រួមចំណែកដោះស្រាយជីវភាពប្រជាជនខ្លះទៀតនៅលើកោះនេះដែរ។
+                            ដើម្បីទៅកម្សាន្តនៅដែនកោះដែលស្ថិតកណ្តាលទន្លេមេគង្គនេះ  អ្នក​ទេសចរត្រូវជិះទូកដរ​​ ​ដែល​​សំចតអែបច្រាំងរង់ចាំចម្លងមនុស្សម្នាទៅមកជា​រៀងរាល់ថ្ងៃ។​ សេវាកម្មទូកចម្លង ដែលមធ្យោបាយធ្វើដំណើរជាប្រចាំរបស់ពលរដ្ឋរស់នៅលើកោះទ្រង់នេះ មាន​តម្លៃ១ពាន់រៀល​។ 
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋាន​ទឹកជ្រោះ​លែងឃិន</strong>
+                        <p>
+                            រមណីយដ្ឋាន​ទឹកជ្រោះ​លែងឃិន​ស្ថិតនៅ ភូមិពូហ្យាម ឃុំសែនមនោរម្យ ស្រុកអូររាំង ខេត្តមណ្ឌលគិរី​។ រមណីយដ្ឋាន​ទឹកជ្រោះ​លែងឃិន
+                            ពុំ​ទាន់រៀបចំ​រចនាសម្ព័ន្ធ​គ្រប់គ្រង​នៅឡើយ។ រមណីយដ្ឋាន ទឹក​ជ្រោះ​លែងឃិន មាន ទឹកជ្រោះ ធម្មជាតិ ព្រៃភ្នំ ខ្យល់​អាកាសល្អស្រស់ត្រកាល
+                            និង​មាន​ភ្នំជាច្រើន ។ ទឹកជ្រោះ​លែងឃិន​មាន​ល្បាក់ទឹកធ្លាក់​កំពស់​ប្រហែល ២២-២៥ម និង​មុខកាត់ទទឹង​ប្រហែល ៧-១០ម នៅ​រដូវ​វស្សា
+                            និង​រដូវប្រាំង​មុខកាត់ទទឹង​ប្រហែល ៨ម តែប៉ុណ្ណោះ ។ រមណីយដ្ឋាន​ទឹកជ្រោះ​លែងឃិន​ជារមណីយដ្ឋាន​ដែល​មាន​ទឹកជ្រោះ​ហូរធ្លាក់​កំពស់ខ្ពស់​ជាងគេ​នៅក្នុង​ខេត្ត ។ 
+                            ទឹកនេះ​ហូរជាល្បាក់​ជម្រាល ផ្នែក​ខាង​ក្រោមមាន​អាងស្ដុក​ទឹក​យ៉ាងធំដែល​អាចហែលងូតលេង និង​មានដើម​ឈើធំៗ​ជាម្លប់ យ៉ាងត្រជាក់។
+                        </p>    
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="Mondulkiri/ff1.jpg" alt="រមណីយដ្ឋាន​ទឹកជ្រោះ​លែងឃិន" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

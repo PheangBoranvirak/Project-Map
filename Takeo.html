@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ស្វាយរៀង - Svay Rieng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តតាកែវ</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Takéo</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តតាកែវ</h2>
+                        <p>
+                            ខេត្តតាកែវ គឺជាខេត្តមួយដែលស្ថិតនៅភាគខាងត្បូងនៃប្រទេសកម្ពុជា។ ស្ថិតនៅខាងលិចទន្លេបាសាក់ ខេត្តតាកែវ មានព្រំប្រទល់ជាប់នឹងខេត្តកំពត ខាងលិចជាប់ ខេត្តកំពង់ស្ពឺខាងជើងឆៀងខាងលិច និងខេត្តកណ្តាលនៅខាងជើងនិងខាងកើត។ ហើយព្រំប្រទល់ភាគខាងត្បូងរបស់ខេត្តគឺព្រំដែនអន្តរជាតិជាមួយវៀតណាម(ខេត្តមាត់ជ្រូក)។ ទីក្រុងខេត្តដែលទើបនឹងត្រូវបានគេស្គាល់ថា​ជា​ទីរួម​ខេត្ត​ដូនកែវ (អតីត​ហៅ​ថា​ក្រុងតាកែវ) គឺជា​ទីក្រុង​តូច​មួយ​មាន​ប្រជាជន​សរុប ៣៩ ១៨៦ នាក់។ ខេត្តតាកែវគឺជាស្លាកស្នាមនៃវប្បធម៌ខ្មែរ ដោយសារតែជាអតីតនគរវ្នំនិងអាណាចក្រចេនឡាស្ថិតនៅកណ្តាលតំបន់។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="Takeo/images (8).jpg" alt="PreahVihear" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                   ខេត្តតាកែវគឺជាខេត្ដមួយស្ថិតនៅភាគខាងត្បូងនៃប្រទេសកម្ពុជា។ ខេត្តនេះមានព្រំប្រទល់ខាងលិចជាប់នឹងខេត្តកំពត ភាគពាយ័ព្យជាប់នឹងខេត្តកំពង់ស្ពឺ ខាងជើងនិងខាងកើតជាប់ខេត្តកណ្ដាល និងភាគខាងត្បូងជាប់ជាមួយព្រំដែនអន្ដរជាតិប្រទេសវៀតណាម។ ខេត្តតាកែវមានផ្ទៃដីសរុប ៣,៦៨០.១៥ គីឡូម៉ែត្កការេ[២]។ ទីរួមខេត្តនៃខេត្តតាកែវគឺក្រុងដូនកែវ ដែលជាក្រុងតូចមួយមានប្រជាជន ៣៩,១៨៦ នាក់។ បើយើងធ្វើដំណើរពីភ្នំពេញទៅកាន់ទីរួមខេត្តតាកែវលើកំណាត់ផ្លូវជាតិលេខ ២ និងលេខ៣ គេនឹងបានឃើញស្ថានភាពប្រជាពលរដ្ឋ ការប្រកបរបររកស៊ីរបស់ពួកគេនៅក្នុងខេត្តនេះ។ មិនតែប៉ុណ្ណោះ គេក៏អាចធ្វើដំណើរតាមផ្លូវជាតិលេខ២ផងដែរ ដែលមានចម្ងាយផ្លូវប្រហែល៧៨ គីឡូម៉ែត្រ។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="Takeo/images (9).jpg" alt="PreahVihear" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="Takeo/21_tak_simplify.jpg" alt="PreahVihear" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តតាកែវមាន ០១ ក្រុង ០៩ ស្រុក ៩៧ ឃុំ, ៣ សង្កាត់ និង ១១២១ ភូមិ
+                    <ul>
+                        <li>ស្រុកអង្គរបូរី</li>
+                        <li>ស្រុកបាទី</li>
+                        <li>ស្រុកបូរីជលសារ</li>
+                        <li>ស្រុកគិរីវង់</li>
+                        <li>ស្រុកកោះអណ្តែត</li>
+                        <li>ស្រុកព្រៃកប្បាស​</li>
+                        <li>ស្រុកសំរោង</li>
+                        <li>ក្រុងដូនកែវ​</li>
+                        <li>ស្រុកត្រាំកក់​</li>
+                        <li>ស្រុកទ្រាំង​</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ភ្នំដា និងប្រាសាទភ្នំដា</strong>
+                        <p>
+                            ប្រាសាទភ្នំដាជាមានទីតាំងស្ថិតនៅភូមិព្រែកតាផ ឃុំគោកធ្លក ស្រុកអង្គរបុរី ខេត្តតាកែវ និងស្ថិតនៅខាងកើតទីរួមខេត្តតាកែវ ដែលមានចម្ងាយ ១០២គីឡូម៉ែត្រពីរាជធានីភ្នំពេញ និង២៤គីឡូម៉ែត្រពីទីរួមខេត្តតាកែវតាមផ្លូវព្រែកជីក។ ម្យ៉ាងទៀតយើងអាចធ្វើដំណើរបន្តពីប្រាសាទភ្នំជីសូរទៅទិសខាងកើតសំដៅទៅទីរួមស្រុកព្រៃកប្បាសរហូតដល់ព្រៃល្វាររួចបត់ស្តាំតាមផ្លូវកៅស៊ូទៅត្រង់រហូតដល់ភ្នំដាតែម្តង។ ប្រាសាទភ្នំដាមានភូមិសាស្រ្តលិចទឹកប្រាំមួយខែ និងគោកប្រាំមួយខែដែរ។ បច្ចុប្បន្នប្រាសាទភ្នំដាជាប្រាសាទមួយដែលមានភាពចាស់ទ្រុឌទ្រោមតាមរបៀបបុរាណដែលបានបន្សស់ទុកតាំងពីយូរណាស់មកហើយ។ ប៉ុន្តែប្រាសាទនេះជាប្រសាទមួយដែលមានភ្ញៀវទេសចរជាច្រើនតែងតែទៅចូលទស្សនាគ្រប់ពេលវេលាទាំងអស់ ព្រោះវាប្រកបដោយទាសភាពទឹកទន្លេដែលហ៊ុំព័ទ្ធនារដូវវស្សាប្រៀបបីដូចជាកោះមួយដែលស្ថិតនៅចំកណ្តាលសមុទ្រដូននោះដែរ។ ម៉្យាងវិញទៀតមានព្រៃឈើដុះព័ទ្ធជុំវិញមានពណ៌បៃតងខៀវស្រងាត់អមទៅដោយសំលេងរ៉ៃយំរន្តំនារដូវស្លឹកឈើលាស់។ មិនត្រឹមតែប៉ុណ្ណោះមានប្រជាជនដែលរស់នៅក្នុងតំបន់នោះជាពិសេសប្រជាជនដែលរស់នៅជុំវិញជើងភ្នំដានេះតែម្ដង ដែលមានភាពរួសរាយរាក់ទាក់ចំពោះបណ្ដាភ្ញៀវទេសចរ ដែលបានចូលទៅ ទស្សនាតំបន់នោះតែម្ដង[១]។ ប្រាសាទភ្នំដាមានទីតាំងស្ថិតនៅក្នុងរាជធានីនរវរនគរ និងមានឈ្មោះជាភាសាចិនណាហ្វូណា[
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Takeo/Wat_asram_moha_russei.jpg" alt="ភ្នំដា និងប្រាសាទភ្នំដា" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Takeo/Phnom_Chisor_4039.jpg" alt="ប្រាសាទជីហោ" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ប្រាសាទជីហោ</strong>
+                        <p>
+                            ភ្នំជីសូរ ស្ថិតនៅភូមិដក់ពរ ឃុំរៀង ស្រុកសំរោង ខេត្តតាកែវ។ បើធ្វើដំណើរតាមរថយន្ត ពីភ្នំពេញទៅច្រកភ្នំឌិន (ច្រកព្រុំដែនអន្ដរជាតិកម្ពុជានិងវៀតណាម) តាមផ្លូវជាតិលេខ២ កាត់តាមក្រុងតាខ្មៅ ស្រុកកណ្ដាលស្ទឹង ស្រុកបាទី និង ប្រាសាទនាងខ្មៅ មានចំងាយ  ៦២ គីឡូម៉ែត្រ ដោយប្រើរយៈពេលប្រហែលមួយម៉ោង រួចបត់ឆ្វេងចូលតាមផ្លូវលំមួយមានចំងាយ៥ គីឡូម៉ែត្រ ពីផ្លូវជាតិ។ បើធ្វើដំណើរពីទីរួមខេត្តមានចំងាយ ២៧ គីឡូម៉ែត្រ។ ភ្នំជីសូរមាន កំពស់ ១៣០ ម៉ែត្រ
+                        </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

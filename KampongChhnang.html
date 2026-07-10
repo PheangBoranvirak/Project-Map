@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កំពង់ឆ្នាំង - Kampong Chhnang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តកំពង់ឆ្នាំង</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Kampong Chhnang</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តកំពង់ឆ្នាំង</h2>
+                        <p>
+                        ខេត្តកំពង់ឆ្នាំង ជាខេត្តមួយ ស្ថិតនៅភាគកណ្តាលនៃប្រទេស កម្ពុជា។ ខេត្តកំពង់ឆ្នាំង 
+                        ជាខេត្តល្បីខាងផលិតក្អមឆ្នាំងមានគុណភាពល្អ អំពីដី។ ខេត្តជិតខាងគឺ (ពីខាងជើងតាមទ្រនិចនាឡិកាវិល)
+                        កំពង់ធំ កំពង់ចាម កណ្ដាល កំពង់ស្ពឺ និង ពោធិ៍សាត់។ ក្រុងទីរួមខេត្តកំពង់ឆ្នាំងគឺក្រុងកំពង់ឆ្នាំង។
+                        ខេត្តកំពង់ឆ្នាំងកាលពីប៉ុន្មានសតវត្សកន្លងទៅគឺជាទីក្រុងឆ្នេរនៅតាមច្រកផ្លូវរវាង ចិន និង ឥណ្ឌា 
+                        ដោយសារតែការហូរនាំដីល្បប់ពីទន្លេមេគង្គ ខ្សែឆ្នេរបានកាន់តែឃ្លាតឆ្ងាយពីសមុទ្រឆ្ងាយៗទៅ។ 
+                        នៅពេលដែលទន្លេសាបបានផ្លាស់ប្ដូរខ្សែទឹកហូររបស់វា ទីក្រុងនេះក៏បានបាត់បង់ប្រភពទឹកដ៏សំខាន់របស់ខ្លួន និងដូច្នេះវាក៏បានក្លាយជារហោស្ថាន
+                        ប្រជាជនក៏រើលំនៅទៅកាន់ទីក្រុងមួយដែលគេហៅថា កំពង់ត្រឡាច។ ទីក្រុងមួយបានកកើតបន្តិចៗម្ដងជុំវិញទីនោះ ដែលនាំមកនូវជីវិតថ្មីដល់កំពង់ឆ្នាំង។ 
+                        សារមន្ទីរមួយបង្ហាញនូវកំណត់ត្រាបុរាណវិទ្យាអំពីប្រវត្តិរបស់ទីក្រុងមួយនេះ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="KampongChhnang/Cambodia_Kampong_Chhnang_locator_map.svg.png" alt="Kampong Chhnang" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តកំពង់ឆ្នាំង​ស្ថិតនៅភាគកណ្ដាលប្រទេសកម្ពុជា។ ខេត្តកំពង់ឆ្នាំងមាន​ព្រំប្រទល់​ខាងជើងជាប់ខេត្តកំពង់ធំ ខាងកើតជាប់ខេត្តកំពង់ចាម ខាងត្បូងជាប់ខេត្តកំពង់ស្ពឺ និងខាងលិចជាប់ខេត្តពោធិ៍សាត់។
+                    ខេត្តនេះស្ថិតនៅចម្ងាយប្រមាណ ៩១ គ.​ម. ពីរាជធានី​ភ្នំពេញ។
+                    ខេត្តកំពង់ឆ្នាំង​មានអាកាសធាតុក្ដៅហើយសើមដូចបណ្ដាខេត្តទូទាំង​ប្រទេសកម្ពុជាដទៃទៀតដែរ។ រដូវវស្សា​ចាប់ពីខែ ឧសភា ដល់ខែ តុលា (សីតុណ្ហភាពពី ២៧ ទៅ ៣៥អង្សា សំណើម ៩០ % ) រ
+                    ដូវរងារពីខែ វិច្ឆិកា​ ដល់ខែ មីនា (សីតុណ្ហភាពពី ១៨ ទៅ ២៨ អង្សា) និងរដូវក្ដៅពីខែ មីនា ដល់ ខែ ឧសភា (សីតុណ្ហភាពពី ២៨ ទៅ ៣៦ អង្សា)។
+                    វាគឺស្ថិតក្នុងវាលល្បប់ចំកណ្ដាលប្រទេសកម្ពុជានិងត្រូវនាំមកដោយទន្លេសាប ដៃនៃទន្លេមេគង្គ។ ទីក្រុងរាជធានីភ្នំពេញច្បាស់ជាលូតរហូតដល់វាព័ទ្ធជុំវិញដោយព្រំដែនខេត្តកំពង់ឆ្នាំងជាមិនខាន។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="KampongChhnang/1598238547.png" alt="Battambang Map" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="KampongChhnang/04_KCH_Simplify.jpg" alt="Battambang Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តនេះត្រូវបានបែកចែកទៅជា ៨ ស្រុក-ក្រុង។ ស្រុកត្រូវបានបែងចែកបន្តទៅទៀតជា ៦៦ ឃុំ និង ៥៦៩ ភូមិ។ មានក្រុងមួយ ហើយនិង ៤ សង្កាត់។ ក៏មានអង្គការរដ្ឋបាលឃុំចំនួន ១០២។
+                    <ul>
+                        <li>ស្រុកបរិបូណ៌</li>
+                        <li>ស្រុកជលគីរី</li>
+                        <li>ក្រុងកំពង់ឆ្នាំង</li>
+                        <li>ស្រុកកំពង់លែង</li>
+                        <li>ស្រុកកំពង់ត្រឡាច</li>
+                        <li>ស្រុករលាប្អៀរ</li>
+                        <li>ស្រុកសាមគ្គីមានជ័យ</li>
+                        <li>ស្រុកទឹកផុស</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋាន​ទឹកធ្លាក់​ថ្ម​ក្រាល</strong>
+                        <p>
+                            រមណីយដ្ឋាន​ទឹកធ្លាក់​ថ្ម​ក្រាល គឺជា​រមណីយដ្ឋាន​មួយ​ក្នុង​ចំណោម​រមណីយដ្ឋាន​ចំនួន​៣
+                             ដែល​មាន​ទឹកធ្លាក់​នៅ​ក្នុងស្រុក​ទឹកផុស ដែល​ស្ថិត​នៅ​ក្នុងភូមិ​កោះ​ខ្ទុំ ឃុំ​ជៀប ស្រុក​ទឹកផុស ។ 
+                             ភ្ញៀវ​ទេសចរណ៍​ដែល​មាន​បំណង​ទៅ​កម្សាន្ត​នៅ​រមណី​ដ្ឋា​ន​ទឹកធ្លាក់​ធម្មជាតិ​ថ្ម​ក្រាល​នេះ ត្រូវធ្វើ​ដំណើរ​ចេញពី​ទីរួមខេត្ត​កំពង់ឆ្នាំង
+                              តាម​ផ្លូវជាតិ​លេ​៥៣ ។ នៅ​ពេល​ភ្ញៀវ​ទេសចរ​ធ្វើ​ដំណើរ​ផុត​ភូមិ​ចូល​ដល់​ផ្លូវ​ដីស ដែល​ជា​ផ្លូវ​លំបាក​បន្តិច ក្នុង​ចម្ងាយ​ជាង​៣​គីឡូម៉ែត្រ 
+                              ភ្ញៀវ​នឹង​អាច​ទស្សនា​ព្រៃ​ប្រឹក្សា​មាន​ដើមឈើ តូច ធំ ដុះ​អម​សងខាង​ផ្លូវ​រយៈពេល​ប្រមាណ​ជាង​១៥​នាទី​នោះ​នឹង​ទៅ​ដល់ទី​កម្សាន្ត​មាន​ទឹកធ្លាក់​មាន​ខ្យល់ 
+                              អាកាស​បរិសុទ្ធ និង​ធម្មជាតិ​ខៀវស្រស់​ត្រកាល​ដែល​គួរ​ជាទី​មនោ​រម្យ​ជាក់​ជា​ពុំខាន​ឡើយ ។ទឹក​ធ្លាក់​ថ្ម​ក្រាល ជាទី​ឋាន​ដែល​មាន​ទឹក​ត្រជាក់​ស្រឹប​ដូច​ទឹក​អម្រឹត
+                              ថែម​ជាមួយ​ទេសភាព​ពណ៌​ខៀវ​ខ្ចី​ សំឡេង​សត្វ​យំ​ជែង​គ្នា​ប្រៀប​បី​ដូច​ជា​ចម្រៀង​បំពេ​សោតា​ឱ្យ​បំភ្លេច​អស់​រាល់​ទុក្ខ​កង្វល់​ពេល​បាន​ស្ដាប់​លឺ​ ថ្ម​ភ្នំ​តូច​ធំ​ដុះ​ប្រៀប​មាត់​ទឹក​ 
+                              រី​ឯ​ខ្លះ​ទៀត​ត្រូវ​បាន​ទឹក​ហូរ​បំពេញ​ពី​លើ​សល់​ត្រឹម​ស្រមោល​ពណ៌​ខ្មៅ​ដែល​ចាំង​ចេញ​ពី​ខាង​ក្នុង​នៃ​ទឹក​អាច​ឱ្យ​អ្នក​ទេសចរ​ទាំង​ចាស់​ក្មេង​ងូត​លេង​កម្សាន្ត​បាន​យ៉ាង​រីករាយ​។ 
+                              ​តំបន់​ទេសចរណ៍​ដែល​បន្ថែម​ថាមពល​ដល់​អ្នក​ដែល​បាន​ទៅ​លេង​កម្សាន្ត​ និង​ផ្ដល់​អារម្មណ៍​ស្រស់​ស្រាយ​មួយនេះពិតសក្ដិសម​បំផុត​នៃជម្រើស​តំបន់​ទេសចរណ៍​ក្នុង​ខេត្ត​កំពង់​ឆ្នាំង​។​​
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="KampongChhnang/c9f0f895fb98ab9159f51fd0297e236d-64-768x448.jpg" alt="ព្រះរាជដំណាក់ ឬ វាំងចាស់" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="KampongChhnang/PJK7YCWDHGWXNTPK3URQQINYOY.gif" alt="ភ្នំនាងកង្រី" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ភ្នំនាងកង្រី</strong>
+                        <p>ភ្នំកង្រី គឺជាភ្នំមួយបង្កប់រឿង ព្រេងនិទានប្រវត្តិសាស្ត្ររបស់ខ្មែរគឺ «រឿងពុទ្ធិសែននាងកង្រី» ដែលភ្នំមួយនេះមានទំហំរាប់ពាន់ហិកតា 
+                            ស្ថិតនៅក្នុងឃុំត្រងិល និងឃុំពោធិ៍ ស្រុកកំពង់លែង ខេត្តកំពង់ឆ្នាំង និងមានចម្ងាយប្រមាណ ៧គីឡូម៉ែត្រពីទីរួមខេត្តកំពង់ឆ្នាំង 
+                            ដោយត្រូវធ្វើដំណើរឆ្លងកាត់ទន្លេចំនួន ៣ទើបទៅដល់ភ្នំនេះ។ភ្នំនាងកង្រីនេះបើគេសំឡឹងមើល ពីមាត់ទន្លេផ្សារក្រោមក្នុងទីរួមខេត្តកំពង់ឆ្នាំងទៅ
+                             គេនឹងឃើញតួភ្នំនាងកង្រីដូចរូបរាងមនុស្សស្រីដេកផ្កាប់មុខ មានសក់ក្បាល ចង្កេះ គូថ និងជើង ដែលនៅក្នុងរឿងព្រេងនិទានបុរាណ 
+                             បាននិយាយថា សពនាងកង្រីស្លាប់ទៅ បានកើតទៅជាភ្នំមួយនេះដោយឡែកចំពោះរឿងព្រេងនិទាន ពាក់ព័ន្ធនឹងភ្នំនាងកង្រី 
+                             ដែលជាភ្នំប្រវត្តិសាស្ត្រនេះ លោកតា អោក ហួត អាយុ៦៧ឆ្នាំ ជាប្រធានអាចារ្យស្រុកកំពង់លែង និងជាជំទប់ទី១ ឃុំតាងិល បានឲ្យដឹងថា 
+                             រឿងព្រេងនិទានពីបុរាណ រឿងភ្នំនាងកង្រី មានប្រវត្តិវែងឆ្ងាយណាស់ទាក់ទង និងទីកន្លែង និងឈ្មោះទីតាំងមួយចំនួន ដែលមានឈ្មោះហៅមកដល់សព្វថ្ងៃនេះ គឺលោកតាចាំមិនអស់ទេ គ្រាន់តែបានចងចាំខ្លះៗដោយឮតាមការតំណាលតៗពីដូនតាមកតែប៉ុណ្ណោះ។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ទឹកធ្លាក់ស្រែអំពិល</strong>
+                        <p>
+                            ទឹកធ្លាក់ស្រែអំពិល ស្ថិតក្នុងសហគមន៍អេកូទេសចរណ៍ទឹកធ្លាក់ស្រែអំពិល ជាតំបន់ដែលមានសក្តានុពលខ្លាំងបំផុតក្នុងខេត្តកំពង់ឆ្នាំង។ 
+                            ភ្ញៀវទេសចរនិយមទៅកម្សាន្ត ទឹកធ្លាក់ស្រែអំពិល ព្រោះមានទឹកធ្លាក់រាក់ល្មមដែលអាចងូតលេងកម្សាន្ត និងមានសម្រស់ធម្មជាតិព្រៃភ្នំ
+                            យ៉ាងទាក់ទាញ។ស្ថិតក្នុង ភូមិក្តុល ឃុំក្តុលសែនជ័យ ស្រុកទឹកផុស មានចម្ងាយ ៥៨គីឡូម៉ែត្រ ពីក្រុងកំពង់ឆ្នាំង ទឹកធ្លាក់ស្រែអំពិលជា
+                            តំបន់ទេសចរណ៍មួយដែលមានភ្ញៀវទេសចរទៅលេងមិនចេះដាច់។ ទឹកធ្លាក់នេះមានសក្តានុពលទេសចរណ៍យ៉ាងច្រើនអនេកដូចជា 
+                            ភ្ញៀវទេសចរអាចងូតទឹកធ្លាក់លេង ដើរកម្សាន្តក្នុងព្រៃ បោះតង់សម្រាកលម្ហែ ជាពិសេសទេសចរអាចសម្រាកជាមួយជីវិតបែបធម្មជាតិ
+                            ដែលមានដំណាំរបស់ប្រជាជនក្នុងសហគមន៍ជាច្រើនហិកតា ជាប់ជើងភ្នំឱរ៉ាល់។បើតាមលោក សេង សាលី ប្រធានមន្ទីរទេសចរណ៍ខេត្តកំពង់ឆ្នាំង 
+                            ទឹកធ្លាក់ស្រែអំពិលជាតំបន់ ដែលបានទាក់ទាញទេសចរ ឲ្យទៅកម្សាន្តច្រើនជាងគេក្នុងខេត្តកំពង់ឆ្នាំង។
+
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="KampongChhnang/photo_2019-08-01_19-59-01-1024x483.jpg" alt="រមណីយដ្ឋានប្រវត្តិសាស្ត្រភ្នំសំពៅ" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

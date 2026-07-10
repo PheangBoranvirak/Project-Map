@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កំពត - Kampot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តកំពត</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Kampot</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តកំពត</h2>
+                        <p>
+                            <b>ខេត្តកំពត</b> គឺជាខេត្តមួយស្ថិតនៅប៉ែកខាងត្បូងនៃប្រទេសកម្ពុជា ដែលមានចម្ងាយ ១៤៨ គ.ម. ពីទីក្រុងភ្នំពេញ 
+                            មានព្រំប្រទល់ខាងជើងទល់នឹងស្រុកបរសេដ្ឋ ខេត្តកំពង់ស្ពឺ ខាងកើតជាប់នឹងស្រុកត្រាំកក់ និង ស្រុកគីរីវង់ ខេត្តតាកែវ 
+                            ខាងត្បូងជាប់នឹងឈូងសមុទ្រ ខាងលិចជាប់នឹងស្រុកកំពង់សិលា និងស្រុកព្រៃនប់ ខេត្តព្រះសីហនុ ដូចគ្នាដែរ
+                            ខ្សែឆ្នេរដ៏វែងស្ថិតនៅលើឈូងសមុទ្រថៃទៅខាងត្បូង ខេត្តកំពតមានទីក្រុងឈ្មោះក្រុងកំពត។ កំពតមានប្រជាជន ៦២៧ ៨៨៤ នាក់
+                            និងប្រកបដោយស្រុកនិងក្រុងចំនួនប្រាំបីដែលបានចែកទៅជាឃុំ-សង្កាត់ ៩២ ជាមួយនិងភូមិសរុប ៤៧៧ ភូមិ។ 
+                            ខេត្ត​កំពត​មាន​សំណង់​ប្រវត្តិសាស្រ្តជាច្រើន​ដូចជា ​ផ្ទះ ផ្សារ​លក់​ទំនិញ រោងភាពយន្ត​ សាលារៀន​ ផ្លូវគមនាគមន៏ មន្ទីរពេទ្យជាដើម​ 
+                            សុទ្ធ​សឹង​​ជា​ភស្ដុតាង]បង្ហាញ​ឱ្យ​ឃើញ​ពី​ការ​ចាប់​អារម្មណ៍​របស់​ពួក​បារាំង​ទៅ​លើ​ទឹក​ដី​ខ្មែរខេត្ត​កំពតមួយ​នេះ​។​ហើយក៏មានភ្នំបូកគោដែលជាទីចាប់អារម្មណ៍របស់ភ្ញៀវទេសចរណ៍ជាតិ 
+                            និងអន្តរជាតិគ្រប់ៗរូបផងដែរ។ នៅលើនោះក៏មានកាស៊ីណូ និង មាន កន្លែងកម្សាន្តជាច្រើនដូចជា៖ វាលស្រែមួយរយ ទឹកធ្លាក់អាចមើលទេសភាព មកខាងក្រោមយ៉ាងស្រស់ស្អាត 
+                            អាចចាប់ពពកបាន។-ល-។ ស្រុកទូកមាសបានតាំងទីនៅខេត្តកំពត។ទេសភាពនៃព្រែកកំពត មើលពីក្រុងកំពត ក្បែរសាលាខេត្ត ចំពីមុខភ្នំបូកគោ។ ខេត្ដតាកែវ បានចូលដែនរដ្ឋបាលខេត្ដកំពត 
+                            នៅត្រង់ស្រុកជុំគី ត្រង់ចំនុចវត្ដពុទ្ធគីរី រហូតដល់ រមណីយដ្ឋានកំពូលពេជ្រ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="Kampot/Cambodia_Kampot_Province_locator_map.svg.png" alt="Kampot" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តកំពតស្ថិតនៅភាគនិរតីនៃប្រទេសកម្ពុជា មានចម្ងាយ ១៤៨ គីឡូម៉ែត្រពីរាជធានីភ្នំពេញ។ 
+                    ខេត្តនេះមានសក្ដានុពលសេដ្ឋកិច្ច និងទេសចរណ៍ខ្ពស់ ដោយសារមានព្រំប្រទល់ជាប់សមុទ្រ តំបន់ខ្ពង់រាប 
+                    តំបន់វាលទំនាប និងជាតំបន់សម្បូរទៅដោយធនធានធម្មជាតិ និងកសិកម្ម។
+                    ខាងក្រោមនេះ គឺជាការបែងចែកលក្ខណៈភូមិសាស្រ្តសំខាន់ៗរបស់ខេត្តកំពត៖ព្រំប្រទល់រដ្ឋបាល៖ខាងជើង៖ ជាប់នឹងខេត្តកំពង់ស្ពឺ និងខេត្តព្រះសីហនុខាងកើត៖ 
+                    ជាប់នឹងស្រុកមួយចំនួនរបស់ខេត្តតាកែវខាងត្បូង៖ ជាប់នឹងខេត្តកែប ប្រទេសវៀតណាម និងឈូងសមុទ្រថៃខាងលិច៖ ជាប់នឹងខេត្តព្រះសីហនុ និងឈូងសមុទ្រថៃសណ្ឋានដី
+                    និងភូមិសាស្ត្រ៖ប៉ែកខាងលិច៖ ជាតំបន់ជួរភ្នំខ្ពស់ៗ ដូចជាឧទ្យានជាតិព្រះមុនីវង្ស (ភ្នំបូកគោ) ដែលជាតំបន់អភិរក្សធម្មជាតិ និងមានអាកាសធាតុត្រជាក់។ប៉ែកខាងជើង៖ 
+                    ជាតំបន់ខ្ពង់រាប មានព្រៃរបោះ និងតំបន់ថ្មកំបោរ ដែលជាប្រភពវត្ថុធាតុដើមសម្រាប់ផលិតស៊ីម៉ងត៍។ប៉ែកខាងកើត៖ ជាតំបន់វាលទំនាបរាបស្មើ មានបណ្តាញផ្លូវទឹក និងព្រែកហូរស្រោចស្រព 
+                    អំណោយផលដល់វិស័យកសិកម្ម ដូចជា ការដាំស្រូវ និងម្រេចកំពត។ប៉ែកខាងត្បូង៖ ជាតំបន់ឆ្នេរសមុទ្រលាតសន្ធឹងប្រវែង ៧៦ គីឡូម៉ែត្រ មានសក្ដានុពលខ្លាំងលើការធ្វើស្រែអំបិល ការនេសាទ
+                    ការដឹកជញ្ជូនតាមកំពង់ផែទេសចរណ៍អន្តរជាតិ និងតំបន់កម្សាន្តកោះនានា។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="Kampot/កំពត.jpg" alt="កំពត" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="Kampot/07_kam_simplify.jpg" alt="KampongThom Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តកំពត ត្រូវបានចែកចេញជាក្រុង​ចំនួន ​២ និង​ស្រុកចំនួន​ ៨
+                    <ul>
+                        <li>ស្រុកអង្គរជ័យ</li>
+                        <li>ស្រុកបន្ទាយមាស</li>
+                        <li>ស្រុកឈូក</li>
+                        <li>ស្រុកជុំគីរី</li>
+                        <li>ស្រុកដងទង់</li>
+                        <li>ស្រុកកំពង់ត្រាច</li>
+                        <li>ស្រុកទឹកឈូ</li>
+                        <li>ក្រុងកំពត</li>
+                        <li>ក្រុងបូកគោ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ឧទ្យានជាតិព្រះមុនីវង្ស (ភ្នំបូកគោ)</strong>
+                        <p>
+                            ឧទ្យានជាតិព្រះមុនីវង្ស (ភ្នំបូកគោ) ជារមណីយដ្ឋានធម្មជាតិ និងប្រវត្តិសាស្ត្រដ៏ល្បីល្បាញ
+                            ស្ថិតក្នុងខេត្តកំពត មានចម្ងាយប្រមាណ ១៩០ គីឡូម៉ែត្រពីរាជធានីភ្នំពេញ។ កំពូលភ្នំមានកម្ពស់
+                            ១.០៧៥ ម៉ែត្រ ផ្តល់នូវអាកាសធាតុត្រជាក់ អ័ព្ទព័ទ្ធជុំវិញ និង
+                            ទេសភាពធម្មជាតិដ៏ស្រស់ត្រកាល។ទីតាំង៖ ស្រុកទឹកឈូ ខេត្តកំពត 
+                            (ចម្ងាយ ១១ គីឡូម៉ែត្រពីក្រុងកំពតទៅជើងភ្នំ និង ២៣ គីឡូម៉ែត្រពីជើងភ្នំដល់កំពូលភ្នំ)។
+                            កម្ពស់៖ ១.០៧៥ ម៉ែត្រ ធៀបនឹងនីវ៉ូទឹកសមុទ្រ។ប្រវត្តិសាស្ត្រ៖ ត្រូវបានរៀបចំឡើងជាតំបន់ទេសចរណ៍
+                            នាថ្ងៃទី១៣ ខែមេសា ឆ្នាំ១៩២២ ក្នុងរជ្ជកាលព្រះបាទស៊ីសុវត្ថិ ដោយជនជាតិបារាំងឈ្មោះ រូលួស។
+                            ទីតាំង៖ ស្រុកទឹកឈូ ខេត្តកំពត (មានចម្ងាយប្រមាណ ១១ គីឡូម៉ែត្រពីក្រុងកំពតទៅកាន់ជើងភ្នំ)។កម្ពស់៖ ១០៧៥ ម៉ែត្រ។ប្រវត្តិសាស្ត្រ៖ 
+                            ត្រូវបានរៀបចំឡើងជាស្ថានីយ៍កម្សាន្តតាំងពីឆ្នាំ១៩២២ ក្នុងសម័យអាណានិគមបារាំង។បេតិកភណ្ឌ៖ ជាផ្នែកមួយនៃឧទ្យានបេតិកភណ្ឌអាស៊ានតែមួយគត់នៅប្រទេសកម្ពុជា។
+                            ស្ថានីយភ្នំបូកគោ (Bokor Hill Station)៖ សំណង់អគារចាស់ៗសម័យបារាំង (ដូចជាសណ្ឋាគារចាស់ និងកាស៊ីណូ)។ព្រះវិហារចាស់កាតូលិក៖ ជាទីតាំងសាសនាដ៏ចំណាស់មួយនៅលើកំពូលភ្នំ។
+                            រូបសំណាកលោកយាយម៉ៅ៖ កន្លែងគោរពបូជាដ៏ស័ក្តិសិទ្ធិ និងមានទេសភាពជួរភ្នំយ៉ាងស្រស់ស្អាត។ទឹកជ្រោះប៉ប៉កិវ៉ាត់ (Popokvil Waterfall)៖ ទឹកជ្រោះធម្មជាតិដ៏ស្រស់ស្អាត 
+                            មានទឹកហូរធ្លាក់កាត់ផ្ទាំងថ្ម។វាលស្រែ ៥០០៖ ជាវាលស្មៅធំល្វឹងល្វើយមានផ្ទាំងថ្មតូចធំ និងទេសភាពធម្មជាតិប្លែកភ្នែក។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Kampot/64d1b03ea3f43_1691463720_medium.jpg" alt="ឧទ្យានជាតិព្រះមុនីវង្ស" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Kampot/FD9EE6B6-DCBA-4E19-ABA5-340E159.jpeg" alt="ភ្នំសន្ទុក" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>តំបន់ទឹកឈូ និងកសិទេសចរណ៍</strong>
+                        <p>តំបន់ទឹកឈូ ស្ថិតក្នុងស្រុកទឹកឈូ ខេត្តកំពត មានចម្ងាយប្រមាណ ៨ គីឡូម៉ែត្រពីក្រុងកំពត。 
+                            ក្រៅពីការកម្សាន្តតាមទឹកជ្រោះធម្មជាតិ ទីតាំងនេះត្រូវបានពង្រីកសក្ដានុពលដល់ការទាក់ទាញ
+                            កសិទេសចរណ៍ (Agrotourism) យ៉ាងសម្បូរបែប ដូចជាចម្ការម្រេច និងដំណាំហូបផ្លែ ដែលផ្ដល់បទពិសោធន៍ដ៏កក់ក្តៅដល់ទេសចរ
+                            កន្លែងកម្សាន្ត និងសកម្មភាពស្នូលនៅទឹកឈូរមណីយដ្ឋានទឹកឈូ មានប្រវត្តិយូរលង់ជាងគេបង្អស់បន្ទាប់ពីឧទ្យានជាតិភ្នំបូកគោ។ការងូតទឹក 
+                            និងលំហែកាយ៖ ទេសចរអាចងូតទឹកថ្លាឈ្វេង លេងកម្សាន្តកាត់តាមផ្ទាំងថ្មដា និងពិសារអាហារនៅតាមខ្ចុះ ឬតូបប្របមាត់ទឹក។ដំណាំហូបផ្លែ៖
+                            តំបន់នេះអមដោយចម្ការដំណាំហូបផ្លែ ជាពិសេសគឺ ចម្ការទុរេនដ៏ល្បីល្បាញប្រចាំខេត្តកំពត។សកម្មភាពផ្សេងទៀត៖ មានសួនសត្វ ក៏ដូចជាសកម្មភាពកម្សាន្តក្នុងទឹកដូចជា ការជិះទូក និងជិះក្តាររំអិល។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ក្រុងកំពត និងដងស្ទឹង</strong>
+                        <p>
+                            ខេត្ត​កំពត​ជា​ខេត្ត​មួយ​ស្ថិត​នៅ​តំបន់​ឆ្នេរ ដែល​ជា​ខេត្ត​គោលដៅ​ដ៏​ទាក់ទាញ​មួយ​សម្រាប់​ទេសចរ​ទៅ​កម្សាន្ត។ ខេត្ត​កំពត​មាន​លក្ខណៈ​ភូមិសាស្ត្រ​អំណោយផល​យ៉ាងច្រើន 
+                            ជា​ពិសេស​លើ​ធនធាន​ធម្មជាតិ​ដែល​មាន​ឆ្នេរ​សមុទ្រ ស្ទឹង ព្រែក កោះ ឧទ្យានជាតិ​ អាគារ​បេតិកភណ្ឌ រួម​ទាំង​ដំណំា​ឈើ​ហូប​ផ្លែ​ដ៏​មាន​ឱជារស។
+                            ខេត្ត​កំពត​មាន​ឆ្នេរសមុទ្រ​ជាប់នឹង​ដី​គោក​ប្រវែង ៥៥,៦៦ គីឡូម៉ែត្រ។ នេះ​បើតាម​ឯកសារ​របស់​គណៈកម្មាធិការ​ជាតិគ្រប់គ្រង 
+                            និង​អភិវឌ្ឍតំបន់ឆ្នេរសមុទ្រកម្ពុជា​។ ​ឆ្នេរ​ក្នុង​ខេត្ត​កំពតចែកចេញ​ជា ៥ ប្រភេទ ក្នុងនោះមាន៖
+                            <ul>
+                                <li>ឆ្នេរខ្សាច់ ប្រវែងប្រមាណ ៤១,៤៩ គីឡូម៉ែត្រ មានចំនួន ៣ ទីតាំង</li>
+                                <li>ឆ្នេរថ្ម ប្រវែងប្រមាណ ៤,១៤ គីឡូម៉ែត្រ មានចំនួន ៧ ទីតាំង</li>
+                                <li>ឆ្នេរភក់ ប្រវែងប្រមាណ ២,២០ គីឡូម៉ែត្រ មានចំនួន ៣ ទីតាំង</li>
+                                <li>ឆ្នេរព្រៃកោងកាង ប្រវែងប្រមាណ ៤,៦២ គីឡូម៉ែត្រ មានចំនួន ២៧ ទីតាំង</li>
+                                <li>ឆ្នេរផ្សេងៗ ប្រវែងប្រមាណ ៣, ២១ គីឡូម៉ែត្រ មានចំនួន ១៩ ទីតាំង</li>
+                            </ul>
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="Kampot/473797448_616118030931367_882307538154038071_n.jpg" alt="ក្រុងកំពត និងដងស្ទឹង" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

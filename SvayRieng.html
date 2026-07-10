@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ស្វាយរៀង - Svay Rieng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តស្វាយរៀង</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Svay Rieng</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តស្វាយរៀង</h2>
+                        <p>
+                            ខេត្តស្វាយរៀង គឺជាខេត្តមួយដែលស្ថិតនៅអាគ្នេយ៍ (ខាងត្បូងឈៀងខាងកើត) នៃប្រទេសកម្ពុជា។ ហើយទីក្រុងខេត្តស្វាយរៀង មានឈ្មោះថា ទីក្រុងស្វាយរៀង ។ ខេត្តស្វាយរៀងមានព្រំប្រទល់ជាប់ប្រទេសវៀតណាមខាងកើតនឹងខាងត្បូង និងខេត្តព្រៃវែងខាងលិចនឹងខាងជើង។ តាមលក្ខណៈភូមិសាស្ត្រខេត្តស្វាយរៀង។ តំបន់​នេះ​ជា​ផ្នែកមួយនៃកសិកម្មរបស់កម្ពុជាជាចម្បង ដោយ​ការ​ធ្វើ​កសិកម្ម​ជា​សកម្មភាព​សេដ្ឋកិច្ច​សំខាន់។ ការដាំដុះស្រូវគឺជាការអនុវត្តកសិកម្មលេចធ្លោរួមជាមួយនឹងដំណាំផ្សេងទៀតដូចជាពោត ដំឡូងមី និងកៅស៊ូ។ខេត្តស្វាយរៀង មានប្រវត្តិដ៏យូរលង់នឹងបេតិកភណ្ឌវប្បធម៌ដ៏សម្បូរបែប។ ខេត្តស្វាយរៀងត្រូវបានគេស្គាល់ថាសម្រាប់តួនាទីដ៏សំខាន់របស់ខ្លួនក្នុងអំឡុងសង្គ្រាមវៀតណាម ជាពិសេសសមរភូមិស្វាយរៀងក្នុងឆ្នាំ១៩៧១។ ខេត្តនេះក៏មានវត្តអារាម និងកន្លែងប្រវត្តិសាស្ត្រជាច្រើនដែលទាក់ទាញភ្ញៀវទេសចរផងដែរ។ ស្វាយរៀងបានឆ្លងកាត់ការអភិវឌ្ឍន៍មួយចំនួន រួមទាំងការកែលម្អហេដ្ឋារចនាសម្ព័ន្ធ និងការតភ្ជាប់ផ្លូវគមនាគមន៍ផងដែរ។ សាកលវិទ្យាល័យស្វាយរៀង បង្កើតឡើងក្នុងឆ្នាំ២០០៧ ផ្តល់ឱកាសសិក្សាថ្នាក់ឧត្តមសិក្សាដល់និស្សិតក្នុងស្រុក។ ខេត្តស្វាយរៀង ផ្តល់នូវទិដ្ឋភាពនៃជីវភាពរស់នៅបែបជនបទរបស់ខ្មែរ ជាមួយនឹងទេសភាពកសិកម្ម និងសារៈសំខាន់ជាប្រវត្តិសាស្ត្រ។ ខេត្តស្វាយរៀងជាកន្លែងមួយដែលភ្ញៀវទេសចរអាចស្វែងយល់ពីជនបទ ស្វែងយល់​ពី​វប្បធម៌​ក្នុង​តំបន់ និង​ទទួល​បាន​បទពិសោធន៍​ពី​សម្រស់​ធម្មជាតិ​នៃ​តំបន់។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="SvayRieng/Cambodia_Svay_Rieng_locator_map.svg.png" alt="PreahVihear" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                   ខេត្ដស្វាយរៀង ឋិត​នៅ​ភាគ​អាគ្នេយ៍​នៃ​ប្រទេស​កម្ពុជា ជាប់​ព្រំប្រទល់​ជាមួយប្រទេស​វៀតណាម ដែល​មាន​ច្រកព្រំដែនអន្ដរជាតិ​មួយ​ល្បីឈ្មោះ​គឺ​ច្រកព្រំដែន​បា​វិត ឋិត​នៅ​ចម្ងាយ​ប្រមាណ​ ៤៨​គីឡូម៉ែត្រ​ពី​ទីរួមខេត្ដ​ស្វាយ​រៀង​។ ធ្វើ​ដំណើរតាម​ផ្លូវជាតិ​លេខ​១​ចម្ងាយ​ប្រមាណ​១២២​គីឡូម៉ែត្រ​ពី​ទីក្រុង​ភ្នំពេញ ។ បា​វិត​ជាច្រក​ដ៏​សំខាន់​សម្រាប់​ចរាចរ​ផ្លូវគោក ទំនាក់ទំនងរវាង​ប្រទេស​ទាំង​ពីរគឺ​កម្ពុជានិង​វៀតណាម ជា​ពិសេស​គឺ​ទីក្រុងភ្នំពេញ និង​ទីក្រុង​ហូ​ជី​មិ​ញ​។ ក្រៅពី​ការ​បង្កើត​ជា​តំបន់​កំសាន្ដ​ហើយ តំបន់​នេះ​នៅ​មាន​ផ្សារណាត់​ដែល​មាន​ទំនិញ​គ្រប់ប្រភេទ​ជា​ផលិតផល​ក្នុងស្រុក និង​ផលិតផល​ពី​ប្រទេស​វៀតណាម​។ ច្រកព្រំដែន​បា​វិត​គឺជា​មជ្ឈមណ្ឌល​ទេសចរ ដែល​ទាក់ទាញ​ភ្ញៀវ​ទេសចរ​បាន​ច្រើន​ជាងគេ​ក្នុង​ចំណោម​តំបន់​កំសាន្ដ​ក្នុងខេត្ដ​នេះ​។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="SvayRieng/Mộc_Bài,_Lợi_Thuận,_Bến_Cầu,_Tây_Ninh_Province,_Vietnam_-_panoramio.jpg" alt="PreahVihear" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="SvayRieng/20_svr_simplify.jpg" alt="PreahVihear" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តស្វាយរៀង រួមមាន ៨ស្រុក ក្រុង ៖
+                    <ul>
+                        <li>ស្រុកចន្រ្ទា</li>
+                        <li>ស្រុកកំពង់រោទិ៍</li>
+                        <li>ស្រុករំដួល</li>
+                        <li>ស្រុករមាសហែក</li>
+                        <li>ស្រុកស្វាយជ្រំ</li>
+                        <li>បុរីអូរស្វាយសែនជ័យ​</li>
+                        <li>ក្រុងស្វាយរៀង</li>
+                        <li>ស្រុកស្វាយទាប​</li>
+                        <li>ក្រុងបាវិត​</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋានប្រាសាទព្រៃបាសាក់</strong>
+                        <p>
+                            រមណីយដ្ឋានប្រាសាទព្រៃបាសាក់៖ ព្រៃបាសាក់ ឬព្រៃប្រាសាទ មានទីតាំងស្ថិតនៅក្នុងភូមិបាសាក់ ឃុំបាសាក់ ស្រុកស្វាយជ្រំ ខេត្តស្វាយរៀង និងមានចម្ងាយ ៨.៥គីឡូម៉ែត្រ 
+                            ពីទីរួមខេត្តស្វាយរៀង។ ភ្ញៀវទេសចរអាចធ្វើដំណើរដោយរថយន្តតាមផ្លូវបេតុង ប៉ុន្តែនៅរដូវវស្សាក៏អាចធ្វើដំណើរតាមផ្លូវទឹកនៃដងទន្លេវ៉ៃគោ ក្នុងចម្ងាយ ត្រឹមតែ៥គីឡូម៉ែត្រប៉ុណ្ណោះ។ 
+                            ព្រៃបាសាក់មានផ្ទៃដីសរុប ៩ហិកតា ២៤អា និង៩៨សង់ទីអា មានព្រំប្រទល់ខាងជើង និងខាងកើតជាប់នឹងទន្លេវ៉ៃគោ ខាងត្បូង និងខាង លិចជាប់នឹងភូមិអ្នកស្រុក។
+                            នៅចំកណ្ដាលព្រៃបាសាក់មានប្រសាទចំនួនពីរ គឺទួលប្រសាទ និងទួលគក់សំពៅ ទួលទាំងពីរនេះឃ្លាតគ្នាប្រវែងប្រមាណ១០០ម៉ែត្រតែប៉ុណ្ណោះ ចំណែកឯទួលប្រសាទ គឺមានសេសសល់ 
+                            «ទួលប្រាងប្រាសាទ» មួយចំហៀងមានកម្ពស់ ២ម៉ែត្រ បណ្ដោយ៥ម៉ែត្រ សង់ឡើងពីឥដ្ឋធំៗ។ ប្រាង្គប្រសាទនេះសាងឡើងប្រហែលសតវត្សទី៦ រចនាបទសំបូរព្រៃគុហ៍មកម្លេះ 
+                            ហើយលើទួលប្រាសាទនេះដែរសុទ្ធសឹងជាគ្រឹះថ្ម ដែលបានតម្រៀបជាថ្នាក់ៗ ជាប្រភេទថ្មបាយក្រៀម និងដុំឥដ្ឋធំៗ។ ចំណែកទួកគក់សំពៅ មានសណ្ឋានដូចជា សំពៅវែងប្រវែងប្រមាន
+                            ២៥ម៉ែត្រ កម្ពស់ ៤ម៉ែត្រ ចំណែកឯជាយសងខាងនៃទួលមានតម្រៀបដោយថ្មបាយក្រៀម និងដុំឥដ្ឋជាថ្នាក់ៗផងដែរ។
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="SvayRieng/c.jpg" alt="ប្រាសាទព្រះវិហារ" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="SvayRieng/fn-2020-03-30-13-59-40-0.png" alt="ភ្នំឥសីប៉ាតាម៉ាក់" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ប្រាសាទជីហោ</strong>
+                        <p>
+                            ប្រាសាទជីហោ៖ ប្រសាទជីហោ គឺជាប្រាសាទមួយដែលមានវ័យចំណាស់ជាងគេក្នុងខេត្តស្វាយរៀង ស្ថិតនៅតំបន់ឦសាននៃទីរួមខេត្តស្វាយរៀង ចម្ងាយប្រមាណ ៥៨គីឡូម៉ែត្រ។ ប្រាសាទនេះ កសាងឡើងក្នុងកំឡុងសតវត្សទី៦ (លំនាំរចនាបទសំបូរព្រៃគុហ៍) សង់នៅលើទីទួលមួយកន្លែងមានកម្ពស់ ៣ម៉ែត្រ ទំហំ ៥០ម៉ែត្រ បួនជ្រុង ប្របតាមមាត់ទន្លេជាប់ព្រំប្រទល់ដែន កម្ពុជា-វៀតណាម ។ រីឯតួប្រាសាទធ្វើអំពីឥដ្ឋ និងថ្មបាយក្រៀមពីទិសខាងកើត ក្រៅពីនេះមានសុទ្ធតែទ្វារបង្អួចបញ្ឆោត បិទជាប់ជញ្ជាំង។ ចំពោះទ្វារ មេបង្អួចក្បាច់ផ្ងា និងក្បាច់ផ្សេងៗទៀតធ្វើអំពីដីដុតទាំងអស់។
+                        </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

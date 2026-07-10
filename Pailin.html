@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ប៉ៃលិន - Pailin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តប៉ៃលិន</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Pailin</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តប៉ៃលិន</h2>
+                        <p>
+                            ប៉ៃលិន ជា​ខេត្ត​មួយ​ឋិត​នៅ​ជ្រុង​ខាង​ជើង​នៃ​ជួរ​ភ្នំ​ក្រវាញ ត្រូវ​ជា​ភាគ​ខាង​លិច​នៃ​ព្រះរាជាណា
+                            ចក្រ​កម្ពុជា មាន​ព្រំ​ប្រទល់​ជាប់​ជា​មួយ​ប្រទេស​ថៃ​។ ខេត្ត​នេះ​ព័ទ្ធ​ជុំ​វិញ​ដោយ​ខេត្ត​បាត់ដំបង 
+                            និង ត្រូវ​បាន​ផ្ដាច់​ចេញ​ពី​ខេត្ត​បាត់ដំបង ឱ្យ​ក្លាយ​ជា​តំបន់​រដ្ឋបាល​ដាច់​ដោយ​ឡែក បន្ទាប់​ពី​ការ​ចុះ
+                            ​ចូល​របស់​ក្រុម​លោក​អៀង​ សារី នៅ​ឆ្នាំ ១៩៩៦។ ប៉ៃលិន​ត្រូវ​បាន​ពិភពលោក​ស្គាល់​ថា ជា​ជម្រក​ចុងក្រោ
+                            យ​នៃ​ពួក​ខ្មែរ​ក្រហម ដែល​ឋិត​នៅ​ក្រោម​ការ​គ្រប់គ្រង​របស់​ពួក​គេ បន្ទាប់​ពី​បាន​ចាញ់​សង្គ្រាម​ នៅ​ឆ្នាំ ១
+                            ៩៧៩ និង ដើរ​តួ​ជា រដ្ឋធានី​នៃ រដ្ឋាភិបាល​បណ្ដោះ​អាសន្ននៃការ​រួបរួម​ជាតិ និង សង្គ្រោះ​ជាតិ​កម្ពុជា ។
+                            ខេត្តនេះគឺជាខេត្តដែលស្ថិតនៅក្រោមអាណាចក្រខ្មែរដ៏មានឥទ្ធិពល ប៉ៃលិនត្រូវបានដណ្តើម
+                            កាន់កាប់នៅឆ្នាំ១៥៥៨ ដោយពួកកងទ័ពភូមា ហើយក្រោយមកបានគ្រប់គ្រងដោយសៀម
+                            រហូតដល់ឆ្នាំ១៩០៧ និងម្តងទៀតពីឆ្នាំ១៩៤១ ដល់១៩៤៦ (កម្ពុជាក្រោមការត្រួតត្រារបស់ជប៉ុន) នៅពេលដែលខេត្តប៉ៃលិនត្រូវបានប្រគល់មកអោយកម្ពុជាវិញ។ នៅ​ថ្ងៃ​ទី ២២ ធ្នូ ២០០៨ 
+                            ព្រះ​បាទ​នរោត្តម សីហមុនី បាន​ចុះ​ព្រះហស្ថលេខា លើ​រាជក្រឹត្យ​​មួយ ដើម្បី​ផ្លាស់ប្ដូរ ក្រុងកែប ក្រុង
+                            ប៉ៃលិន និង ក្រុងព្រះ​សីហនុ ឱ្យ​ទៅ​ជា​ខេត្ត ព្រម​ទាំង​កែ​តម្រូវ​ព្រំ​ប្រទល់​ខេត្ត​ផ្សេង​ៗ​ទៀត​ផង​ដែរ​។[២
+                            ] ប្រជាជននៅទីនោះភាគច្រើនជាកសិករ មានដាំដំណាំ ជាច្រើន ប្រភេទដូចជា ពោត ដំឡូង ។ដំ
+                            ណាំដែលទទួលផលល្អ ជាងគេ ហើយនាំចេញច្រើនគឺ ពោត។ ទន្ទឹមនឹងដំណាំទាំងនេះ មានដាំផ្លែឈើ
+                            ហូបផ្លែ មាន ដូចជា​​ ស្វាយ ចេក សាវម៉ាវ ធុរ៉េន មង្ឃុត ជាពិសេស គឺ ក្ងែន​ ជាផ្លែឈើមួយប្រភេទ 
+                            ដែលដុះនៅតែតំបន់ ប៉ៃលិន ហើយក៏មានការដាំបន្តហើយ​នៅតាមបណ្ដា ខេត្តនានា​។ ក្ងែន មិនខុសពី
+                            មៀនទេ ប៉ុន្តែវាមិនផ្អែមដូចមៀនទេ​ ហើយវាមានសាច់ច្រើនជាង​មៀន។ ការរស់នៅរបស់ប្រជាជនគឺ 
+                            ពួកគេចេះស្រឡាញ់គ្នាទៅវិញទៅមក ហើយបើមានកម្មវិធី បុណ្យទានផ្សេងៗ គេជួយគ្នាទៅវិញទៅមក 
+                            ប្រកបដោយការយោគយល់។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="Pailin/Cambodia_Pailin_locator_map.svg.png" alt="Pailin" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    វប្បធម៌របស់ប៉ៃលិនគឺខុសគ្នាយ៉ាងច្បាស់ពីវប្បធម៌ខ្មែរភាគច្រើន។
+                    យោងតាមទិន្នន័យមួយចំនួន វប្បធម៌របស់ប៉ៃលិនភាគច្រើនជាជនជាតិភូមា 
+                    ហើយមានចំណុចស្រដៀងគ្នាច្រើនជាមួយវប្បធម៌នៃប្រទេសភូមា។
+                    ភាពស្និទ្ធស្នាលនេះត្រូវបានបង្ហាញនៅក្នុងម្ហូបអាហារ សម្លៀកបំពាក់ ស្ថាបត្យកម្មប្រាសាទ 
+                    ពិធីបុណ្យ និងសិល្បៈនៅក្នុងតំបន់។ វប្បធម៌នេះអាចត្រូវបានគេមើលឃើញថាស្រដៀងគ្នាទៅនឹងវប្បធម៌នៅឈៀងម៉ៃ
+                    ប្រទេសថៃ។ ប្រជាជនប៉ៃលិនភាគច្រើនជាជនជាតិកូឡា។ ជនជាតិកូឡាដើមឡើយបានធ្វើចំណាកស្រុកពីប្រទេសភូមាតាំងពីឆ្នាំ 1876
+                    (ចំណាំ៖ ប្រជាជនខ្មែរហៅជនជាតិភូមាថា "កូឡា" ឬ "ពូមៀ")។ រលកនៃជនអន្តោប្រវេសន៍មួយទៀតគឺជនជាតិសាន
+                    (ជនជាតិភាគតិចមួយក្នុងចំណោមជនជាតិភាគតិចជាច្រើននៅភូមា) បានមកដល់ពីប្រទេសភូមាក្នុងទសវត្សរ៍ឆ្នាំ 1920។ ជនជាតិ
+                    "កូឡា" ឬជនអន្តោប្រវេសន៍ភូមាមកពីប៉ៃលិនត្រូវបានគេស្គាល់ដោយសារការងាររបស់ពួកគេនៅក្នុងអាជីវកម្មត្បូងមានតម្លៃ
+                    ដែលទំនងជាអ្វីដែលទាក់ទាញពួកគេមកប៉ៃលិន។ ប៉ៃលិនគឺជាឈ្មោះដូចគ្នាទៅនឹងតំបន់មុកុកនៃប្រទេសភូមា
+                    ជាកន្លែងដែលត្បូងមានតម្លៃស្រដៀងគ្នានេះត្រូវបានជីកយករ៉ែ។ យោងតាមអ្នកធ្វើអាជីវកម្មត្បូង ត្បូងនៅប៉ៃលិនអាចប្រៀបធៀបទៅនឹងត្បូងមកពីតំបន់មុកកុកក្នុងប្រទេសភូមា។ 
+                    ដូច្នេះ ប្រជាជនខ្មែរជឿថាជនជាតិកូឡា ឬជនអន្តោប្រវេសន៍មកពីប្រទេសភូមាមកពីតំបន់មុកកុកនៃប្រទេសភូមា។[៥] មានគ្រាមភាសាជាច្រើនដែលនិយាយក្នុងស្រុក 
+                    រួមមានភាសាខ្មែរ សាន និងកូឡា។ គ្រាមភាសាខ្មែរក្នុងស្រុកបង្ហាញពីឥទ្ធិពលនៃសម្លេង និងការបញ្ចេញសំឡេងពីភាសាភូមា ក៏ដូចជាភាសាខាំមឿង និងភាសាមន។ នៅប៉ៃលិន 
+                    មានអាហារប្រភេទផ្សេងៗគ្នាមួយចំនួន។ អាហាររបស់កូឡាក៏ខុសពីម្ហូបភូមាដែរ។ ម្ហូបបែបភូមាដ៏ពេញនិយមបំផុតគឺមីកូឡា (មីកូឡា) ដែលជាម្ហូបបួសដែលធ្វើពីមីស្តើងៗ ចំហុយ និងចម្អិនជាមួយទឹកស៊ីអ៊ីវ និងស្លឹកខ្ទឹម ជួនកាលលាយជាមួយសាច់ខ្លះ និងបង្កងតូចៗ។ ម្ហូបផ្សេងទៀតរួមមាន តុំយ៉ាំមកពីប្រទេសថៃ និងនំបញ្ចុកចេកមនរបស់ប្រទេសភូមា។ ម្ហូបទាំងនេះបានរីករាលដាលដល់តំបន់ផ្សេងទៀតនៃប្រទេសថៃ និងកម្ពុជា ប៉ុន្តែជាធម្មតាមានរសជាតិផ្អែមជាងម្ហូបប៉ៃលិន ជាពិសេសនៅភ្នំពេញ។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="Pailin/1280px-View_from_Phnom_Yat._,_Pailin.jpg" alt="Pailin" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="Pailin/upscalemedia-transformed.png" alt="Pailin Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្ត​ប៉ៃលិន មាន​ស្រុក​ពីរ គឺ ៖
+                    <ul>
+                        <li>ក្រុងប៉ៃលិន​</li>
+                        <li>ស្រុកសាលា​​ក្រៅ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋាន​ភ្នំយ៉ាត</strong>
+                        <p>
+                            ទឹកធ្លាក់ ដាចំប៉ី» បាន និងកំពុងរង់ចាំស្វាគមន៍ 
+                            ភ្ញៀវទេសចរយ៉ាងអន្ទះសារបំផុត នៅឯនាយខាងស្ដាំដៃ 
+                            ហៀបនឹងទៅដល់ព្រំប្រទល់ដែន អន្តរជាតិអូរស្មាច់។ ភ្ញៀវអាចធ្វើដំណើរតាមរថយន្ដ ឬ
+                            ម៉ូតូឡើងភ្នំដោយឆ្លងកាត់វត្ដល្អាងតាថុង អែបរូបចម្លាក់អណ្ដើកធំ តម្រង់ទៅស្នាក់កា
+                            រប៉ុស្ដិ៍អង្គភាពនគរបាលទេសចរណ៍ដ៏ស្ងាត់ជ្រងំ រួចដើរថ្មើរជើងទៅខាងស្ដាំដៃ ប្រមាណ៣០
+                            ០ម៉ែត្រទៀត លោកអ្នកនឹងឃើញទឹកធ្លាក់ រាយប៉ាយពីលើកំពូលភ្នំរហូតដល់ចង្កេះភ្នំ(ល្អាងតាថុង
+                            )។ពីចំណុចតូបលក់ដូរចំណី និងភេសជ្ជៈត្រជាក់ៗរបស់អ្នកស្រី វី រហូតឡើងដល់កំពូលភ្នំ ទឹកហូរបាចសា
+                            ចលើជម្រាលភ្នំថ្មជាច្រើនកន្លែងបន្ដរង់ចាំភ្ញៀវជាហូរហែ។ទីនេះមានទឹកហូរកម្ពស់ទាបតែប្រមាណ១ម៉ែត្រ និង
+                            ហូរច្រោះតាមរូងថ្មរាងជារង្វង់។ចំណុចទាបបំផុត ក្បែរតូបភេសជ្ជៈចម្ងាយប្រមាណ៥០ម៉ែត្រ ចុះតាមជ្រលងឡោមព័
+                            ទ្ធ ដោយរុក្ខជាតិតូចធំឈរច្រូងច្រាងបន្ដជាម្លប់យ៉ាងត្រឈឹងត្រឈៃ។ទឹកធ្លាក់ខ្ពស់បំផុតជាង ៥ម៉ែត្ររំលេចទស្សនីយភាព
+                            ទាក់ទាញបំផុត។ជ្រលងទឹកធ្លាក់ជ្រកក្រោមម្លប់ឈើស៊ុបទ្រុបនេះ តែងតែទាក់ទាញទ័ពស្វាជាច្រើនរយក្បាល មករកផលានុផលបរិ
+                            ភោគប្រចាំរដូវមិនដាច់រយៈដល់ការវាតទីបំភ័យភ្ញៀវផងដែរ។អ្នកស្រី វី ជាអ្នកលក់ដូរក្បែរទីឋានទឹកធ្លាក់នោះជាង១០ឆ្នាំឲ្យដឹងថា៖ «ដល់រ
+                            ដូវមានផ្លែឈើព្រៃសម្បូរ ហ្វូងស្វារាប់រយក្បាលនឹងនាំគ្នាមកកាន់ទីនេះ ហើយប្រញាយគ្នាពាសពេញលើដើមឈើ និងដី។ ខ្ញុំភ័យណាស់ ហើយពួកវាមិ
+                            នខ្លាចមនុស្សទេ។ ទុករបស់ប្រហែសវានឹងអូសយកទៅហើយ»
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Pailin/Pailin-រមណីយដ្ឋានភ្នំយ៉ាត3.jpg" alt="រមណីយដ្ឋាន​ភ្នំយ៉ាត" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Pailin/fn-2018-08-29-14-32-55-17.jpg" alt="រមណីយដ្ឋាន​អូរអែម" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋាន​អូរអែម</strong>
+                        <p>
+                            រមណីយដ្ឋាន​អូរអែម ជា​តំបន់​រមណីយដ្ឋាន​ចាស់​ ដែល​ស្ថិត​នៅ​ក្នុង​សង្កាត់​អូរ​ច្រារ ខ័ណ្ឌ​ប៉ៃលិន​មាន​ចំងាយ​១០គម​ពីក្រុង​ប៉ៃលិន​ហើយ​រមណីយដ្ឋាន​នេះ​ជារមណីយដ្ឋាន​ធម្មជាតិ។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>បឹងស្នោ</strong>
+                        <p>
+                            រមណីយដ្ឋាន​ទឹកធ្លាកអូរតាវ៉ៅឬទឹកធ្លាក់ភ្នំខៀវ ជារមណីយដ្ឋានទេសចរណ៍ធម្មជាតិដើម្បីទៅដល់ ទីនេះ 
+                            ភ្ញៀវទេសចរត្រូវធ្វើដំណើរ​តាម​ផ្លូវជាតិ​លេខ​៥៧ រហូតដល់​ស្ពានថ្ម​អូរ​តា​វ៉ៅ​ឡើងទៅ​ប្រហែល​ជាង ១០០ ម៉ែត្រ​ក្នុង​ខេត្ត​ប៉ៃលិន​នោះ
+                             និង​ឃើញ​ផ្លាកសញ្ញា​បង្ហាញ​ទីតាំង​ត្រង់​ម្ដុំ​ផ្លូវបំបែក​ភូមិ​ខ្លុង ពី​ខាងឆ្វេង​ដៃ ហើយ​បត់​ចូលទៅ​ប្រមាណ ៧ គីឡូម៉ែត្រ​ទៀត 
+                             និង​ដល់​កន្លែង​រមណីយដ្ឋាន​ធម្មជាតិ​ទឹកថ្លា​ក់​ក្បាល​អូរ​តា​វ៉ៅ​ហើយ​។ រមណីយ​ដ្ឋា​ននេះ​មាន​ស្ទឹង​ធម្មជាតិ​ទឹកថ្លា មាន​ជ្រោះ​ទឹក​
+                             ហូរ​ធ្លាក់​លើ​ល្បាក់​ថ្មដា យ៉ាងខ្ពស់ ខ្យល់អាកាស​ត្រជាក់​ដល់​ក្រអៅបេះដូង​ដែល​ធ្វើ​ឲ្យ​ភ្ញៀវ​ទេសចរណ៍​ជាតិ និង​អន្តរជាតិ ទៅ
+                             លេង​សប្បាយរីករាយ​។ ពិសេស​នោះ គឺ​ម្ចាស់​វិនិយោគ​បាន​កែច្នៃ​ខ្ចូ​ស​កន្លែង​អង្គុយលេង​នៅក្បែរ​មាត់​ស្ទឹង​អូរ​តា​វ៉ៅ​ជាច្រើន
+                             ​កន្លែង មាន​ខ្ចូ​ស​អង្គុយ​នៅ​ខាងលើ​ច្រាំង និង​ខាងលើ​កន្លែង​ចត​ឡាន សម្រាប់​ភ្ញៀវ​ទេសចរ​រង់ចាំ​ក្រុមគ្រួសារ​ចុះទៅ​លេ
+                             ង​ទឹកជ្រោះ​ធ្លាក់​បែក​ផ្កាត្រែង​។ ចំណែក​កន្លែង​ទុកដាក់​ឡាន​ម៉ូតូ​យ៉ាង​ស្រូល​ដែល​មិន​ធ្វើ​ឲ្យ​មានការ​ព្រួយបារម្ភ​ពី​សុ​វត្ថ​ភាព​បាត់បង់​អ្វី​ឡើយ​។​
+                        </p>    
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="Pailin/19620211910front_.jpg" alt="បឹងស្នោ" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

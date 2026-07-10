@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>សៀមរាប - Siem Reap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តសៀមរាប</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Siem Reap</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តសៀមរាប</h2>
+                        <p>
+                        <b>ខេត្តសៀមរាប</b> (អង់គ្លេស : Siem Reap Province) គឺជាខេត្តមួយដែលមានទីតាំងស្ថិតនៅភាគពាយ័ព្យនៃប្រទេសកម្ពុជា។
+                        ទីរួមខេត្តរបស់ខេត្តសៀមរាបគឺ<b>ក្រុងសៀមរាបនិងក្រុងរុនតាឯក</b>។
+                        ខេត្តសៀមរាបត្រូវបានដាក់ឈ្មោះបែបនេះគឺដើម្បីរំលឹកដល់ជ័យជម្នះរបស់កងទ័ពខ្មែរវាយឈ្នះលើកងទ័ពសៀម
+                        នៅសម័យលង្វែកនៅក្នុងសតវត្សរ៍ទី ១៦។
+                        សព្វថ្ងៃខេត្តសៀមរាបត្រូវបានគេស្គាល់ទូទាំងពិភពលោកថាជាទីតាំងនៃប្រាសាទអង្គរវត្តដ៏ល្បីល្បាញ។
+                        ខេត្តនេះគឺជាតំបន់ទេសចរណ៍ដ៏សំខាន់របស់ប្រទេសកម្ពុជាដោយសារខេត្តនេះមានប្រាសាទអង្គរវត្តដ៏ល្បីល្បាញនិងប្រាសាទបុរាណដទៃទៀតជាច្រើន។
+                        ថ្មីៗនេះក្រុងសៀមរាបកំពុងប្រែក្លាយរូបរាងទៅជាក្រុងទំនើបតាមរយៈកំណើនសណ្ឋាគារ 
+                        ភោជនីយដ្ឋាន ហាងលក់ទំនិញជាដើមដែលបម្រើឲ្យវិស័យទេសចរណ៍។រមណីយដ្ឋាន
+                        បុរាណនិងប្រាសាទបុរាណជាច្រើនដែលស្ថិតនៅក្នុងក្រុងនិងក្រៅក្រុងនៃ
+                        ខេត្តសៀមរាបគឺជាគោលដៅទេសចរណ៍ដ៏សំខាន់សម្រាប់ឲ្យភ្ញៀវទេសចរមកពី
+                        គ្រប់ទិសទីទស្សនានិងសិក្សាស្វែងយល់អំពីវប្បធម៌ អរិយធម៌ និង សង្គមធម៌របស់ខ្មែរ។
+                        តំបន់អង្គរត្រូវបានរងនូវការលុកលុយជាច្រើនដងពីពួកសៀមហើយទីបំផុតរាជធានីអង្គរត្រូវបានបោះបង់ចោលនៅក្នុងឆ្នាំ ១៤៣១។
+                        គួររំលឹកផងដែរថារាជធានីរបស់ប្រទេសកម្ពុជាត្រូវបានប្តូរពីរាជធានីអង្គរទៅរាជធានីចតុមុខនៅក្នុងឆ្នាំ
+                        ១៤៣២ រួចបន្តទៅរាជធានីលង្វែកនិងរាជធានីឧដុង្គហើយត្រឡប់ទៅរាជធានីចតុមុខវិញនៅក្នុងឆ្នាំ ១៨៦៦។
+                        ជនជាតិបទេសដែលបានមកដល់ប្រាសាទអង្គរវត្តមុនគេគឺអ្នករុករកជនជាតិបារាំងលោកហង់រី មូហូតនៅក្នុងឆ្នាំ ១៨៦០
+                        (នាសម័យលង្វែកសតវត្សរ៍ទី ១៦ ក៏មានជនបរទេសខាងបស្ចឹមលោកក៏បានមកមើលប្រាសាទអង្គរវត្តរួចមកហើយដែរ)។
+                        តំបន់សៀមរាបអង្គរគឺជាគោលដៅចម្បងសម្រាប់ភ្ញៀវទេសចរទូទាំងពិភពលោកហើយក៏ជាតំបន់ដែលសម្បូរទៅដោយសំណង់
+                        ប្រាសាទបុរាណតូចធំជាច្រើនអនេកដែលជាទីស្ថានរបស់ពពួកអាទិទេពទាំងឡាយទាំងពួងផងដែរ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 90px">
+                    <img src="SiemReap/Cambodia_Siem_Reap_locator_map.svg.png" alt="Siem Reap" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 100px;">
+                <img src="SiemReap/smart01.2e16d0ba.fill-960x540.png" alt="Siem Reap Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                <b>ខេត្តសៀមរាប</b> គឺជាខេត្តមួយស្ថិតនៅតំបន់ភាគពាយ័ព្យនៃប្រទេសកម្ពុជាតាមបណ្តោយផ្លូវជាតិលេខ ០៦ 
+                ដែលមានចម្ងាយ ៣១៤ គីឡូម៉ែត្រពីរាជធានីភ្នំពេញមានពំ្រប្រទល់ខាងលិចជាប់នឹងខេត្តបន្ទាយមានជ័យ
+                ខាងកើតជាប់នឹងខេត្តកំពង់ធំនិងខេត្តព្រះវិហារខាងជើងជាប់នឹងខេត្តឧត្តរមានជ័យនិងខេត្តព្រះវិហារនិង
+                ខាងត្បូងជាប់នឹងខេត្តបាត់ដំបងនិងបឹងទន្លេសាប។ខេត្តនេះមានព្រំប្រទល់ជាប់បឹងទន្លេសាបប្រវែង ៨២ គីឡូម៉ែត្រ
+                ដែលស្ថិតជាប់នឹងស្រុកជីក្រែង ស្រុកសូត្រនិគម ស្រុកប្រាសាទបាគង ក្រុងសៀមរាប ស្រុកពួក និង ស្រុកក្រឡាញ់។
+                <b>ខេត្តសៀមរាប</b>មានផ្ទៃក្រឡាសរុបប្រមាណ <b>១០២៩៩.៤៣ គីឡូម៉ែត្រការ៉េ</b>ចែកចេញជា ១៣ ក្រុងនិងស្រុកដែលនៅ
+                ក្នុងនោះមាន ០២ ក្រុង ១៤ សង្កាត់ និង ១១ ស្រុក ៨៦ ឃុំ និង ៩១០ ភូមិ។ខេត្តនេះមានសណ្ឋានដីចែកជា ០៣ 
+                តំបន់សំខាន់ៗដោយតំបន់ខ្ពស់(តំបន់ខ្ពង់រាបឬតំបន់ព្រៃភ្នំ)គឺជាតំបន់ចម្ការ ឈើហូបផ្លែ និង ដំណាំឧស្សាហកម្មស្ថិត
+                នៅភាគពាយ័ព្យ ភាគឧត្តរ និង ភាគឦសាននៃខេត្តសៀមរាបនៅក្នុងនោះមានស្រុកស្រីស្នំ ស្រុកវ៉ារិន ស្រុកបន្ទាយស្រី 
+                ស្រុកអង្គរជុំ និង ស្រុកស្វាយលើ។តំបន់វាលទំនាប(តំបន់វាលស្រែ)ដែលលាតសន្ធឹងតាមដងផ្លូវជាតិលេខ ០៦ 
+                នៅក្នុងនោះមានស្រុកជីក្រែង ស្រុកប្រាសាទបាគង ក្រុងសៀមរាប ស្រុកពួក និង ស្រុកក្រឡាញ់។តំបន់ទំនាបគឺជាតំបន់
+                ជាប់នឹងបឹងទន្លេសាបដែលស្ថិតនៅប៉ែកខាងកើតនៃខេត្តសៀមរាបមានស្រុកប្រាសាទបាគង ស្រុកសូទ្រនិគម និង 
+                ស្រុកជីក្រែង។នៅរដូវវស្សាតំបន់នេះទទួលរងនូវការលិចទឹកជារៀងរាល់ឆ្នាំមួយភាគគឺជាតំបន់ព្រៃលិចទឹកដែលជាជម្រកត្រី
+                ពងកូនចំណែកខាងលើនៃតំបន់នេះគឺជាកន្លែងធ្វើស្រូវឡើងទឹកនៅរដូវវស្សានិងដាំដំណាំបន្លែធ្វើនៅរដូវប្រាំង។
+                ក្រៅពីផ្ទៃដីកសិកម្មនៅក្នុងនោះមានផ្ទៃដីព្រៃភ្នំ ដីព្រៃលិចទឹក ស្ទឹង បឹងបួរ និង អាងទឹក។
+                </p>
+            </section>            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="SiemReap/17_srp_simplify.jpg" alt="Siem Reap Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តសៀមរាប ចែកចេញជា ១៣​ ក្រុង/ស្រុក ១០០ សង្កាត់/ឃុំ និង ៩១០ ភូមិ
+                    <ul>
+                        <li>ក្រុងសៀមរាប</li>
+                        <li>ស្រុកអង្គរជុំ</li>
+                        <li>ស្រុកអង្គរធំ</li>
+                        <li>ស្រុកបន្ទាយស្រី</li>
+                        <li>ស្រុកជីក្រែង</li>
+                        <li>ស្រុកក្រឡាញ់</li>
+                        <li>ស្រុកពួក</li>
+                        <li>ស្រុកប្រាសាទបាគង</li>
+                        <li>ស្រុកសូទ្រនិគម</li>
+                        <li>ស្រុកស្រីស្នំ</li>
+                        <li>ស្រុកស្វាយលើ</li>
+                        <li>ស្រុកវ៉ារិន</li>
+                        <li>ក្រុងរុនតាឯក</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ព្រះរាជដំណាក់ ឬ វាំងចាស់</h2>
+                        <p>
+                            ព្រះរាជដំណាក់ ឬ វាំងចាស់នៅក្នុងក្រុងសៀមរាប គឺជាទីកន្លែងស្នាក់នៅបណ្ដោះអាសន្នរបស់អតីតព្រះមហាក្សត្រនៃយើងគឺព្រះបាទនរោត្តម សីហនុ និង
+                             ព្រះរាជអគ្គមហេសី។ព្រះរាជដំណាក់នេះគឺជាទីដែលព្រះអង្គស្នាក់នៅអាស្រ័យពេលស្ដេចយាងមកកាន់ក្រុងសៀមរាប។
+                            បើយើងធ្វើដំណើរពីរាជធានីភ្នំពេញតាមផ្លូវជាតិលេខ ០៦ សង្កាត់ស្វាយដង្គំ ក្រុងសៀមរាបមើលមកខាងស្ដាំដៃ
+                            យើងនឹងឃើញអគារពណ៌សមួយអមដោយរបងនិងដើមឈើត្រឈឹងត្រឈៃនិងបរិវេណស្រស់ស្រាយដែលមានសួន
+                            ច្បារធំនៅខាងមុខ(សួនហ្គ្រង់ឬបឹងកាឡូ)នោះហើយគឺជាព្រះរាជដំណាក់។ព្រះរាជដំណាក់នេះត្រូវបានសាងសង់ឡើង
+                            នៅក្នុងសម័យបារាំងដាក់អាណានិគមមកលើប្រទេសកម្ពុជាអំឡុងឆ្នាំ ១៨៦៣ ដល់ឆ្នាំ ១៩៥៣។ព្រះរាជដំណាក់នៅ
+                            ក្នុងសម័យព្រះបាទស៊ីសុវត្ថិគឺស្ថិតនៅក្នុងវត្តដំណាក់ហើយវត្តដំណាក់គឺជាវត្តមួយដែលស្ថិតនៅខាងកើតដងស្ទឹងសៀមរាប
+                            ចំកណ្ដាលបេះដូងនៃក្រុងសៀមរាបតែម្ដង។វត្តដំណាក់ពីមុនគឺជាទីតាំងព្រះរាជដំណាក់របស់ព្រះបាទស៊ីសុវត្ថិនៅក្នុងអំឡុងឆ្នាំ
+                             ១៩០៤ ដល់ឆ្នាំ ១៩២៧។លុះក្រោយមកព្រះរាជដំណាក់របស់ព្រះមហាក្សត្រត្រូវបានប្ដូរទីតាំងទៅនៅជិតអាស្រមព្រះអង្គចេក
+                              ព្រះអង្គចមវិញ។ក្រោយពីព្រះរាជដំណាក់ត្រូវបានផ្លាស់ប្ដូរទីតាំងទីធ្លាបរិវេណព្រះរាជដំណាក់ចាស់ត្រូវបានប្រែក្លាយជាទីវត្ត
+                              អារាមព្រះពុទ្ធសាសនាវិញ។ជាអកុសលវត្តដំណាក់នៅក្នុងរបបខ្មែរក្រហមត្រូវបានកងទ័ពខ្មែរក្រហមប្រើប្រាស់ជាមូលដ្ឋាន
+                              យោធារបស់ពួកគេ។បច្ចុប្បន្ននេះមិនត្រឹមតែជាទីអារាមរបស់ព្រះពុទ្ធសាសនាសម្រាប់ព្រះសង្ឃគង់នៅបដិបត្តិធម៌និងសម្រាប់
+                              ឲ្យពុទ្ធបរិស័ទធ្វើបុណ្យទានប៉ុណ្ណោះទេតែវត្តនេះក៏ជាថ្នាលបណ្ដុះបណ្ដាលចំណេះវិជ្ជាដល់ព្រះសង្ឃផងដែរដោយសារតែនៅក្នុងវត្តមាន
+                              ពុទ្ធិកបឋមសិក្សាសម្រាប់ព្រះសង្ឃសិក្សារៀនសូត្រភាសាបាលី ភាសាសំស្ក្រឹត និង ព្រះធម៌នានា។លើសពីនេះនៅក្នុងបរិវេណវត្តក៏
+                              មានសាលាបឋមសិក្សាសម្រាប់ឲ្យកុមារសិក្សារៀនសូត្រផងដែរ។បន្ថែមពីលើនេះជារៀងរាល់ថ្ងៃតែងតែមានជនានុជនជាច្រើន
+                              បានអានសៀវភៅឬធ្វើកិច្ចការសាលានៅទីនោះ។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="SiemReap/caption.jpg" alt="ព្រះរាជដំណាក់ ឬ វាំងចាស់" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame">
+                    <img src="SiemReap/រសៀលនៅមាត់ស្ទឹងសៀមរាប.jpg" alt="រសៀលនៅមាត់ស្ទឹងសៀមរាប" />
+                </div>
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ស្ទឹងសៀមរាប</strong>
+                        <p>
+                            <b>ស្ទឹងសៀមរាប</b> ត្រូវបានគេចាត់ទុកជាស្ទឹងប្រវត្តិសាស្ត្រមួយដ៏សំខាន់សម្រាប់ខេត្តសៀមរាប។តាមពិតទៅស្ទឹងសៀមរាប
+                            គឺជាស្ទឹងសិប្បនិមិត្តដែលកកើតឡើងដោយស្នាដៃរបស់មនុស្ស។គ្មានឯកសារបញ្ជាក់ពីឆ្នាំនៃការបង្កើត<b>ស្ទឹងសៀមរាប</b>ឲ្យ
+                            ជាក់លាក់នោះទេប៉ុន្តែអ្នកស្រាវជ្រាវបានបញ្ជាក់ថាវាត្រូវបានគេបង្កើតនិងកែច្នៃជាច្រើនសារតម្រូវតាមការរៀបចំដែនដី
+                            នៅក្នុងសម័យអង្គរ។ស្ទឹងសៀមរាបកកើតឡើងដោយសារការប្រសព្វគ្នារវាងអូរធំៗចំនួន ០២ គឺអូរធំនិងអូរក្បាលស្ពាន។
+                            ស្ទឹងសៀមរាបស្ថិតនៅក្នុងចំណោមស្ទឹងសំខាន់ៗទាំង ០៣ ដែលហូរកាត់តំបន់អង្គរដោយធ្វើដំណើរពីជើងទៅត្បូង។
+                            ស្ទឹងនេះស្ថិតនៅខាងកើតស្ទឹងពួកនិងខាងលិចស្ទឹងរលួស។យោងតាមឯកសាររបស់លោកអ៊ឹម សុខរិទ្ធីអនុប្រធាននាយកដ្ឋាន
+                            មជ្ឈមណ្ឌលអន្តរជាតិស្រាវជ្រាវនិងតម្កល់ឯកសារអង្គរនៃអាជ្ញាធរជាតិអប្សរាបានសរសេរថាស្ទឹងសៀមរាបដែលគេឃើញសព្វថ្ងៃ
+                            ចាប់ពីចំណុចបំពេញរាជមកជាសមិទ្ធិផលនៃស្នាដៃមនុស្សបង្កើតឡើងនៅក្នុងសម័យអង្គរ។ស្ទឹងនេះកើតពីអូរតូចៗដែលហូរពី
+                            ភ្នំផ្សេងៗដែលស្ថិតនៅខាងជើងវាលរាបអង្គរបន្ទាប់មកវាជួបគ្នានៅច្រកមួយមុននឹងហូរធ្លាក់ទៅកាន់វាលរាប។ក្នុងនោះក៏មាន
+                            ដៃអូរតូចៗជាច្រើនបានហូរមកភ្ជាប់បន្ថែមទៀតដែលប្រភព ០២ សំខាន់ៗដែលគេស្គាល់ច្បាស់នោះគឺអូរធំនិងអូរក្បាលស្ពាន។
+                            អូរធំមានប្រភពពីភ្នំគូលែនដែលមានចម្ងាយប្រមាណ ៤០ គីឡូម៉ែត្រពីទិសឦសាននៃរមណីយដ្ឋានអង្គរ។លោកអ៊ឹម សុខរិទ្ធីបាន
+                            លម្អិតនៅក្នុងឯកសាររបស់លោកបន្ថែមទៀតថាភ្នំគូលែនដែលមានលក្ខណៈខ្ពង់រាបមានបណ្តោយ ២៥ គីឡូម៉ែត្រលាតសន្ធឹងពី
+                            ទិសពាយ័ព្យមកទិសអាគ្នេយ៍និងមានទទឹង ១៥ គីឡូម៉ែត្រពីទិសនិរតីមកឦសាននិងមានកម្ពស់ ៣០០ ម៉ែត្រទៅ ៤៥០ ម៉ែត្រ
+                            ប្រៀបនឹងវាលទំនាបជុំវិញ។ជ្រលងចុងខាងកើតនៃខ្ពង់រាបគូលែនមានជប់ធំមួយដែលឲ្យកំណើតទៅផ្លូវទឹកសំខាន់ៗ ០២ គឺអូរថ្មដាប់និងអូរធំ។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>សារមន្ទីរជាតិអង្គរ</strong>
+                        <p>
+                            <b>សារមន្ទីរជាតិអង្គរ </b>គឺជាសារមន្ទីរបុរាណវត្ថុ ដែលឧទ្ទិសដល់ការប្រមូល អភិរក្ស និងបង្ហាញវត្ថុបុរាណសម័យអង្គរផងដែរ ដើម្បីផ្តល់ព័ត៌មាន និងអប់រំអំពីសិល្បៈ និងវប្បធម៌អរិយធម៌ខ្មែរ
+                             ជាមួយនឹងការប្រមូលផ្ដុំភាគច្រើនមានអាយុកាលតាំងពីសម័យអង្គរ នៃអាណាចក្រខ្មែរ ប្រហែលសតវត្សទី៩ ដល់សតវត្សទី១៤។ វត្ថុបុរាណភាគច្រើនត្រូវបានរកឃើញនៅក្នុង 
+                             និងជុំវិញរមណីយដ្ឋានអង្គរដែលនៅជិតនោះ។ សារមន្ទីរ​នេះ​មាន​ទីតាំង​ស្ថិត​ក្នុងខេត្តសៀមរាប ​នៃ​ប្រទេស​កម្ពុជា​នៅ​តាម​ផ្លូវ​រវាង​ក្រុង​សៀមរាប​ទៅ​ផ្លូវ​ខាងជើង​ឆ្ពោះទៅ​ក្រុង​បុរាណ​អង្គរ។
+                             ទីធ្លាខាងក្នុងនៃសារមន្ទីរជាតិអង្គរ ខេត្តសៀមរាប ប្រទេសកម្ពុជា។បើកដំណើរការនៅថ្ងៃទី១២ ខែវិច្ឆិកា ឆ្នាំ២០០៧ 
+                             សារមន្ទីរជាតិអង្គរគ្របដណ្ដប់លើយុគសម័យមាសនៃអាណាចក្រខ្មែរ ដោយប្រើប្រាស់បច្ចេកវិទ្យាពហុព័ត៌មាន សោតទស្សន៍។ សារមន្ទីរនេះគ្របដណ្តប់ប្រវត្តិសាស្ត្រ 
+                             អរិយធម៌ និងបេតិកភណ្ឌវប្បធម៌ខ្មែរនៅក្នុងវិចិត្រសាលចំនួនប្រាំបី។ សារមន្ទីរមានគោលការណ៍ហាមថតរូបយ៉ាងតឹងរ៉ឹង។ សារមន្ទីរនេះត្រូវបានគ្រប់គ្រង និងដំណើរការដោយក្រុមហ៊ុន
+                             ថៃវិល័យលក្ខណ៍ដែលកាន់កាប់អន្តរជាតិ ដែលមានមូលដ្ឋាននៅទីក្រុងបាងកក ។ បច្ចុប្បន្ន​វា​កំពុង​ដាក់​តាំង​បង្ហាញ​វត្ថុ​បុរាណ​វិទ្យា​ដែល​ខ្ចី​ពីសារមន្ទីរជាតិកម្ពុជា ​ក្នុងរាជធានីភ្នំពេញ ។ 
+                             ប្រភពវត្ថុបុរាណមួយទៀតគឺ អភិរក្សអង្គរ <b>(Conservation d'Angkor)</b> ដែល​ជា​កន្លែង​ផ្ទុក​វត្ថុបុរាណ​ប្រហែល ៦០០០ បំណែក​ដែល​បង្កើត​ឡើង​ដោយសាលាបារាំងចុងបូព៌ាប្រទេស ក្នុង​ឆ្នាំ១៩០៨ 
+                             ហើយ​បច្ចុប្បន្ន​ស្ថិត​ក្នុង​ដៃ​ក្រសួង​វប្បធម៌​កម្ពុជា ។
+                        </p>
+                </div>
+
+                <div class="frame">
+                    <img src="SiemReap/t41.jpg" alt="Lakhon Sbek Touch" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px; margin-bottom: 20px;">
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>ចំនួនប្រជាជន</h3>
+                    <p>យោងតាមទិន្នន័យស្ថិតិប៉ាន់ស្មានទីក្រុងក្នុងតំបន់ ក្រុងសៀមរាបមានប្រជាជនប្រមាណ ៣៥២.៩៤៨នាក់។ 
+                    ដោយឡែក ប្រជាជននៅក្នុងខេត្តសៀមរាបទាំងមូល (រួមទាំងក្រុង និងស្រុកនានា) មានចំនួនសរុបប្រមាណ ១.០៩៩.៨២៥នាក់ </p>
+                </div>
+                <div class="info-card">
+                    <h3>សេដ្ឋកិច្ច</h3>
+                    <p>វិស័យទេសចរណ៍មានសារៈសំខាន់យ៉ាងខ្លាំងចំពោះសេដ្ឋកិច្ចក្រុងសៀមរាប។តាមការប៉ាន់ស្មាននៅក្នុងឆ្នាំ ២០១០ មានការងារជាង ៥០%
+                     នៅក្នុងក្រុងសៀមរាបគឺពាក់ព័ន្ធនឹងវិស័យទេសចរណ៍។[៣]ក្រុងសៀមរាបបានកើនឡើងយ៉ាងខ្លាំងនូវចំនួនភ្ញៀវទេសចរពីមួយឆ្នាំទៅមួយ
+                     ឆ្នាំបន្ទាប់ពីរបបខ្មែរក្រហមបានបញ្ចប់ហើយអាជីវកម្មដែលផ្តោតលើវិស័យទេសចរណ៍ក៏បានរីកចម្រើនយ៉ាងខ្លាំងដូចគ្នា។នៅពាក់កណ្ដាលទសវត្សរ៍ឆ្នាំ ១៩៩០
+                      ចំនួនភ្ញៀវទេសចរមានចំនួនតិចតួចណាស់ប៉ុន្តែនៅក្នុងឆ្នាំ ២០០៤ មានភ្ញៀវទេសចរបរទេសជាងកន្លះលាននាក់បានមកទស្សនាខេត្តសៀមរាបនៅក្នុង
+                      មួយឆ្នាំៗដែលប្រហែលនឹង ៥០% នៃភ្ញៀវទេសចរបរទេសទាំងអស់នៅក្នុងប្រទេសកម្ពុជា។នៅក្នុងឆ្នាំ ២០១២ ចំនួនភ្ញៀវទេសចរបានកើនឡើងដល់ជាង ០២ លាននាក់។</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

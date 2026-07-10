@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កំពង់ចាម - Kampong Cham</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+                .cart-subtitle {
+            font-family: 'Kantumruy Pro', sans-serif;
+            text-align: center;
+            color: #8c7a5b;;
+            font-size: 14px;
+        }
+
+        .cart-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .cart {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Kantumruy Pro';
+            font-size: 20px;
+            transition: box-shadow 0.2s ease;
+            margin-bottom: 20px;
+        }
+
+        .cart:hover {
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cart img {
+            width: 100%;
+            height: 140px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .cart p {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .cart-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តកំពង់ចាម</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Kampong Cham</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តកំពង់ចាម</h2>
+                        <p>
+                        <b>ខេត្តកំពង់ចាម </b>គឺជាខេត្តមួយរបស់ប្រទេសកម្ពុជា ដែលស្ថិតនៅលើដីទំនាបកណ្តាលនៃទន្លេមេគង្គ។ មានព្រំប្រទល់ជាប់ខេត្តកំពង់ឆ្នាំងនៅខាងលិច 
+                        ខេត្តកំពង់ធំនិងខេត្តក្រចេះខាងជើងនិងឦសាន ខេត្តត្បូងឃ្មុំនៅខាងកើត 
+                        និងខេត្តព្រៃវែងនិងខេត្តកណ្តាលនៅខាងត្បូង។ ខេត្តកំពង់ចាមត្រូវបានបែងចែកជាផ្លូវការជាពីរ
+                        ខេត្តនៅថ្ងៃទី៣១ ខែធ្នូ ឆ្នាំ២០១៣ ដី​ទាំង​អស់​នៅ​ខាង​លិច​ទន្លេ​មេគង្គ​នៅ​តែ​ជា​ខេត្ត​កំពង់ចាម 
+                        នៅដីនៅខាងកើតទន្លេមេគង្គក្លាយជាខេត្តត្បូងឃ្មុំ។ មុនពេលការបែងចែកនេះ ខេត្តកំពង់ចាមបាន
+                        លាតសន្ធឹងទៅខាងកើតជាប់ព្រំដែនអន្តរជាតិជាមួយប្រទេសវៀតណាម ជាខេត្តធំទី១១ នៃប្រទេសកម្ពុជា 
+                        ហើយមានប្រជាជនចំនួន ១ ៦៨០ ៦៩៤ នាក់ គឺជាខេត្តដែលមានប្រជាជនច្រើនជាងគេនៅក្នុង
+                        ប្រទេសកម្ពុជា។ ខេត្តកំពង់ចាមមានទីរួមខេត្តកំពង់ចាមជាទីក្រុង។មិនតែប៉ុណ្ណោះមានទាំងធនធានធម្មជាតិដូចជា ព្រៃ ភ្នំ ទីវាល ទន្លេ​ បឹង
+                        និងប្រភពទឹកផ្សេងៗ ដែលជាសក្តានុពលសម្រាប់វិស័យទេសចរណ៍ និងការវិនិយោគ។ ខេត្តកំពង់ចាមមានតំបន់ទេសចរណ៍ដូចជា 
+                        <b>ប្រាសាទនគរបាជ័យ ប្រាសាទភ្នំជើងព្រៃ ប្រាសាទភ្នំហាន់ជ័យ ប្រាសាទព្រះធាតុទឹកឆា ប្រាសាទភ្នំត្រប់ ភ្នំប្រុស ភ្នំស្រី កសិទេសចរណ៍ថ្មដាទឹកឆា និងឆ្នេរខ្សាច់កោះប៉ែនជាដើម</b>។
+                        </p>
+                </div>
+                <div class="frame">
+                    <img src="KampongCham/Cambodia_Kampong_Cham_locator_map.png" alt="ខេត្តបន្ទាយមានជ័យ" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 100px;">
+                <img src="KampongCham/03_kpc_simplyfy.jpg" alt="ខេត្តបន្ទាយមានជ័យ" />
+            </div>
+
+            <div class="text-box">
+                <h2>ទីតាំងភូមិសាស្រ្ត</h2>
+                <p>
+                ខេត្តកំពង់ចាមគឺជាខេត្តមួយ​ ដែលមានវ័យចំណាស់មួយនៅក្នុងប្រទេសកម្ពុជា 
+                ហើយស្ថិតនៅភាគខាងជើងឆៀងខាងកើតរាជធានីភ្នំពេញ។ខេត្តនេះមានចម្ងាយប្រហែល
+                 ១២៤គីឡូម៉ែត្រពីរាជធានីភ្នំពេញ ដែលកាត់តាមផ្លូវជាតិលេខ៦ និងផ្លូវជាតិលេខ៧។ 
+                 ខេត្តកំពង់ចាមមានផ្ទៃដីចំនួន ៤៥៤៩គីឡូម៉ែត្រការ៉េ ដែលមានក្រុងចំនួន ១ ស្រុកចំនួន
+                 ៩ ឃុំចំនួន១៦៩ សង្កាត់ចំនួន៤ ភូមិចំនួន១៧៥៨។ កាលដើមឡើយខេត្តកំពង់ចាមក្រុង
+                 ចំនួន២ និងស្រុកចំនួន១៤ នៅដើមអាណត្តិនៃរាជរដ្ខាភិបាលកម្ពុជាបានបំបែកខេត្តនេះ
+                 ជាពីរនៅថ្ងៃទី៣១ ខែធ្នូ ឆ្នាំ២០១៣ ដោយព្រះករុណាព្រះបាទនរោត្តម សីហមុនី
+                  ព្រះមហាក្សត្រនៃព្រះរាជាណាចក្រកម្ពុជា។ ខេត្តនេះស្ថិតនៅវាលទំនាបកណ្តាលនៃទន្លេ
+                  មេគង្គ ដែលមានព្រំប្រទល់ខាងលិចជាប់ខេត្តកំពង់ឆ្នាំង ខាងជើងជាប់ខេត្តកំពង់ធំ 
+                  និងខេត្តក្រចេះ ខាងកើតជាប់ខេត្តត្បូងឃ្មុំ ខាងត្បូងជាប់ខេត្តកណ្តាល និងខេត្តព្រៃវែង។
+                
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    <b>កំពង់ចាម</b>ត្រូវបានបែងចែកជា<b>១០ ស្រុក-ក្រុង</b>  ដែលក្នុងនោះបានបែងចែកតទៅទៀតជាឃុំ-សង្កាត់ បន្ថែមពីនោះឃុំ-សង្កាត់ត្រូវបានបែងចែកជាភូមិ។
+                    <ul>
+                        <li>ក្រុងកំពង់ចាម​</li>
+                        <li>ស្រុកចំការលើ</li>
+                        <li>ស្រុកជើងព្រៃ</li>
+                        <li>ស្រុកកំពង់សៀម</li>
+                        <li>ស្រុកកងមាស</li>
+                        <li>ស្រុកកោះសូទិន</li>
+                        <li>ស្រុកព្រៃឈរ</li>
+                        <li>ស្រុកស្រីសន្ធរ</li>
+                        <li>ស្រុកស្ទឹងត្រង់</li>
+                        <li>ស្រុកបាធាយ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+
+            <hr style="margin-top: 20px; margin-bottom: 20px;">
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>នយោបាយ</h3>
+                    <p>ការបោះឆ្នោតសកលចុងក្រោយត្រូវធ្វើឡើងនៅថ្ងៃ ២៨ កក្កដា ២០១៣ ដែលគណបក្សសង្គ្រោះជាតិបានឈ្នះភាគច្រើនជាមួយសំឡេងឆ្នោតប្រជាជន ៥១,៨៨% (៤៥៧ ៨១៩) 
+                        បើប្រៀបធៀបនឹង គ.ប្រ.ក. ដែលមានសំឡេង (៣៧៦ ១៨២)។ 
+                        គ.ស.ជ.បានឈ្នះ ១០ អាសនៈ ខណៈដែលគ.ប្រ.ក.ឈ្នះបាន ៨ អាសនៈក្នុងសភា។ 
+                        កំពង់ចាមធ្លាប់ជាខេត្តមួយក្នុងចំណោមខេត្តទាំងប្រាំដែលគាំទ្រគណបក្សប្រឆាំង គ.ស.ជ. 
+                        នៅឆ្នាំ ២០១៣។
+                    </p>
+                </div>
+                <div class="info-card">
+                    <h3>អត្រាប្រជាជន</h3>
+                    <p>ចំនួន​ប្រជាជនសរុបគឺ ឬ  % នៃចំនួនប្រជាជនសរុប​នៃ​ប្រទេស​កម្ពុជា 
+                        ១៣ ៤១៣ ៨៩២ នាក់ (២០០១, ទិន្នន័យខេត្ត) ជាមួយនិងកំណើន​ប្រជាជន
+                         ចំនួន ២,៤០%, ដែលក្នុងនោះ នាក់ ឬ ជាបុរស និង នាក់ ឬ  % 
+                         ជានារីភេទ។ នៅក្នុង​ចំនួន​ខាង​លើ​នេះដែរ នាក់ ឬ  % ជាកសិករ, នាក់ 
+                         ឬ  % ជា​អ្នកនេសាទ, នាក់ ឬ  % ជាអ្នកជំនួញ, នាក់ ឬ  % ជា 
+                         អ្នកធ្វើការរាជការ។ សន្ទភាពជា​មធ្យម​នៃ​ខេត្ត​នេះ គឺ នាក់ ក្នុងមួយសហាតិមាត្រការ៉េ។</p>
+                </div>
+            </div>
+
+            <hr style="margin-top: 20px;">
+
+                <div class="text-box">
+                     <h2>តំបន់ទេសចរណ៍</h2>
+                    <div class="cart-grid">
+                        <div class="cart" style="width: 210px;">
+                            <img src="KampongCham/Prasat_han_chey.jpg" alt="Cambodia">
+                            <p>ប្រាសាទហាន់ជ័យ</p>
+                        </div>
+
+                        <div class="cart" style="width: 210px;">
+                            <img src="KampongCham/taprom.jpg" alt="Cambodia">
+                            <p>ប្រាសាទគុកតាព្រហ្ម</p>
+                        </div>
+
+                        <div class="cart" style="width: 210px;">
+                            <img src="KampongCham/001.jpg" alt="Cambodia">
+                            <p>ប្រាសាទភ្នំត្រប់</p>
+                        </div>
+                        
+                        <div class="cart" style="width: 210px;">
+                            <img src="KampongCham/2-38.jpg" alt="Cambodia ">
+                            <p>ប្រាសាទព្រះធាតុ</p>
+                        </div>
+                        
+                        <div class="cart" style="width: 210px;">
+                            <img src="KampongCham/Kompong-Cham-ប្រាសាទព្រះធាតុបារាយណ៍2.jpg" alt="Cambodia">
+                            <p>ប្រាសាទព្រះធាតុបារាយណ៍</p>
+                        </div>
+                    </div>
+                </div>
+                
+                            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="KampongCham/image-311-1024x682.png" alt="កោះប៉ែន" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>កោះប៉ែន</strong>
+                        <p>កោះប៉ែន គឺជាកោះធំមួយនៅកណ្តាលទន្លេមេគង្គ ភាគខាងត្បូងក្រុងកំពង់ចាម​ វាមាន​ចម្ងាយប្រហែល ៣គ.មពីក្រុងកំពង់ចាម។
+                              សណ្តូកខ្លួនជាច្រើនគីឡូម៉ែត្រនៅតាមដងទន្លេមេគង្គ កោះប៉ែនផ្តល់ជាភូមិកររបស់អ្នកស្រុករាប់រយគ្រួសារដែលកំពុងរស់នៅលើកោះ។ 
+                              កោះប៉ែន គឺជាគោលដៅទេសចរណ៏បែបសហគមន៍ និងបានបង្ហាញពីជីវភាពរស់នៅរបស់ប្រជាជនតាមដងទន្លេ។  អ្នកស្រុកកោះប៉ែន 
+                              រស់នៅដោយអាស្រ័យផលដំណាំលើទឹកដីកោះដ៏សម្បូរជីជាតិនេះ  ក្នុងនាមកសិករ ខ្លះជាអ្នកនេសាទ និងខ្លះប្រកបការងារសិប្បកម្មតាមប្រពៃណីពីដូនតា។ 
+                              ដំណើរឆ្ពោះទៅកាន់ទឹកដីកោះប៉ែន អ្នកស្រុកត្រូវជិះទូកដរឆ្លងនៅរដូវទឹកឡើង  និងឆ្លងតាមស្ពានប្រដីសឫស្សីដ៏វែងអន្លាយកាត់ទន្លេមេគង្គនារដូវប្រាំង។  
+                              កោះប៉ែនមានទេសភាពស្រស់បំព្រងនាគ្រប់រដូវកាលមានឆ្នេរខ្សាច់ស្អាតល្អដែលធ្វើឲ្យភ្ញៀវទេសចរពេញចិត្តទៅកម្សាន្ត និងងូតទឹកលេងនៅលើឆ្នេរខ្សាច់នារដូវប្រាំង 
+                              និងទទួលទានអាហារផងដែរ។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋានទឹកឆា</strong>
+                        <p>
+                            រមណីយដ្ឋានទឹកឆាមានទីតាំងស្ថិតនៅក្នុងភូមិថ្ម ឃុំក្រូច ស្រុកព្រៃឈរ
+                             ខេត្តកំពង់ចាម។ រមណីយដ្ឋាននេះមានចម្ងាយប្រហែល៤២គីឡូម៉ែត្រពីទីរួម
+                             ខេត្តកំពង់ចាម។ តំបន់នេះសក្តានុពលទាក់ទាញភ្ញៀវទេសចរណ៍រួមមានប្រាសាទបុរាណ 
+                             និងធារាសាស្រ្តសម្រាប់ស្រោចស្រពដីស្រែកសិកម្មភាគច្រើននៃភ្ញៀវទេសចរគឺនិយមទៅមុជទឹកដ៏ថ្លាយង់ 
+                             ដែលហូរចេញពីប្រភពទឹកក្រោមដី។ នៅតំបន់នោះមានវារីអគ្គីសនីតូវមួយ ដែលស្ថានាឡើងតាំងថ្ងៃទី១៣ 
+                             ខែមិថុនា ឆ្នាំ២០០៣ ដោយជំនួយហិរញ្ញវត្ថុពីរាជរដ្ឋាភិបាលជប៉ុន។ នៅលើមាត់ទឹកមានប្រាសាទបុរាណមួយឈ្មោះថា ប្រាសាទព្រះធាតុទឹកឆា
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="KampongCham/pic16-1024x609.jpg" alt="រមណីយដ្ឋានទឹកឆា" />
+                </div>
+            </section>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

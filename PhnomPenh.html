@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ភ្នំពេញ - Phnom Penh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ភ្នំពេញ</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Phnom Penh</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ភ្នំពេញ</h2>
+                        <p>
+                            ភ្នំពេញ គឺជារាជធានីរបស់ព្រះរាជាណាចក្រកម្ពុជា ដែលមានប្រជាជនរស់នៅច្រើនជាងមួយលាននាក់ និង ជាទីក្រុងធំលំដាប់ទី១ 
+                            ដែលមានប្រជាជនរស់នៅច្រើនជាងគេក្នុងប្រទេសកម្ពុជា ។ ក្រុងភ្នំពេញ ជាមជ្ឈមណ្ឌលពាណិជ្ជកម្មដែលប្រមូលផ្ដុំទៅដោយ សំណង់អាគារលំនៅដ្ឋាន
+                             សាលារៀន មន្ទីពេទ្យ វត្តអារាម ទីផ្សារដោះដូរមុខទំនិញ លើមុខជំនួញជួញដូរ ទាំងក្នុងស្រុក
+                             និង ក្រៅស្រុក ក្នុងលំហូរសាច់ប្រាក់ជាអតិបរមា ដែលរួមបញ្ចូលទាំងសេដ្ឋកិច្ចទីផ្សារ សង្គមកិច្ច និង នយោបាយ 
+                             ដែលនាំឱ្យទីក្រុងទាំងមូលក្លាយជាទីកន្លែងរស់នៅប្រកបដោយភាពសម្បូរបែប ។ឮ
+                             ទីក្រុងភ្នំពេញត្រូវបានបង្កើតឡើងដំបូងក្នុងរាជ ព្រះបរមរាជាទី១ នៃអង្គ ពញ្ញាយ៉ាត ដែលបានប្រកាសជាផ្លូវការ ក្នុងឆ្នាំ
+                              ១៤០០ នៃគ.ស ត្រូវនឹង ស.វទី១៥ ។ ក្រុងភ្នំពេញ បានចាប់ផ្ដើមសាងសង់ឡើងក្នុងឆ្នាំ ១៣៩៧ នៃគ.ស អំឡុងពេលដែលរាជធានីទួលបាសាន 
+                              នាខេត្ត កំពង់ចាម ត្រូវបានទឹកជំនន់ជន់លិច ហើយព្រះរាជាបានផ្លាស់រាជធានីមកតំបន់ចតុមុខ ដើម្បីកសាងទីក្រុងនេះឡើង ដែលប្រើពេលសាងសង់អស់រយៈពេល
+                               ៣ឆ្នាំ ទើបញ្ចប់ក្នុងឆ្នាំ ១៤០០ នៃគ.ស ហើយទ្រង់បានប្រកាសរាជធានីថ្មីនេះថា <b>"ក្រុងចតុមុខ មង្គលសកលកម្ពុជាធិបតី សិរីធរៈបវរ ឥន្ទបត្តបុរី រដ្ឋរាជសីមាមហានគរ"</b> ដែលត្រូវបានហៅកាត់ថា "ក្រុងចតុមុខ" ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="PhnomPenh/Phnom_Penh_skyline_from_TK_district_Dec_2024.jpg" alt="Pailin" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="PhnomPenh/Screenshot 2026-06-25 175902.png" alt="Pailin Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាលភ្នំពេញ</h2>
+                <p>
+                    រាជធានី​ភ្នំពេញ ចែកចេញ​ជា​ខណ្ឌ​ចំនួន ១៤ ដែល​មាន​សង្កាត់​ចំនួន ១០៥ ។ ក្នុង​ចំណោម​ខណ្ឌ​ទាំង ១៤ នោះ 
+                    គឺ​មាន​ខណ្ឌ ២ ដែល​ទើប​បង្កើត​ថ្មី កាលពីខែមករា​កន្លងទៅ គឺខណ្ឌបឹងកេងកង និងខណ្ឌកំបូល។
+                     ខណ្ឌថ្មីទាំង២ នោះ បាន​កាត់​សង្កាត់​មួយចំនួន​ពី​ខណ្ឌផ្សេងៗ ពោលគឺ​ខណ្ឌបឹងកេងកង កាត់​ ៧សង្កាត់​ពី​ខណ្ឌចំការមន
+                      ចំណែក​ឯ​ខណ្ឌកំបូល កាត់​យក​ ៦សង្កាត់​ពី​ខណ្ឌពោធិសែនជ័យ និង ១សង្កាត់​ ពី​ខណ្ឌដង្កោ ។ សង្កាត់​ទាំង ១០៥
+                       ក្នុង​ខណ្ឌ​ទាំង ១៤ របស់​រាជធានី​ភ្នំពេញ រួម​មាន​ដូចខាងក្រោម៖
+                    <ul>
+                        <li>ខណ្ឌចំការមន​</li>
+                        <li>ខណ្ឌដូនពេញ​</li>
+                        <li>ខណ្ឌ៧មករា​</li>
+                        <li>ខណ្ឌទួលគោក​</li>
+                        <li>ខណ្ឌដង្កោ​</li>
+                        <li>ខណ្ឌមានជ័យ​</li>
+                        <li>ខណ្ឌឫស្សីកែវ​</li>
+                        <li>ខណ្ឌសែនសុខ​</li>
+                        <li>ខណ្ឌពោធិ៍សែនជ័យ</li>
+                        <li>ខណ្ឌជ្រោយចង្វារ​</li>
+                        <li>ខណ្ឌព្រែកព្នៅ​</li>
+                        <li>ខណ្ឌច្បារអំពៅ</li>
+                        <li>ខណ្ឌបឹងកេងកង</li>
+                        <li>ខណ្ឌកំបូល</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ព្រះបរមរាជវាំងកម្ពុជា</strong>
+                        <p>
+                            ព្រះបរមរាជវាំងកម្ពុជា (អង់គ្លេស: Royal Palace of Cambodia) គឺជាសំណង់អាគារដែលមានរចនាសម្ព័ន
+                            ជាព្រះរាជដំណាក់របស់អង្គព្រះមហាក្សត្រនៃកម្ពុជា ដែលទ្រង់គង់ប្រថាប់រស់នៅជាអចិន្ត្រៃយ៍ ។ ព្រះបរមរាជវាំងកម្ពុជា 
+                            មានឈ្មោះពេញជាផ្លូវការណ៍ហៅថា "ព្រះបរមរាជវាំងចតុមុខ ព្រះបរមទេវតា" (Preah Borom Reacheaveang Chaktomuk Preah Borom Devata)
+                            តែដោយសាររាជវាំងមួយនេះឆ្លងកាត់នូវភ្លើងសង្គ្រាមអស់ជាច្រើនឆ្នាំ ទើបឈ្មោះដើមត្រូវបានគេបំភ្លេច និងត្រូវបានហៅជំនួសថា ព្រះបរមរាជវាំងចតុមុខសិរីមង្គល ។ 
+                            ព្រះបរមរាជវាំងកម្ពុជា ចាប់ផ្ដើមសាងសង់ក្នុងឆ្នាំ ១៨៦៦ ហើយត្រូវបានបញ្ចប់ 
+                            និងដាក់ឱ្យប្រើប្រាសជាផ្លូវការណ៍ នៅថ្ងៃទី ១៤ ខែកុម្ភៈ ឆ្នាំ ១៨៧០ ក្នុងរាជព្រះបាទ នរោត្តម ។
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="PhnomPenh/Royal-Palace-in-Phnom-Penh-Capital-jpg.webp" alt="Royal-Palace" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="PhnomPenh/img_8717.jpg" alt="សារមន្ទីរជាតិ" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>សារមន្ទីរជាតិ</strong>
+                        <p>
+                            សារមន្ទីរជាតិ គឺជាសារមន្ទីរធំជាងគេនៅប្រទេសកម្ពុជា ដែលជាទីតាំងប្រមូលផ្ដុំសម្បត្តិវប្បធម៌​និងប្រវត្តិសាស្ត្រ​ដ៏សំខាន់។ 
+                            សារមន្ទីរជាតិមានរក្សាទុក​រូបសំណាកនិង​ភស្ដុតាងប្រវត្តិសាស្ត្រ​កម្ពុជា ចំនួនជាង​១ម៉ឺន៤ពាន់ តាំងពីសម័យបុរេប្រវត្តិ​ 
+                            សម័យអង្គរ និង សម័យក្រោយៗមកទៀត។សារមន្ទីរជាតិ ស្ថិតនៅក្រោមការគ្រប់គ្រងរបស់ក្រសួងវប្បធម៌ និងវិចិត្រសិល្បៈកម្ពុជា។ អគារសារមន្ទីរ
+                            ដែលត្រូវបានបំផុសគំនិតដោយស្ថាបត្យកម្មប្រាសាទខ្មែរត្រូវបានសាងសង់នៅចន្លោះឆ្នាំ១៩១៧ និង ១៩២៤ ក្នុងរាជ្យរបស់ ព្រះបាទសម្ដេចព្រះស៊ីសុវត្ថិ 
+                            សារមន្ទីរនេះត្រូវបានសម្ពោធជាផ្លូវការនៅឆ្នាំ១៩២០ ហើយត្រូវបានជួសជុលឡើងវិញនៅឆ្នាំ១៩៦៨។ សារមន្ទីរជាតិ ជាសារមន្ទីរប្រវត្តិសាស្ត្រវប្បធម៌ដ៏ចំណាស់និងធំបំផុត ក៏ជាសារមន្ទីរប្រវត្តិសាស្ត្រ
+                            បុរាណវត្ថុឈានមុខគេរបស់ប្រទេសផងដែរ។ សារមន្ទីរនេះមានបណ្តុំសិល្បៈខ្មែរដ៏ធំបំផុតមួយរបស់ពិភពលោក រួមទាំងចម្លាក់ 
+                            វត្ថុមានតម្លៃ លង្ហិន និងស្ថាបត្យកម្មមួយចំនួនត្រូវបានរក្សាទុកនៅឯសារមន្ទីរជាតិនេះ។ 
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋានប្រវត្តិសាស្ត្រ វត្តភ្នំ</strong>
+                        <p>
+                            រមណីយដ្ឋានប្រវត្តិសាស្ត្រ វត្តភ្នំ ជាសំណង់សាសនា មានកម្ពស់ ២៧ម៉ែត្រ ហើយជាប់ទាក់ទងនឹងប្រវត្តិនៃដាក់ឈ្មោះឱ្យរាជធានីភ្នំពេញផងដែរ។
+                            បើតាមព័ត៌មានបង្ហាញលើផ្ទាំងថ្មក្នុងបរិវេណ “រមណីយដ្ឋានប្រវត្តិសាស្ត្រ វត្តភ្នំ” បញ្ជាក់ថា រមណីយនេះ ត្រូវបានស្ថាបនារួចរាល់ជាលើកដំបូងក្នុង
+                            ឆ្នាំ១៣៧៣ ពោលគឺបន្ទាប់ពីលោកយាយម្នាក់ឈ្មោះ “ពេញ” បានដឹកនាំអ្នកស្រុកពូនជាភ្នំ និងកសាងវិហារដើម្បីតម្កល់ពុទ្ធបដិមាករ ៤អង្គ ដែលគាត់
+                            បានប្រទះឃើញនៅក្នុងដើមគគីរអណ្តែតមកជិតច្រាំងទន្លេ ក្នុងឆ្នាំ១៣៧២។ តួយ៉ាង ក្រោយកសាងរួច គេហៅថា «វត្តភ្នំដូនពេញ» តែក្រោយមកក៏ហៅ
+                            កាត់ត្រឹម «វត្តភ្នំ» វិញ។ លុះឆ្នាំ១៤៣៤ ព្រះបាទ ពញាយ៉ាត បានមកតាំងរាជធានីថ្មីនៅទីនេះ ដោយយកឈ្មោះ ភ្នំរបស់លោកយាយពេញ ជានាមឱ្យក្រុងថ្មី គឺ “ភ្នំពេញ”។
+                            ប្រវត្តិរាជធានីភ្នំពេញ
+                            “ក្រុងចតុមុខមង្គល សកលកម្ពជាធិបតី សិរីធរ បវរ ឥន្ទបត្តបុរី រដ្ឋរាជ សីមា មហានគរ” ឬ ហៅឱ្យងាយស្ដាប់ថា រាជធានីភ្នំពេញ ត្រូវបានកសាង
+                            ដំបូងនៅក្នុងសតវត្សន៍ទី១៥ ក្នុងអំឡុងរជ្ជកាលព្រះបាទស្រីសុរិយាពណ៌ ដែលត្រូវបានគេស្គាល់ថា “ព្រះបាទពញ្ញាយ៉ាត” រាជបុត្រារបស់ព្រះបាទស្រីសុរិយាវង្ស 
+                            និងជាព្រះរាជាមួយអង្គ ដែលបានរំដោះក្រុងអង្គរជាលើកទី២ ពីកណ្តាប់ដៃសៀម បន្ទាប់ពីបិតារបស់ព្រះអង្គ។ 
+                            យោងតាមឯកសារសៀវភៅប្រវត្តិសាស្រ្តដែលចងក្រងដោយលោក អាដេម៉ារឡឺក្លែ អតីតរ៉េស៊ីដង់បារាំងប្រចាំកម្ពុជា បញ្ជាក់ថា មុននឹងឈានដល់
+                            ការសម្រេចចិត្តតាំងរាជធានីនៅភ្នំពេញ ព្រះអង្គបានចុះចាកពីរាជធានីអង្គរ ក្នុងឆ្នាំ១៤៣២ មកតាំងនគរនៅបន្ទាយទាហានចាស់បិតាទ្រង់ 
+                            នៅទួលបាសានក្នុង ខេត្តស្រីសរឈរ ដែលសព្វថ្ងៃនេះ គេហៅថាស្រុកស្រីសន្ធរ ខេត្តកំពង់ចាម។ ឯក្រុងថ្មីនៅទីនោះត្រូវបានទ្រង់ប្រទាននាមឲ្យថា« ក្រុងស្រីសន្ធរបវររាជធានី» ។ 
+                            លុះឆ្នាំ១៤៣៤ ព្រះបាទ ពញាយ៉ាត បានមកតាំងរាជធានីថ្មីនៅទីនេះ ដោយយកឈ្មោះ ភ្នំរបស់លោកយាយពេញ ជានាមឱ្យក្រុងថ្មី គឺ “ភ្នំពេញ
+                            ” ព្រមទាំងបានកសាងចេតិយមួយធំ ដើម្បីតម្កល់ព្រះធាតុព្រះញាតិវង្សព្រះអង្គថែមទៀតផង៕
+                        </p>    
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="PhnomPenh/81d5457172442c76cb13e6345a7942b9.jpg" alt="រមណីយដ្ឋានប្រវត្តិសាស្ត្រ វត្តភ្នំ" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

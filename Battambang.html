@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>បាត់ដំបង - Battambang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តបាត់ដំបង</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Battambang</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តបាត់ដំបង</h2>
+                        <p>
+                        <b>ខេត្តបាត់ដំបង</b> (អង់គ្លេស : Battambang Province) គឺជាខេត្តមួយដែលមានទីតាំងស្ថិតនៅភាគពាយ័ព្យនៃ
+                        ព្រះរាជាណាចក្រកម្ពុជា។ទីរួមខេត្តរបស់ខេត្តបាត់ដំបងគឺក្រុងបាត់ដំបង។ខេត្តបាត់ដំបងមានព្រំប្រទល់ខាងជើង
+                        ជាប់នឹងខេត្តបន្ទាយមានជ័យខាងកើតជាប់នឹងខេត្តសៀមរាបនិងបឹងទន្លេសាបខាងត្បូងជាប់នឹងខេត្តពោធិ៍សាត់
+                        និងខាងលិចជាប់នឹងខេត្តប៉ៃលិននិងខេត្តច័ន្ទបុរី។បើតាមសិលាចារឹកថ្មប្រាសាទដែលយើងមាននិងបានរកឃើញរហូតមកដល់សព្វថ្ងៃនេះនៅក្នុងសម័យមុនអង្គរនិងសម័យអង្គរគេ
+                        ពុំបានឃើញចែងឲ្យយើងដឹងថាតើសម័យនោះមានភូមិស្រុកណាមួយដែលមានឈ្មោះបាត់ដំបងនោះទេ។ប៉ុន្តែយើងក៏មិនហ៊ានសន្និដ្ឋានថា
+                        ឈ្មោះបាត់ដំបងនេះមានប្រើឬមិនប្រើនៅក្នុងសម័យនោះដែរ។ប៉ុន្តែនៅក្នុងសម័យអង្គរនិងសម័យក្រោយអង្គរតាម
+                        ឯកសារមហាបុរសខ្មែរមានប្រើឈ្មោះស្រុកបាត់ដំបង។ហេតុអ្វីបានជាហៅឈ្មោះបាត់ដំបង?ប្រវត្តិសាស្ត្រសរសេរនៅលើ
+                        សិលាចារឹកមិនបានឆ្លើយឲ្យដឹងឡើយគឺមានតែនៅក្នុងរឿងព្រេងប៉ុណ្ណោះគឺរឿងតាដំបងក្រញូងដែលខ្មែរយើងយល់ថា
+                        គឺជារឿងកើតមានតាំងពីសម័យអង្គរដែលបានពន្យល់ពីដើមហេតុដែលនាំឲ្យយើងហៅឈ្មោះបាត់ដំបងឬអូរដំបង។
+                        ឯឈ្មោះព្រះដំបងគឺស្តេចរាមាទី ០១ កំណត់ឲ្យហៅឈ្មោះភូមិសង្កែថាជាព្រះដំបង។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="Battambang/Cambodia_Battambang_locator_map.svg.png" alt="Siem Reap" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    <b>ខេត្តបាត់ដំបង</b> គឺជាខេត្តមួយស្ថិតនៅតំបន់ភាគពាយ័ព្យនៃព្រះរាជាណាចក្រកម្ពុជាមានចម្ងាយ ២៩១ 
+                    គីឡូម៉ែត្រពីរាជធានីភ្នំពេញដែលមានព្រំប្រទល់ខាងកើតជាប់នឹងខេត្តសៀមរាបនិងបឹងទន្លេសាបខាងលិចជាប់
+                    នឹងខេត្តប៉ៃលិននិងខេត្តច័ន្ទបុរីខាងជើងជាប់នឹងខេត្តបន្ទាយមានជ័យនិងខាងត្បូងជាប់នឹងខេត្តពោធិ៍សាត់។
+                    នៅភាគខាងលិចមានព្រំប្រទល់ប្រវែង ១៤៤.៨ គីឡូម៉ែត្រជាប់នឹងខេត្តច័ន្ទបុរី ខេត្តត្រាច និង ខេត្តស្រះកែវ។
+                    ខេត្តបាត់ដំបងមានផ្ទៃដីចំនួន ១១៧០២ គីឡូម៉ែត្រការ៉េមានក្រុងចំនួន ០១ ស្រុកចំនួន ១៣ ឃុំចំនួន ៩៣ សង្កាត់ ១០ និង
+                    ភូមិចំនួន ៨១០។ខេត្តនេះមានច្រកទ្វារព្រំដែនអន្តរជាតិ ០១ គឺច្រកដូងនៅក្នុងស្រុកកំរៀងនិងច្រកទ្វារតំបន់ព្រំដែន ០៤ ទៀត
+                    គឺច្រកទ្វារគីឡូ ១៣(ភ្នំដី)នៅក្នុងស្រុកសំពៅលូន ច្រកទ្វារអូររំដួលនៅក្នុងស្រុកភ្នំព្រឹក ច្រកទ្វារអូរអន្លក់(សួនស៊ុំ)នៅក្នុងស្រុកកំរៀង និង ច្រកទ្វារឆករកា(៤០០)នៅក្នុងស្រុកសំឡូត។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="Battambang/img-5508.jpeg" alt="Battambang Map" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="Battambang/02_bat_simplify.jpg" alt="Battambang Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តបាត់ដំបង ចែកចេញជា ១៤ ក្រុង​/ស្រុក ១០៣ សង្កាត់/ឃុំ និង ៨១០ ភូមិ៖
+                    <ul>
+                        <li>ស្រុកបាណន់</li>
+                        <li>ស្រុកថ្មគោល</li>
+                        <li>ក្រុងបាត់ដំបង</li>
+                        <li>ស្រុកបវេល</li>
+                        <li>ស្រុកឯកភ្នំ</li>
+                        <li>ស្រុកមោងឬស្សី</li>
+                        <li>ស្រុករតនៈមណ្ឌល</li>
+                        <li>ស្រុកសង្កែ</li>
+                        <li>ស្រុកសំឡូត</li>
+                        <li>ស្រុកសំពៅលូន</li>
+                        <li>ស្រុកភ្នំព្រឹក</li>
+                        <li>ស្រុកកំរៀង</li>
+                        <li>ស្រុកគាស់ក្រឡ</li>
+                        <li>ស្រុករុក្ខគិរី</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ប្រាសាទភ្នំបាណន់</strong>
+                        <p>
+                            ប្រាសាទភ្នំបាណន់ គឺជាបុរាណដ្ឋានវប្បធម៌ និងធម្មជាតិ មានទីតាំងស្ថិតនៅភូមិបាណន់ ឃុំកន្ទឺរ២ 
+                            ស្រុកបាណន់ ខេត្តបាត់ដំបង មានចម្ងាយប្រមាណ ២០ គីឡូម៉ែត្រ ភាគខាងត្បូងពីទីរួមខេត្តបាត់ដំបង ។
+                            ប្រាសាទភ្នំបាណន់ស្ថិតនៅភូមិបាណន់ ឃុំកន្ទឺ2 ស្រុកបាណន់ដែលមានចម្ងាយប្រមាណ ២៤គម ពីទីរួមខេត្តបាត់ដំបងភាគខាងត្បូង។ 
+                            ប្រាសាទភ្នំបាណន់ជាកន្លែងប្រវត្តិសាស្រ្តមួយដ៏ល្អឯក និងជាសំនង់ប្រាសាទបុរាណមួយដែលសល់តាំងពីសម័យមុនអង្គរមកម្លេះ។ «ភីមបុរ» ត្រូវបានគេស្គាល់ថាជាទឹកដីបុរាណមួយផ្នែកនៃខេត្តបាត់ដំបងបច្ចុប្បន្ន។ 
+                            ឈ្មោះនេះមានតាំងពីសម័យមុនអង្គរមកម្ល៉េះនិងបន្ដប្រើរហូតមកដល់សម័យអង្គរ។ «ភីមបុរ» មួយភាគធំស្ថិតនៅខាងលិចស្ទឹងសង្កែ ដែលយ៉ាងហោចណាស់មានវិសាលភាពចាប់ពីតំបន់ភ្នំបាណន់រហូតមកតាមដងស្ទឹងសង្កែ។ 
+                            ម្យ៉ាងទៀត «ភីមបុរ» ទំនងជាមានទីប្រជុំជនដំបូងនៅតំបន់ភ្នំបាណន់នេះនិងរីកចម្រើនលាតសន្ធឹងវិសាលភាពចេញពីទីនេះ។នៅសម័យអង្គរគេច្រើនចាត់ទុក «ភីមបុរ» នេះជា «វិស័យ» ផងនិងជា «ប្រមាណ» ផង និងមានខ្លះហៅជាស្រុកផងដែរ។ 
+                            «វិឞយ» ឬ «វិស័យ» ជាពាក្យហៅបំណែងចែកដែនដីរដ្ឋបាល ដែលតាមន័យរបស់ពាក្យអាចហៅសំដៅដល់តំបន់ ភូមិភាគ ស្រុក ឬអាណាចក្របានផងដែរ។ ប៉ុន្ដែក្នុងសិលាចារឹកខ្មែរពុំអា
+                            ចសំដៅដល់អាណាចក្របានឡើយ។ ដូចគ្នានឹង «វិស័យ» ដែរ, «ប្រមាន៑» ឬ «ប្រមាណ» ជាបំណែកចែកដែនដីរដ្ឋបាលមួយប្រភេទ ដែលតាមពាក្យមានន័យថាជាទីប្រជុំជនធំឬ
+                            ទីក្រុង។ ភីមមានន័យថាដែលគួរឱ្យខ្លាច ដែលគួរឱ្យកោតខ្លាច។ «ភីម» ក៏ជាឈ្មោះរបស់តួអង្គមួយក្នុងរឿងមហាភារតផងដែរ។ ដូច្នេះ តាមកម្រិតវចនសព្ទ «ភីមបុរ» អាចមានន័
+                            យថា ទីក្រុងដែលគួរឱ្យកោតខ្លាច ឬទីក្រុងរបស់ភីម។ សិលាចារឹកដែលយើងដកស្រង់មកនេះ ជាសិលាចារឹកសម័យមុនអង្គរ រកឃើញនៅជិតភ្នំបាណន់ ខេត្តបាត់ដំបង។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Battambang/Phnom_Banan_temple_2.jpg" alt="ព្រះរាជដំណាក់ ឬ វាំងចាស់" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Battambang/d6baf65e0b240ce177cf70da146c8dc8-1-780x455.jpg" alt="រសៀលនៅមាត់ស្ទឹងសៀមរាប" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>តំបន់ទេសចរណ៍​អាងកំពីងពួយ</strong>
+                        <p>
+                            ផ្ទៃ​ទឹក​ដ៏​ធំ​ល្វឹងល្វើយ​មើល​ដាក់​កន្ទុយភ្នែក​។ ធ្លាប់​ជាទី​កន្លែង​សម្រាប់​ភ្ញៀវ​ទេសចរ​ជាតិ 
+                            និង​អន្តរជាតិ​យ៉ាងច្រើន​អនេក​ធ្វើ​ដំណើរ​ទៅ​ហែល​ទឹក​លេង​កម្សាន្ត​យ៉ាង​ត្រជាក់ចិត្ត
+                             សម្រាក​លំហែកាយ​លើ​ខ្យូ​ស​មាត់ទឹក​ស្រូប​យក​ខ្យល់អាកាស​ដ៏​បរិសុទ្ធ គយគន់​ជួរ​ភ្នំ​ដ៏​វែង​អន្លាយ​ជាប់​ជើងមេឃ​។ 
+                             ប៉ុន្តែ​បច្ចុប្បន្ន ទីនោះ​បាន​ក្លាយទៅជា​ទី​រហោឋាន​ដ៏​ស្ង​ត់​ជ្រងំ បន្សល់​ទុក​តែ​ស្លាកស្នាម​អនុ​ស្សាវរីយ៍ 
+                             ជាមួយនឹង​ផ្ទៃ​ទឹក​លាតសន្ធឹង​ដាក់​កន្ទុយភ្នែក​គួរ​ឲ្យ​ស្រណោះ​។ នោះ​គឺជា រមណីយដ្ឋាន «​អាង​កំពីងពួយ​»​។រមណីយដ្ឋាន
+                              «​កំពីងពួយ​» ដែល​មាន​ទីតាំង​ស្ថិត​នៅ​ភូមិ​តា​ង៉ែ​ន ឃុំ​តា​គ្រាម ស្រុក​បាណ​ន់ មាន​បណ្ដោយ​ប្រវែង​៦,០០០​ម៉ែត្រ និង​ទទឹង​ប្រវែង​១,៩០០​ម៉ែត្រ 
+                              អាច​រក្សា​ទឹក​ទុក​បាន​រហូត​ដល់​ទៅ​១១០,០០០,០០០​ម៉ែត្រគូប (​មួយ​រយ​ដប់​លាន​ម៉ែត្រគូប​) នៅ​រដូវរ​ស្សា​។ វា​ត្រូវ​បាន​កសាង​នៅ​ក្នុង​ឆាក​សោក​នា​.
+                              ​ដ​កម្ម​ដ៏​ប្រល័យ នៃ​សម័យ​ខ្មែរក្រហម​គ្រប់គ្រង​ក្នុង​ទស​វត្ស​ឆ្នាំ​៧០​។ សំណង់​នេះ ត្រូវ​បាន​គេ​ប្រើប្រាស​កម្លាំង​មនុស្ស​សុទ្ធសាធ​រាប់​ម៉ឺន​នាក់
+                               រែក​សែង​ដី​សាងសង់​ជា​ទំនប់​ទឹក​ដ៏​ធំ​មហិមា​ក្នុង​សម័យ​នោះ ដែល​ផ្នែក​ខ្លះ​ហ៊ុម​ព័ទ្ធ​ទៅ​ដោយ​ជួរ​ភ្នំ​។ នេះ​បើ​យោង​តាម​ឯកសារ​នានា 
+                               ដែល​ត្រូវ​បាន​គេ​ចងក្រង​ទុក​មក​ដល់​សព្វថ្ងៃ​។
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>រមណីយដ្ឋានប្រវត្តិសាស្ត្រភ្នំសំពៅ</strong>
+                        <p>
+                            <b>រមណីយដ្ឋាន​ភ្នំ​សំពៅ</b> មាន​ទីតាំង​ស្ថិត​នៅ​ក្នុងភូមិ​សំណាញ់ ឃុំ​ភ្នំ​សំពៅ ស្រុក​បាណ​ន់ ខេត្តបាត់ដំបង មាន​ចម្ងាយ​១៣​គីឡូម៉ែត្រ គិត​ពីសា​សា​ខេត្តបាត់ដំបង 
+                            ដោយ​ធ្វើ​ដំណើរ​ឆ្ពោះទៅ​ទិស​ខាងលិច តាម​ផ្លូវជាតិ​លេខ ៥៧ (​អតីត​ផ្លូវជាតិ​លេខ​១០) ។ ដើម្បី​ទៅ​ដល់ទី​តាំង​រមណីយដ្ឋាន ភ្ញៀវ​ទេសចរ​អាច​ធ្វើ​ដំណើរ​តាម​មធ្យោបាយ​ដូច​ជា​៖
+                            តាម​រថយន្ត​ប្រមាណ​២០​នាទី​, តាម​ម៉ូតូ​ប្រមាណ ២១​នាទី​, រ៉ឺ​ម៉ក​កង់​បី​៣០​នាទី​, និង​កង់​ប្រមាណ​ជា៥០​នាទី​។
+                            បើ​មើល​ពី​ចម្ងាយ​ភ្នំ​នេះ មាន​រូបរាង​ស្រ​ដៀង​ទៅ​នឹង​សំពៅ លើ​ភ្នំ​ទាំងមូល មាន​ល្អាង តូច ធំ រហូត​ដល់​១២​ល្អាង ប៉ុន្តែ​មាន​តែ​បី​ល្អាង​ប៉ុណ្ណោះ 
+                            ដែល​អាច​ទស្សនា​បាន ហើយ​ឈ្មោះ​ភ្នំ និង​ល្អាង​មួយ​ចំនួន ក៏​មាន​ប្រវត្តិ​គួរ​ឱ្យ​ចាប់អារម្មណ៍​ពាក់ព័ន្ធ​នឹង​រឿងព្រេង​និទាន​ខ្មែរ (​រឿង​ព្រះ​ចៅ​រាជ​ថ្កុ​ល នាង​រំសាយ​សក់​) 
+                            និង​ត្រូវ​បាន​រៀបរាប់​ក្នុង​បទ​ចម្រៀង​ជា​ច្រើន​បទ (​បទ​ជើងភ្នំ​សំពៅ​, បាចផ្កា​ម្រះព្រៅ​….) ដែល​ច្រៀង​ដោយ​អ្នកចម្រៀង​ដ៍​ល្បី​នា​សម័យ​ដើម​ផង​ដែរ​។ 
+                            នៅ​ពេល​ឡើង​ដល់​កំពូលភ្នំ ទេសចរ​អាច​មើលឃើញ​ទេសភាព​វាលស្រែ ចម្ការ​ដំណាំ ចង្កោម​ភ្នំ​នានា ទិដ្ឋភាព​ទីក្រុង​បាត់ដំបង ស្រូប​យក​ខ្យល់អាកាស​ត្រជាក់​បរិសុទ្ធ 
+                            និង​មើល​ថ្ងៃ​លិច​យ៉ាង​ស្រស់​ស្អាត​ទៀត​ផង​។មណីយដ្ឋាន​ភ្នំ​សំពៅ ក៍​ជាទី​បូជនីយដ្ឋាន​មួយ​ផង​ដែរ​សម្រាប់​ពុទ្ធសាសនិកជន ដែល​មក​ពី​ទី​ជិត​ឆ្ងាយ​មក​គោរព​បូជា
+                            និង​ធ្វើ​ពិធី​កម្ម​សាសនា​ផ្សេង​ៗ នៅ​បរិវេណ​រមណីយដ្ឋាន​មាន វត្ត​ចំនួន​ពីរ គឺ​៖ វត្ត​មួយ​នៅ​លើ​ភ្នំ ឈ្មោះ វត្ត​គិរី​រម្យ និង​វត្ត​មួយទៀត​នៅ ជើងភ្នំ ឈ្មោះ វត្ត​សុវណ្ណ​គិរី​ភេត្រា​រាម
+                            ហៅ​វត្ត​ភ្នំ​សំពៅ​។ នៅ​ជើងភ្នំ​ក្បែរ​ល្អាង​ប្រចៀវ មាន​ចម្លាក់​ពុទ្ធបដិមា​ធំ​បី និយាយ​ពី ព្រះពុទ្ធ​ទ្រង់​ប្រ​សូត្រ​, ព្រះពុទ្ធ ត្រាស់​ដឹង​, និង​ព្រះពុទ្ធ​ចូល​បរិ​និ​ព្ពាន ចំណែក​នៅ​លើ​ភ្នំ​វិញ
+                            មាន​រូបសំណាក​តូច ធំ និយាយ​ពី​ពុទ្ធសាសនា និង​ព្រហ្មញ្ញសាសនា​ផង​ដែរ​, មាន​ប្រាង្គ​ពណ៌​មាស (Golden Stupa) នៅ​លើ​កំពូលភ្នំ​យ៉ាង​ស្រស់​ស្អាត នៅ​បរិវេណ​វត្ត​នៅ​ជើងភ្នំ 
+                            មាន​កុដិ​បុរាណ​មួយ​ផង​ដែរ ។
+                        </p>
+                </div>
+
+                <div class="frame">
+                    <img src="Battambang/27-4.jpg" alt="រមណីយដ្ឋានប្រវត្តិសាស្ត្រភ្នំសំពៅ" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px; margin-bottom: 20px;">
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>ចំនួនប្រជាជន</h3>
+                    <p>យោងតាមទិន្នន័យពីក្រសួងផែនការ ខេត្តបាត់ដំបងមានប្រជាជនសរុបប្រមាណ <b>១.១៣២.០១៧ នាក់</b>
+                        (ស្ថិតក្នុងចំណោមខេត្តដែលមានប្រជាជនច្រើនជាងគេលំដាប់ទីបួនក្នុងប្រទេសកម្ពុជា)។ 
+                        ចំពោះ ក្រុងបាត់ដំបង វិញ មានប្រជាជនរស់នៅប្រមាណ ១៥២.០២៧ នាក់ (យោងតាមទិន្នន័យឆ្នាំ២០២១)។</p>
+                </div>
+                <div class="info-card">
+                    <h3>សាសនា</h3>
+                    <p>សាសនារបស់រដ្ឋគឺសាសនាព្រះពុទ្ធថេរវាទ។ប្រជាពលរដ្ឋនៅក្នុងខេត្តបាត់ដំបងជាង ៩៨.៣%
+                    ជាអ្នកកាន់សាសនាព្រះពុទ្ធ។សាសនាអុីស្លាមដែលភាគច្រើនកាន់ដោយជនជាតិចាមរាប់រយឆ្នាំមកហើយមាន 
+                    ១.៤%។សាសនាគ្រិស្តមានអ្នកកាន់ចំនួនតិចតួចប្រមាណជា ០.៣%។</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

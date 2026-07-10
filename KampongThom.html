@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កំពង់ធំ - Kampong Thom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តកំពង់ធំ</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Kampong Thom</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តកំពង់ធំ</h2>
+                        <p>
+                            <b>កំពង់ធំ</b> គឺជាខេត្តមួយក្នុងប្រទេសកម្ពុជា ។ វាមានព្រំប្រទល់ជាប់ខេត្តសៀមរាប នៅភាគពាយព្យ ព្រះវិហារ នៅភាគខាងជើង 
+                            ស្ទឹងត្រែងនៅភាគឦសាន ក្រចេះនៅខាងកើត កំពង់ចាម កំពង់ឆ្នាំង នៅខាងត្បូង និង បឹងទន្លេសាបនៅភាគខាងលិច។ 
+                            ខេត្តកំពង់ធំមានទីរួមខេត្តឈ្មោះក្រុងស្ទឹងសែន​ ដែលជាទីក្រុងមួយដែលមានប្រជាជន ៣០ ០០០ នាក់ មានទេសភាពដ៏ល្អប្រណីត 
+                            គួរអោយចាប់ចិត្ត ស្ថិតនៅតាម​បណ្តោយនៃច្រាំងដងស្ទឹងសែន។ កំពង់ធំ គឺជាខេត្ត មួយដែលស្ថិតនៅចំកណ្តាលផ្ទៃប្រទេសកម្ពុជា។
+                            ខេត្តនេះមានផ្ទៃដីសរុប ១៣ ៨១៤ សហាតិមាត្រការ៉េ ហើយបែងចែកជា ៩ ស្រុក-ក្រុង, ៨១ ឃុំ-សង្កាត់ និង ៧៣៤ ភូមិ។ 
+                            ខេត្តកំពង់ធំជាខេត្តមានផ្ទៃដីធំទី២នៅក្នុងប្រទេសកម្ពុជា។ ក្រុមប្រាសាទសំបូរព្រៃគុហ៍ ដែលសរុបមានប្រមាណជិតពីររយប្រាសាទផ្សេងទៀត 
+                            មានសារៈសំខាន់ណាស់សម្រាប់ការសិក្សាអំពីអារ្យធម៌ខ្មែរ មុនសម័យអង្គរ។ ក្រុមប្រាសាទទាំងនេះមានការទាក់ទាញទេសចរណ៍ និង 
+                            អ្នកស្រាវជ្រាវដូចជាប្រាសាទដទៃទៀតក្នុងតំបន់អង្គរដែរ ហើយដែលត្រូវបានគេចាប់អារម្មណ៍យ៉ាងខ្លាំងនៅពេលបានទៅ ទស្សនាផ្ទាល់។ 
+                            មានស្ថានីយ៍បុរាណសម័យអង្គរគួរឱ្យចាប់អារម្មណ៍ជាច្រើនក្នុងតំបន់នេះ រួមមានប្រាសាទសំបូរព្រៃគុក និង ប្រាសាទអណ្ដែត។ ជាពិសេសនៅពេលបានទៅកំសាន្តហើយៗបានស្នាក់នៅ ១
+                             យប់ ឬ ពីរយប់ជាមួយប្រជាជននៅទីនោះ ជាពិសេសនៅភូមិកំពង់ឈើទាលនាមាត់ស្ទឹងសែន។ នោះគឺ ផ្ទះស្នាក់ របស់សហគមន៍នៅទីនោះ។​ ខេត្តនេះ មានបណ្តាញផ្លូវជាតិលេខ៦ 
+                             ភ្ជាប់ពី ក្រុងភ្នំពេញ ទៅ ខេត្តសៀមរាប ហើយ មានផ្លូវបំបែកទៅ ខេត្តព្រះវិហារ តាមរយៈផ្លូវជាតិលេខ៦៤ ដែលមានចម្ងាយ ១២៦ សហាតិមាត្រ។ 
+                             ខេត្តកំពង់ធំជាខេត្តមួយផងដែរដែលសំបូរទៅដោយសក្តានុពលទេសចរណ៍ដើម្បីទាក់ទាញភ្ញៀវទេសចរជាតិនិងអន្ដរជាតិដូចជាការកម្រនិងអសកម្មបឹង, ទន្លេ, 
+                             ព្រៃភ្នំនិងប្រាសាទបុរាណចំនួនជាង 200 ។ ក៏ជាខេត្តមួយក្នុងចំណោមខេត្តទាំងប្រាំបួនដែលមានព្រំប្រទល់ជាប់បឹងទន្លេសាបដែរ កំពង់ធំជាប៉ែកនៃឋបនីយដ្ឋានជីវមណ្ឌលបឹងទន្លេសាប។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="KampongThom/Cambodia_Kampong_Thom_locator_map.svg.png" alt="Kampong Thom" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តកំពង់ធំបែងចែកជាពីរតំបន់៖
+                    <ul>
+                    <li>ភាគខាងជើងផ្លូវជាតិលេខ៦៖ គឺផ្ទៃដីគ្របដណ្តប់ទៅដោយផ្ទៃដីខ្ពង់រាប និងព្រៃឈើប្រមាណ ៧០ ភាគរយ ហើយអាកាសធាតុផ្តល់ផលល្អសម្រាប់របរកសិកម្មនានា ដូចជាការធ្វើស្រែចម្ការ ហើយរុក្ខសាស្រ្ត​ និង សត្វពាហនៈគឺអោយទិន្នផលល្អ។
+                    ភាគខាងលិចផ្លូវជាតិលេខ៦៖ គឺផ្ទៃដីគ្របដណ្តប់ទៅដោយតំបន់វាលរាបដែលលាតសន្ធឹងទៅដល់ បឹងទន្លេសាប។ នៅតំបន់នេះអាកាសធាតុផ្តល់ផលល្អសម្រាប់របរកសិកម្ម និងនេសាទត្រី ដើម្បីបំពេញតម្រូវការ នៅតាមខេត្ត និងការនាំចេញទៅក្រៅប្រទេសជិតខាងផងដែរ។
+                    ពីរក្នុងចំណោមតំបន់ស្នូលទាំងបីនៅក្នុងឋបនីយដ្ឋានជីវមណ្ឌលទន្លេសាប ស្ថិតនៅកំពង់ធំ។</li>
+                    <li>បឹងឆ្មារ (១៤ ៥៦០ ហិកតា) និង</li>
+                    <li>ផែនទីភូមិសាស្ត្រខេត្តកំពង់ធំ ស្ទឹងសែន (៦ ៣៥៥ ហិកតា)។</li>
+                    </ul>
+                    
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="KampongThom/feature.jpg" alt="KampongThom Map" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="KampongThom/06_kpt_simplify.jpg" alt="KampongThom Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តកំពង់ធំមានផ្ទៃក្រលា ១៣ ៨១៤ គីឡូម៉ែត្រការ៉េ ត្រូវបានចែកចេញជា ៩ ក្រុង-ស្រុក, ៨១ សង្កាត់-ឃុំ និង ៧៣៤ ភូមិ៖
+                    <ul>
+                        <li>ស្រុកបារាយណ៍</li>
+                        <li>ស្រុកកំពង់ស្វាយ</li>
+                        <li>ស្រុកស្ទឹងសែន</li>
+                        <li>ស្រុកប្រាសាទបល្ល័ង្ក</li>
+                        <li>ស្រុកប្រាសាទសំបូរ</li>
+                        <li>ស្រុកសណ្ដាន់</li>
+                        <li>ស្រុកសន្ទុក</li>
+                        <li>ស្រុកស្ទោង</li>
+                        <li>ស្រុកតាំងគោក</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>ប្រាសាទសំបូរព្រៃគុក</strong>
+                        <p>
+                            <b>ប្រាសាទសម្បូរព្រៃគុក</b>មានទីតាំងស្ថិតនៅភូមិសម្បូរ ឃុំសម្បូរ ស្រុកសម្បូរ ខេត្តកំពង់ធំ។ 
+                            ប្រាសាទនេះស្ថិតនៅតាមបណ្តោយស្ទឹងសែន ដែលមានចម្ងាយប្រហែល ២៨គីឡូម៉ែត្រភាគឦសាននៃទីរួមខេត្តកំពង់ធំ 
+                            និងមានចម្ងាយប្រហែល ១៨១គីឡូម៉ែត្រពីរាជធានីអង្គរនៃខេត្តសៀមរាប និងមានចម្ងាយប្រហែល១៧០គីឡូម៉ែត្រពីប្រាសាទព្រះវិហារនៃខេត្តព្រះវិហារ 
+                            និងមានចម្ងាយប្រហែល ១៩៦គីឡូម៉ែត្រពីរាជធានីភ្នំពេញ។ ប្រាសាទសម្បូរព្រៃគុកជាប្រភេទរមណីយដ្ឋានវប្បធម៌ និងប្រវត្តិសាស្រ្ត ដែលមានមានចម្ងាយប្រមាណ
+                            ៣៧គីឡូម៉ែត្រ បត់តាមផ្លូវជាតិ៦៤ បត់ស្តាំតាមសាលាវិស័យ កាត់តាមផ្លូវបុសស្រមោច ផ្លូវនេះពេលរដូវវស្សាលិចទឹក តែយើងអាចធ្វើដំណើរឆ្ពោះទៅស្រុកសំបូរបានតែម្តង។ដែលសង់លើដី
+                            រាបស្មើមានទំហំ ៣,០០០ ហិកតា ។ រមណីដ្ឋានសំបូរព្រៃគុក ជារាជធានីចាស់ឈ្មោះថា ឥសានបុរៈ ពីសម័យនោះជាមជ្ឈមណ្ឌលនៃព្រាហ្មញ្ញសាសនា ដើម្បីឧទ្ទិសថ្វាយដល់ ព្រះសិវៈ 
+                            ឬព្រះឥសូរនិយម។ ក្រុមប្រាសាទនេះសាងសង់អំពីឥដ្ឋតាន់ និង ថ្មបាយក្រៀមលម្អទៅដោយចម្លាក់ពីលើឥដ្ឋ ចាក់ពុម្ភដោយបាយអ ជាផ្ទាំងៗអំពីឥដ្ឋ តែបច្ចុប្បន្នរបេះអស់មួយចំនួន។
+                            ក្បាច់ផ្តែរ និងការសរសេរជាពាក្យពេជ្រ ប្រអប់ទ្វារធ្វើអំពីថ្មភក់ទាំងអស់។ប្រាសាទនេះកសាងឡើងនៅរជ្ជកាលព្រះបាទឥសានវរ្ម័នទី១ នៅក្នុង សតវត្សរ៍ទី៧ (គ.ស៦១៦-៦៣៥)
+                            នាសម័យចេនឡាក្រុមប្រាសាទសំបូរព្រៃគុកនេះ ត្រូវបានបោះបង់ចោលតាំងពីឆ្នាំ១៩៧១មកម្លេះ ហើយត្រូវបានរៀបចំសារជាថ្មីនៅឆ្នាំ១៩៨០។ ក្នុងការកាប់ស្ការព្រៃគេរកឃើញមាន 
+                            ប្រាសាទទាំងអស់ចំនួន ១៤០ប្រាសាទ ហើយនៅប្រាសាទទៅពីទៀត រកមិនទាន់ឃើញ[១]។ រមណីយដ្ឋានសម្បូរព្រៃគុកចែកចេញជា៤ក្រុមធំៗគឺ៖ ក្រុមប្រាសាទខាងជើង ក្រុមប្រាសាទកណ្តាល 
+                            ក្រុមប្រាសាទខាងត្បូង ក្រុមប្រាសាទក្រោលរមាស។<b>នាថ្ងៃ​ទី៨ ខែកក្កដា ឆ្នាំ២០១៧ តំបន់​ប្រាសាទ​សំបូរ​ព្រៃ​គុក ត្រូវ​បាន​សម្រេច​ចុះ​ក្នុង​បញ្ជី​បេតិកភណ្ឌ​ពិភព​លោក 
+                            នៅ​ក្នុង​កិច្ច​ប្រជុំ​គណៈកម្មាធិការ​បេតិក​ភណ្ឌ​ពិភព​លោក នៅ​ទីក្រុងក្រាកូវ ប្រទេស​ប៉ូឡូញ ។</b>
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="KampongThom/fn-2017-07-09-19-44-15-0.jpg" alt="ប្រាសាទសំបូរព្រៃគុក" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="KampongThom/upscalemedia-transformed.jpeg" alt="ភ្នំសន្ទុក" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ភ្នំសន្ទុក</strong>
+                        <p><b>ភ្នំសន្ទុក</b>ជា​ភ្នំ​និង​តំបន់​វប្បធម៌​ក្នុង​ខេត្ត ​កំពង់ធំ ​របស់ ​ប្រទេស​កម្ពុជា ។ ស្ថិតនៅភូមិ កកោះ ឃុំ កកោះ 
+                            ស្រុកសន្ទុក គឺជាភ្នំដ៏ពិសិដ្ឋបំផុតរបស់ខេត្ត។ កំពូលភ្នំនេះត្រូវបានចូលដោយផ្លូវថ្មដែលមានរូបចម្លាក់ជាច្រើននៅខាងមុខផ្លូវ។ 
+                            នៅផ្នែកខាងលើគឺជាប្រាសាទដែលមានជញ្ជាំងពណ៌ស និងមានទីសក្ការៈបូជា និងអាទិទេពជាច្រើន រួមទាំងព្រះពុទ្ធបដិមាជាច្រើនអង្គដែលធ្វើពីថ្ម ប្រវែងជាង ១០ ម៉ែត្រ ។ 
+                            មានព្រះសង្ឃ​គង់​នៅ​ទី​នោះ។ភ្នំ​សន្ទុក​លេច​ចេញ​ក្នុង​រឿង​ព្រេងនិទាន ​បក្សីចាំក្រុង ។ ពេលដែលតាម៉ឹងបានទទួលបក្សីចាំក្រុងពេលដែលបក្សីចាំក្រុងនិងតាកហេ ដែលកំពុងភៀសខ្លួនពីអង្គរ 
+                            គាត់បានផ្តល់ជម្រកដល់ពួកគេ និងចិញ្ចឹមពួកគេដោយក្តីអាណិត។ គាត់​ចេញ​ទៅ​ប្រមូល​បាយ ទឹក ត្រី សាច់ ហើយ​ទុក​នៅ​តាកហេ​ជា​អាហារ​សម្រាប់​ធ្វើ​ដំណើរ។ នៅក្នុងរឿងព្រេងនិទានអ្នកនិទានរឿងពន្យល់ថា
+                            កន្លែងនោះជាកន្លែងជ្រកកោននៅភ្នំសន្ទុក ហេតុនេះហើយបានជាគេស្គាល់ថា ភ្នំទុក្ខទុក្ខ ឬហៅកាត់ថា ភ្នំសន្ទុក។ភ្នំសន្ទុក គឺជាភ្នំមួយដែលមាន ២០៧ម៉ែត្រកម្ពស់ដែលឡើងពីលើជ្រលង ទន្លេសាប ។ 
+                            កំពូលភ្នំអាចទៅដល់បានដោយការឡើង 809 ជំហាន ឬតាមរយៈផ្លូវក្រាលកៅស៊ូ ២.៥គីឡូម៉ែត្រ។  ទេសភាពនៃជ្រលងទន្លេសាបអាចត្រូវបានគេសង្កេតឃើញពីកំពូលភ្នំ 
+                            ជាមួយនឹងទិដ្ឋភាពថ្ងៃលិចនៅលើវាលស្រែដែលត្រូវបានចាត់ទុកថាជាកន្លែងទាក់ទាញទេសចរណ៍ដ៏សំខាន់មួយ។ ភ្នំ​ស្រះ​ខ្មៅ​ដែល​មាន​ទីតាំង​នៅ​ជាប់​នឹង​ភ្នំ​តង់​គុក មាន​ប្រាសាទ​ឥដ្ឋ និង​ល្អាង​ប្រចៀវ។ </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>ប្រាសាទគុកនគរ</strong>
+                        <p>
+                            ប្រាសាទគុហនគរមានទីតាំងស្ថិតនៅក្នុងភូមិត្រដក់ភូមិត្រដក់ពង ឃុំពង្រ ស្រុកបារាយណ៍ ។ រមណីដ្ឋាននេះមានផ្ទៃក្រលា ២០០ x ២០០ ម២ = ៤០០០០ម២ ដែលមានចំងាយ 
+                            ៩៦គីឡូម៉ែត្រពីរាជធានីភ្នំពេញ។ ប្រាសាទគុហនគរនេះស្ថិតនៅក្នុងបរិវេណវត្តគហនគរ។ ប្រាសាទនេះមានទ្រង់ទ្រាយប្រហាក់ប្រហែលនឹងប្រាសាទទន្លេបាទី ដែលបានស្ថាបនាឡើងអំពីថ្មបាយក្រៀម 
+                            ក្នុងសតវត្សទី១១ រាជ្ជកាលព្រះបាទសូរ្យវរ្ម័នទី១។ ប្រាសាទគុហនគរមានបណ្តោយប្រវែង ៤៥ម៉ែត្រ និង ទទឹងប្រវែង ៣៥ម៉ែត្រ ព័ទ្ធជុំវិញដោយរបងថ្មក្រៀមដែលមានកំពស់ ៣ម៉ែត្រ។
+                            ប្រាសាទគុកនគរកសាងឡើងក្នុងរជ្ជកាលព្រះបាទសូរ្យវរ្ម័នទី១ ក្នុងសតវត្សរ៍ទី១១ តាមរចនាបថឃ្លាំង ។ ប្រាសាទនេះកសាងលើដីរាបស្មើ លើខឿនតែ មួយរាងចតុកោណកែង ធ្វើអំពីថ្មបាយក្រៀម 
+                            និង ថ្មភក់ បែរមុខទៅទិស ខាងកើត មានកំពែងព័ទ្ធជុំវិញ លាតសន្ធឹងពីកើតទៅលិច មានបណ្តោយប្រវែង ៣៥ ម៉ែត្រ ទទឹង ២៥ ម៉ែត្រ មានគោបុរៈ ( ទ្វារ ឆ្លងកាត់កំពែងប្រាសាទ ) ចំនួនបី ។ 
+                            គោបុរៈខាងកើតកម្ពស់ ៩ ម៉ែត្រ មានទ្វារចូលចំនួន ៣ កន្លែង ។ ទ្វារ​កណ្តាល មាន​លក្ខណៈ​តូចចង្អៀត ហើយ​ងងឹត​បន្តិច និង មាន​នៅ​សង​ខាង​ចំនួនពីរ ទៀត ។ គោបុរៈ​ខាងលិច​មាន​ទំហំតូច 
+                            មានទ្វារមួយ​ចូល​ទៅ​ខាង​ក្នុង តែ​មិន​អាច​ចេញ​ទៅ​ខាង​ក្រៅ​បានទេ ។ គោបុរៈ​ខាងត្បូង​អែប​ជាប់​នឹង​ព្រះវិហារ​មិន ស្ថិត​នៅ​ចំ​កណ្តាល​កំពែង​ទេ មាន​ទ្វារ​ចូល​ពីប្រាសាទ ទៅខាង​ក្នុង 
+                            តែ​មិន​អាច​ចេញ​ទៅ​ក្រៅ​កំពែង​បាន​ទេ មាន​តែ ចង្អូរ​មួយ​ដែល​គេ​ចោះ​ទម្លុះ​ជញ្ជាំង​ទៅ​ខាង ក្រៅ​សម្រាប់​បង្ហូរ​ទឹក​មន្ត​នៅ​ពេល​គេ​ធ្វើ​ពិធី​ស្រោច ទឹកនៅលើសិវលិង្គ ( ស្ថាណាទ្រោនី )។ 
+                            នៅ​ចំកណ្តាល​មាន​ប៉ម​ខ្ពស់​ទោល​មួយ មាន បន្ទប់ និង យ៉​យ៉ាង​វែង​ចេញ​ទៅ​ទិស​ខាង​កើត ហើយ នៅ​ចំ​ពី​មុខ​មាន សសរ​ពេជ្រ​រាង ៨ ជ្រុង​នៅ​សងខាង ។ នៅ​ផ្នែក​ខាង​លើ​នៃ​សរសេរ​មាន​តុប​តែង​ជា​ក្បាច់ 
+                            ខ្លួន​នាគ​ព័ទ្ធ​កោង​ដោយ បញ្ចោញ​ក្បាល​ទៅ​សង​ខាង​ពាំ​ផ្កា​ចន្ទន៍។នៅ​លើ​សសរ​ពេជ្រ​នេះ​មាន​ផ្តែរ​មួយ ផ្ទាំង​រចនា​ដោយ​ក្បាច់​ផុស ហើយ​នៅ​ចំ​កណ្តាល​ផ្តែរ​នោះ​មាន​រូប​ព្រះឥន្ទ្រ​ជិះ​ដំរី​ក្បាល​បី ។
+                             តួ​ប៉ម​កណ្តាល នេះ​ត្រូវ​បាន​តុប​តែង​លម្អ​ចាប់​ពី​ក្រោម រហូត​ដល់​ខាង​លើ ។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="KampongThom/fig-1-copy-11.jpg" alt="រមណីយដ្ឋានប្រវត្តិសាស្ត្រភ្នំសំពៅ" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

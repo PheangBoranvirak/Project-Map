@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កោះកុង - KohKong</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តកោះកុង</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Koh Kong</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តកោះកុង</h2>
+                        <p>
+                            កោះកុង គឺជាខេត្តមួយស្ថិតនៅភាគនិរតីនៃប្រទេសកម្ពុជា។ ទីរួមខេត្តគឺក្រុងខេមរភូមិន្ទ។ខេត្តនេះដែលមានក្រុងខេមរភូមិន្ទជាទីរួម
+                            ខេត្តស្ថិតនៅភាគនិរតីនៃប្រទេសកម្ពុជា។ ខេត្តកោះកុងមានព្រំប្រទល់ ខាងជើងជាប់នឹងខេត្តពោធិ៍សាត់ ខាងកើតជាប់នឹងខេត្តកំពង់ស្ពឺ
+                            កំពត និង ព្រះសីហនុ ខាងត្បូងនិងខាងលិចជាប់នឹងឈូងសមុទ្រថៃ និងមួយផែ្នកនៃចង្វាតត្រាច(ខេត្តត្រាច)ប្រទេសថៃ។បន្ទាប់ពីការរំដោះពីរបបខ្មែរក្រហមនៅឆ្នាំ ១៩៧៩ កោះកុងនៅតែមិនទាន់មានប្រជាជនច្រើននៅឡើយ។ 
+                            ក្រោយមកគោលនយោបាយរដ្ឋាភិបាលថ្នាក់ជាតិបានជម្រុញលើកទឹកចិត្តឱ្យប្រជាជនមករស់នៅកោះកុង ក៏ធ្វើឱ្យមានលំហូរចូលមនុស្សយ៉ាងគំហុក។ វាត្រូវបានគេប៉ាន់ប្រមាណថា
+                            អត្រាកំណើនប្រចាំឆ្នាំជាមធ្យមនៅកោះកុងគឺ ១៦ ភាគរយ ដែលបានគំរាមកំហែងដល់ធនធានព្រៃកោងកាងនៅក្នុងខេត្តនេះ។ 
+                            ទីប្រជុំជនរបស់ខេត្តកោះកុងបានរីកចម្រើនយ៉ាងលឿនជាអន្លើៗដើម្បីឆ្លើយតបទៅនឹងសំពាធខាងទីផ្សារពីប្រទេសថៃ និងដោយសារការបំលាស់ទីចូលមកខេត្តពីប៉ែកផ្សេងៗនៃកម្ពុជា។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="KohKong/Cambodia_Koh_Kong_locator_map.svg.png" alt="KohKong" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តនៅចុងនិរតីបំផុតនៃប្រទេសកម្ពុជា គឺកោះកុងមានខ្សែឆ្នេរសមុទ្រដ៏វែងដែលមិនទាន់បានអភិវឌ្ឍ និង
+                    ទីខាងក្នុងព្រៃ ភ្នំ ដែលមិនអាចចូលទៅដល់ដ៏ធំល្វឹងល្វើយហ៊ុំព័ទ្ធដោយផ្នែកនៃជួរភ្នំក្រវាញ ឧទ្យានជាតិដ៏ធំបំផុតរបស់កម្ពុជា
+                    គឺឧទ្យានជាតិបទុមសាគរ និងក៏ជាផ្នែកមួយនៃឧទ្យានជាតិគីរីរម្យ។ អ្វីដែលជាភាពទាក់ទាញទេសចរណ៍របស់ខេត្តនេះរួមមានបនល្បែង
+                    និង ទឹកធ្លាក់ ខណៈនោះដែរតំបន់នេះក៏ជាតំបន់នាំចេញ ហើយសុខូបត្ថម្ភវត្ថុកំពង់ផែថ្មីៗត្រូវបានគេអភិវឌ្ឍឡើងដើម្បីធ្វើពាណិជ្ជកម្ម។
+                    ខេត្តនេះគឺជាច្រកចេញយ៉ាងពេញនិយមមួយមកកម្ពុជាពីហាតលេកនៅក្នុងប្រទេសថៃភាគខាងកើត ដោយឡែកដោយសារតែហេតុផល
+                    វាជាច្រកចូលដោយផ្ទាល់ទៅកាន់កំពង់ផែ និង រមណីយដ្ឋានឆ្នេរ នៃក្រុងព្រះសីហនុ។ ព្រំប្រទល់នេះស្ថិតនៅចាំយាម ប្រហែល១៤ គម ពីក្រុងខេមរភូមិន្ទ។
+                    ការធ្វើដំណើរទៅកោះកុងជាការធ្វើដំណើរដ៏សប្បាយរីករាយ ដែលស្ពានមួយចំនួនត្រូវបានគេកសាងឡើង ដំណាក់កាលទីមួយនៅឆ្នាំ២០០២។ 
+                    ភូមិសញ្ញានៃខេត្តកោះកុងអាចបានបង្កើតឡើងដោយសម្ព័ន្ធល.យ.ផ. ស្ពានដែលមិនធ្លាប់មានសាងសង់វែងបំផុតនៅកម្ពុជា ដែលលោកអ្នក
+                    នឹងឆ្លងកាត់មានប្រវែង ១ ៩០០ មាត្រ កាត់សមុទ្រភ្ជាប់ក្រុងខេមរភូមិន្ទទៅនឹងរមណីយដ្ឋានកោះកុង និង ទីត្រួតពិនិត្យអន្តរជាតិ។
+                    នៅឆ្នាំ ២០០៧ ផ្លូវជួសជុលថ្មីមួយខ្សែ (ផ្លូវជាតិលេខ៤៨) ត្រូវបានបញ្ចប់បង្ហើយពីទីប្រជុំជនកោះកុងទៅកាន់ស្រែអំបិល តាមបណ្ដោយផ្លូវជាតិពីភ្នំពេញទៅព្រះសីហនុ 
+                    រួមមានច្រកឆ្លងកាត់ទន្លេ ៤ នៅសល់ដែលស្ពានមួយចំនួនត្រូវបានបើកសម្ពោធនៅខែ ឧសភា ២០០៨ ដែលគឺជាអំណោយរបស់រដ្ឋាភិបាលថៃផ្ដល់មកឱ្យកម្ពុជា
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="KohKong/09.jpg" alt="KohKong" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="KohKong/09_kkg_simplify.jpg" alt="KampongThom Map" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តនេះត្រូវបានបែងចែកទៅជា​​ ៦ស្រុក និង ក្រុងមួយ។
+                    <ul>
+                        <li>ស្រុកបទុមសាគរ</li>
+                        <li>ស្រុកគីរីសាគរ</li>
+                        <li>ស្រុកកោះកុង</li>
+                        <li>ក្រុងខេមរភូមិន្ទ</li>
+                        <li>ស្រុកមណ្ឌលសីមា</li>
+                        <li>ស្រុកស្រែអំបិល</li>
+                        <li>ស្រុកថ្មបាំង</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>តំបន់កោះកុងក្រៅ</strong>
+                        <p>
+                            កោះកុងក្រៅ គឺជាដែនកោះធម្មជាតិដ៏ធំជាងគេបង្អស់នៅកម្ពុជា ដែលស្ថិតនៅក្នុងឃុំជ្រោយប្រស់ ស្រុកកោះកុង ខេត្តកោះកុង។ មានចម្ងាយប្រមាណ ៣០ គីឡូម៉ែត្រពីក្រុងខេមរភូមិន្ទ 
+                            (ចំណាយពេលជិះទូកប្រហែល ៥០នាទី) កោះនេះសម្បូរទៅដោយព្រៃស្រោង ទឹកធ្លាក់ ផ្កាថ្ម និងឆ្នេរខ្សាច់សស្អាតៗចំនួន ៦ ទៅ ៧ កន្លែង។</p>
+                            <h3>ទីតាំង និងសក្តានុពលទេសចរណ៍</h3>
+                            <p>កោះកុងក្រៅមានផ្ទៃដីប្រមាណជាង ១០៣ គីឡូម៉ែត្រការ៉េ និងជាកោះខ្ពស់ជាងគេក្នុងតំបន់ឈូងសមុទ្រថៃ។ ភាពលេចធ្លោនៃកោះនេះគឺ 
+                            ភាពនៅព្រហ្មចារីនៃធម្មជាតិ ដែលមានព្រៃឈើខៀវស្រងាត់ បឹងទឹកសាប ទឹកធ្លាក់ និងឆ្នេរខ្សាច់វែងៗជាច្រើន ដូចជាឆ្នេរចម្ការដូងជាដើម។ក្នុងចំណោមឆ្នេរទាំង ៦ ទៅ ៧ នោះ ឆ្នេរទី៣ និងឆ្នេរទី៤
+                            គឺជាទីតាំងដែលពេញនិយមជាងគេសម្រាប់ភ្ញៀវទេសចរ។
+                            <h3>សកម្មភាពកម្សាន្តពេញនិយម</h3>
+                                <ul>
+                                    <li>ការបោះតង់៖សាកសមបំផុតសម្រាប់ការស្នាក់នៅពេលរាត្រី អមដោយសំឡេងទឹករលក និងខ្យល់អាកាសបរិសុទ្ធ។</li>
+                                    <li>មុជទឹកមើលផ្កាថ្ម៖ ទឹកសមុទ្រមានពណ៌ខៀវថ្លា អាចមើលឃើញជីវចម្រុះបាតសមុទ្រ និងផ្កាថ្ម។</li>
+                                    <li>ស្ទូចត្រី ចាក់មឹក និងចាប់ក្ដាម៖ ជាបទពិសោធន៍ផ្ទាល់បែបធម្មជាតិរបស់អ្នកទេសចរនៅទីនោះ។ការជិះទូកកាយ៉ាក និងទូកទស្សនាទេសភាព៖ ជិះគយគន់ព្រៃកោងកាង និងទេសភាពព្រៃភ្នំជុំវិញកោះ។</li>
+                                </ul>
+                            </p>
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="KohKong/139.jpg" alt="តំបន់កោះកុងក្រៅ" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="KohKong/IMG_20190901_111147_576-1024x576.jpg" alt="ទឹកធ្លាក់តាតៃ" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>ទឹកធ្លាក់តាតៃ</strong>
+                        <p>ទឹកធ្លាក់តាតៃ គឺមានតំបន់ រមីយដ្ឋាន ដែលមានខ្យល់អាកាស និងទេសភាព បរិសុទ្ធ ។
+                            នៅភូមិតាតៃ ឃុំតាតៃ ស្រុកស្មាច់មានជ័យ​ ខេត្តកោះកុង។ ចំងាយប្រហែល ២០​ គីឡូម៉ែត​ ខាងកើតទីរួមខេត្ត កោះកុង តាមផ្លូវជាតិលេខ48 ។
+                            ដែលមានប្រជាជន ប្រមាណ ៨៤ គ្រូសាររស់នៅទីនោះ ហើយពួកគេ ប្រកបមុខរបរជា​ អ្នកនេសាទ នឹងការប្រមាញ់។
+                            ទឹកធ្លាក់តាតៃ ត្រូវបានស្គាល់ថា ជាទឹកធ្លាក់ តាឥសី ។​
+                        </p>
+                </div>
+            </section>
+
+            <section class="section-grid" style="margin-top: 75px;">
+                <div class="text-box">
+                            <strong style="font-size: 22px;";>កោះស្តេច</strong>
+                        <p>
+                            កោះ ស្តេច ស្ថិតនៅ ឈូងសមុទ្រថៃ ប្រហែល 1.5 kiloម៉ែត្រs (1 mi) នៅឆ្នេរសមុទ្រនៃ ឧទ្យានជាតិបុទុមសាគរ ក្នុងស្រុក
+                            គិរីសាគរ ក្នុង ខេត្តកោះកុង ប្រទេសកម្ពុជា ។ វា​ជា​កម្មសិទ្ធិ​របស់​ប្រជុំ​កោះ​តូច​មួយ​នៃ​កោះ​ចំនួន 12 ដែល​ស្ថិត​នៅ​ជិត​គ្នា​និង​ដី​សំខាន់។ 
+                            សហគមន៍ នេសាទ រស់នៅលើកោះនេះ ដែលមានជនជាតិ ខ្មែរ ចិន ថៃ និង វៀតណាម ។ ភូមិលាតសន្ធឹងតាមត្រើយខាងកើតនៃកោះ; 
+                            នៅខាងលិចមាន ផ្ទះសំណាក់ បែបខ្មែរតូច មួយ ។ នៅ​ចុង​ខាង​ត្បូង​នៃ​កោះ​នេះ​គឺ​ជា​រមណីយដ្ឋាន​វិស្សមកាល​ដ៏​ប្រណិត។ កោះ​ស្តេច​មាន​ឆ្នេរ​ពីរ 
+                            គឺ​មួយ​ទៅ​ខាង​ត្បូង និង​មួយ​បែរ​ទៅ​ខាង​លិច។</p>
+                            <h3>ភូមិសាស្ត្រ</h3>
+                        <p>
+                            កោះស្តេច គឺជាកោះរាជធានីនៃប្រជុំកោះស្តេច។ 
+                            កោះរាងសណ្តែកលាតសន្ធឹងពីខាងជើងទៅខាងត្បូងមានប្រវែងប្រហែល 2.8 kiloម៉ែត្រs (2 mi)
+                            វាមានរាងសំប៉ែត ហើយជាទូទៅមានព្រៃឈើ។ ព្រៃធម្មជាតិត្រូវបានជំនួសដោយដើមដូង
+                            និងដំណាំព្រៃឈើសម្រាប់គោលបំណងពាណិជ្ជកម្ម។ ការតាំងទីលំនៅភាគច្រើនគឺនៅភាគខាងជើង
+                            ខណៈដែលភាគខាងត្បូងទីបីគឺស្ទើរតែមិនមានប្រជាជនរស់នៅ។ កោះខ្មោចតូច / កោះខ្មោច (កោះខ្មោច) - 
+                            500 ម៉ែត្រs (1,600 ft) ខាងកើតទៅខាងលិច និង 300 ម៉ែត្រs (980 ft) ពីខាងជើងទៅខាងត្បូង - ស្ថិតនៅប្រហែល 250 ម៉ែត្រs (820 ft) ភាគខាងលិចនៃចុងខាងត្បូងរបស់វា។
+                        </p>
+                </div>
+
+                <div class="frame" style="margin-top: -30px;">
+                    <img src="KohKong/169.jpg" alt="កោះស្តេច" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

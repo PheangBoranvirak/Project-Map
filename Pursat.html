@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ពោធិ៍សាត់ - Pursat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: #efe6d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .site-header {
+            background: #3c5a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .site-header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-header h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #3c5a3a;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background: #faf6ec;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3c5a3a;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            line-height: 2;
+        }
+        
+        .text-box ul {
+            line-height: 2;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3c5a3a;
+        }
+
+        .info-card h3 {
+            color: #3c5a3a;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #467235;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .cards-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: #467235;
+            border-radius: 0;
+            padding: 40px 30px;
+            box-shadow: none;
+            max-width: none;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 3px solid #d99a2b;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .card-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .card-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+        }
+
+        .card-profile span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-item .link {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .contact-item .link:hover {
+            color: #d99a2b;
+            text-decoration: underline;
+        }
+
+        .teacher-card {
+            background: #467235;
+            border: none;
+            border-right: 3px solid #d99a2b;
+            border-radius: 0;
+            padding: 30px 20px;
+            box-shadow: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .teacher-card h1 {
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .teacher-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d99a2b;
+            margin-bottom: 15px;
+        }
+
+        .teacher-card span {
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>ខេត្តពោធិ៍សាត់</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Pursat</p>
+        <a href="Index.html" class="back-button">← ត្រឡប់ទៅផែនទី</a>
+    </header>
+
+    <div class="container">
+        <div class="content-box">
+            <section class="section-grid">
+                <div class="text-box">
+                     <h2>ខេត្តពោធិ៍សាត់</h2>
+                        <p>
+                            ខេងពោ ធិសាត់ត្តពោធិ៍សាត់ជាខេត្តមួយនៅភាគខាងលិចនៃប្រទេសកម្ពុជា។ ខេត្តពោធិ៍សាត់មានទីរួមខេត្តនៅ ក្រុងពោធិ៍សាត់។ ខេត្តពោធិ៍សាត់គឺជាខេត្តមួយដែលសិ្ថតនៅក្នុងតំបន់បឹងទនេ្លសាប មានទីតាំងនៅទិសបចិ្ចមនៃប្រទេស។ ខេត្តពោធិ៍សាត់មានប្រជារាស្ត្រ ៣៦០ ៤៤៥ នាក់ ក្នុងនោះ ប្រុស ១៧២ ៨៩០ នាក់ ស្រី ១៨៧ ៥៥៥ នាក់ ។ ស្រ្តី ៥២,០ ភាគរយនៃប្រជារាស្ត្រសរុបក្នុងខេត្ត [២]។ ស្ថិតនៅភាគខាងលិចនៃប្រទេស និងមានព្រំប្រទល់ពីខាងជើងជាប់ខេត្តបាត់ដំបង បឹងទន្លេសាប ខាងលិចជាប់ខេត្តកំពង់ឆ្នាំង ខាងត្បូងជាប់នឹងខេត្តកំពង់ស្ពឺ ខេត្តកោះកុង និងខាងលិចជាប់នឹងប្រទេសថៃ។ ហើយក៏ស្ថិតនៅចន្លោះ បឹងទន្លេសាប និងចុងខាងជើងនៃជួរភ្នំក្រវាញ។ ទន្លេ​ពោធិសាត់​កាត់​ខេត្ត​នេះ​ហូរ​ពី​ជួរ​ភ្នំក្រវាញ​នៅ​ភាគ​ខាងលិច​ទៅ​ទន្លេសាប​ខាង​កើត។
+                            ខេត្តនេះរួមមាន ៦ស្រុក ៧សង្កាត់​ ៤២ឃុំ និង ៤៩៥ភូមិ ។ ប្រជារា្រស្តនៅក្នុងខេត្តនេះមាន ៣,២ភាគរយនៃប្រជារា្រស្តទូទាំងប្រទេសកម្ពុជា។ ដង់ស៊ីតេប្រជារា្រស្តរបស់ខេត្ត គឺ២៨ នាក់ ក្នុងមួយគីឡូម៉ែត្រការ៉េទាបជាង ដង់ស៊ីតេថ្នាក់ជាតិដែលមានតែ ៦៤នាក់ ក្នុងមួយគីឡូម៉ែត្រការ៉េ ។
+                        </p>
+                </div>
+                <div class="frame" style="margin-top: 20px">
+                    <img src="Pursat/Cambodia_Pursat_locator_map.svg.png" alt="PreahVihear" />
+                </div>
+            </section>
+
+            <hr style="margin-top: 20px;">
+
+            <section class="section-grid">
+            <div class="text-box">
+                <h2>លក្ខណៈភូមិសាស្ត្រ</h2>
+                <p>
+                    ខេត្តព្រៃវែង ជាខេត្តដែលមានទីតាំងស្ថិតនៅភាគខាងកើតរាជធានីភ្នំពេញ មានព្រំប្រទល់ខាងកើតជាប់ខេត្តស្វាយរៀង និងវៀតណាម ខាងជើងជាប់ខេត្តកំពង់ចាម និងខេត្តត្បូងឃ្មុំ ខាងលិចជាប់ខេត្តកណ្តាល និងខាងត្បូងជាប់វៀតណាម។ ខេត្តព្រៃវែង មានច្រកអន្តរជាតិចំនួន ៣ កន្លែងគឺ ទី១​ ច្រកអន្តរជាតិម៉ឺនជ័យ (ស្រុកកំចាយមារ) ទី២​ ច្រកអន្តរជាតិបន្ទាយចក្រី (ស្រុកព្រះស្តេច) ទី៣ ច្រកអន្តរជាតិកោះរការ (ស្រុកពាមជរ) នឹងមានផ្ទៃដី​សរុបគឺ ប្រហែល ៤៨៨៣ គម² ដែលស្មើទៅនិង ២,៧០% នៃផ្ទៃដីសរុប​នៃ​ប្រទេស​កម្ពុជា (១៨១ ០៣៥ គម²), ដែល​ក្នុងនោះ ៤៤៥,១៨ គម² ឬ ៩,១២% ជាផ្ទៃដី ដែលប្រជាជន បានតាំងទី​លំនៅ, ៣១០០ គម² ឬ ៦៣,៤៩% ជាដី សំរាប់កសិកម្ម, ១៩៤,៦១ គម² ឬ ៣,៩៩% ជាផ្ទៃនៃ​តំបន់ ព្រៃឈើ, ១០៨២,៨៦ គម² ឬ ២២,១៨% ជា​ដី សាធារណៈ, ហេដ្ឋារចនាសម្ព័ន្ធ និង ធារាសាស្រ្ត, និង នៅសល់ ៦០,៣៥ គម² ឬ១,២៤% ជា ដី មិនត្រូវបានប្រើប្រាស់ ។
+                </p>
+            </div>
+            <div class="frame" style="margin-left:70px; width:80%;">
+                <img src="Pursat/Pursat_Skyline.jpg" alt="PreyVeng" />
+            </div>
+            </section>
+                      
+            <section class="section-grid">
+            <div class="frame" style="margin-top: 30px;">
+                <img src="Pursat/temp_15_PUR_Simplify.jpg" alt="PreyVeng" />
+            </div>
+
+            <div class="text-box">
+                <h2>រដ្ឋបាល</h2>
+                <p>
+                    ខេត្តពោធិ៍សាត់ ជាដែនរដ្ឋបាលស្ថិតនៅ ប្រទេសកម្ពុជា មាន ៥ស្រុក ១ក្រុង ៤០ឃុំ ១០សង្កាត់ និង ភូមិ÷
+                    <ul>
+                        <li>ស្រុកបាកាន​</li>
+                        <li>ស្រុកកណ្តៀង​</li>
+                        <li>ស្រុកកំពង់ត្របែក</li>
+                        <li>ស្រុកក្រគរ</li>
+                        <li>ស្រុកភ្នំក្រវាញ</li>
+                        <li>ក្រុងពោធិ៍សាត់	</li>
+                        <li>ក្រុងវាលវែង</li>
+                        <li>ស្រុកតាលោសែនជ័យ</li>
+                    </ul>
+                </p>
+            </div>
+            </section>
+            
+            <hr style="margin-top: 20px;">
+            
+            <section class="section-grid">
+                <div class="text-box">
+                    <h2>តំបន់ទេសចរណ៍</h2>
+                            <strong style="font-size: 22px;";>បូជនីយដ្ឋានប្រវត្តិសាស្ត្រលោក ឧកញ៉ា ឃ្លាំង មឿង</strong>
+                        <p>
+                            បូជនីយដ្ឋានប្រវត្តិសាស្ត្រលោក ឧកញ៉ា ឃ្លាំង មឿង នេះបានកត់ត្រាទុកប្រវត្តិដ៏អស្ចារ្យ និងអច្ឆរិយរបស់លោកតាឃ្លាំងមឿង ដែលជាវីរៈជនក្លាហានក្នុងប្រវត្តិសាស្ត្រខ្មែរ។ ក្រៅពីជាទីតាំងប្រវត្តិសាស្ត្រ ទីតាំងនេះ ក៏តែងមានភ្ញៀវទេសចរទៅអង្គុយ សម្រាកលេង ព្រោះមានទីធ្លាធំទូលាយ មានរូបចម្លាក់បែបសាសនា និងប្រវត្តិសាស្ត្រជាច្រើន។ ដើមឈើធំៗ ក៏បានផ្ដល់ម្លប់យ៉ាងត្រឈឹងត្រឈៃ ដល់ភ្ញៀវទេសចរផងដែរ។ ភ្ញៀវទេសចរ ក៏អាចទៅបូជនីយដ្ឋានមួយនេះ បោះចំណីឲ្យសត្វព្រាប និងឲ្យចំណីត្រីផងដែរ។
+                        </p> 
+                </div>
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Pursat/image-2-38-edited-1.jpg" alt="បូជនីយដ្ឋានប្រវត្តិសាស្ត្រលោក ឧកញ៉ា ឃ្លាំង មឿង" />
+                </div>
+            </section>
+            
+            <section class="section-grid">
+
+                <div class="frame" style="margin-top: 75px;">
+                    <img src="Pursat/feature.jpg" alt="កោះសំពៅមាស" />
+                </div>
+                <div class="text-box" style="margin-top: 100px;">
+                            <strong style="font-size: 22px;";>កោះសំពៅមាស</strong>
+                        <p>
+                            កោះសំពៅមាស គឺជាសួនឧទ្យានធម្មជាតិ និងជារមណីយដ្ឋានដ៏ទាក់ទាញមួយ ស្ថិតនៅចំកណ្តាលស្ទឹងពោធិ៍សាត់ ក្នុងក្រុងពោធិ៍សាត់ ខេត្តពោធិ៍សាត់។ កោះតូចច្រឡឹងនេះ មានរាងដូចជាសំពៅ ដោយលាតសន្ធឹងនៅចន្លោះមុខសាលាខេត្ត និងមន្ទីរពេទ្យបង្អែកសំពៅមាស។កន្លែងកម្សាន្តដ៏ពេញនិយមនេះ មានចម្ងាយប្រមាណ ១ ០០០ម៉ែត្រពីគល់ស្ពានថ្ម តាមបណ្តោយផ្លូវលេខ១០១។ ទីនេះជាទីតាំងដ៏ស្រស់បំព្រង ហ៊ុំព័ទ្ធដោយដើមឈើធំៗ និងជាកន្លែងដែលប្រជាជនក្នុងស្រុក ក៏ដូចជាភ្ញៀវទេសចរនិយមទៅលំហែកាយ ស្រូបយកខ្យល់អាកាសបរិសុទ្ធ និងថតរូបអនុស្សាវរីយ៍
+                        </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="cards-row">
+            <div class="contact-card">
+                <h1>Profile</h1>
+                <div class="card-body">
+                    <div class="card-profile">
+                        <img src="Logo/ID Photo.png" alt="Profile Photo">
+                        <span>
+                            Pheang Boranvirak
+                        </span>
+                        <span style="font-size: 12px; opacity: 0.9;">
+                            រចនាដោយ ភាង​ បូរាណវីរៈ ជានិស្សិតឆ្នាំទី 1 <br>ឆមាសទី 2 ក្រុម SX9 <br>នៅវិទ្យាស្ថាន ស៊ីតិក
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>Follow Us</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <div class="contact-item">
+                            <a href="https://www.facebook.com/PBVirak/" class="link">
+                                <img src="Logo/facebook.png" alt="Facebook Icon">
+                            </a>
+                            <a href="https://www.facebook.com/PBVirak/" class="link">Facebook</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://t.me/PB_Virak" class="link">
+                                <img src="Logo/telegram.png" alt="Telegram Icon">
+                            </a>
+                            <a href="https://t.me/PB_Virak" class="link">Telegram</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">
+                                <img src="Logo/tik-tok.png" alt="TikTok Icon">
+                            </a>
+                            <a href="https://www.tiktok.com/@stillrakk__" class="link">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h1>ទាក់ទងមកយើងខ្ញុំ</h1>
+                <div class="card-body">
+                    <div class="card-links">
+                        <img src="SETEC LOGO PNG.png" alt="Setec logo" width="400px">
+                        <div class="contact-item"> 
+                            <a href="tel:011384998" class="link">
+                                <img src="Logo/phone-call.png" alt="Phone Icon">
+                            </a>
+                            <a href="tel:011384998" class="link">011 384 998</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-card">
+                <h1>ព័ត៌មានគ្រូបង្រៀន</h1>
+                <img src="Logo/Teacher.jpg" alt="Teacher Photo">
+                <span>
+                    បង្រៀនដោយលោកគ្រូ រី វិសាន នៅវិទ្យាស្ថាន ស៊ីតិក<br>
+                    មុខវិជ្ជា៖ WD 1 ( Web Development )
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
